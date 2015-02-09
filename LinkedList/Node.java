@@ -7,6 +7,18 @@ public class Node {
     data = d;
   }
 
+  // Appends data to the end of the linked list
+  private void appendToTail(int data) {
+  }
+
+  // Iterate through the linked list
+  private void traverseList() {
+  }
+
+  // Delete the node from linked list n with data
+  private void delete(Node n, int data) {
+  }
+
   // Example
   public static void main(String[] args) {
 
