@@ -9,6 +9,12 @@ public class Node {
 
   // Appends data to the end of the linked list
   private void appendToTail(int data) {
+    Node curr = this;
+    Node end = new Node(data); // calling the constructor
+    while(curr.next != null) {
+      curr = curr.next; // get to the end
+    }
+    curr.next = end;
   }
 
   // Iterate through the linked list
