@@ -60,6 +60,15 @@ public class Node {
   public static void main(String[] args) {
 
     Node head = new Node(10);
+    head.appendToTail(15);
+    head.appendToTail(20);
+    head.appendToTail(25);
+    head.appendToTail(30);
+    head.appendToTail(35);
+    head.appendToTail(40);
+    head.appendToTail(45);
+    head.findMedianElement();
+
   }
 
 }
