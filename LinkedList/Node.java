@@ -28,6 +28,11 @@ public class Node {
   private void delete(Node n, int data) {
   }
 
+  // Find the median element in the linked list
+  private void findMedianElement() {
+  }
+
+
   // Example
   public static void main(String[] args) {
 
