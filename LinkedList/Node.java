@@ -77,8 +77,9 @@ public class Node {
     head.appendToTail(35);
     head.appendToTail(40);
     head.appendToTail(45);
-    head.traverseList();
 
+    head.traverseList();
+    head.findMedianElement();
   }
 
 }
