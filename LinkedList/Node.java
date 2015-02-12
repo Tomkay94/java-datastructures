@@ -40,9 +40,8 @@ public class Node {
 
   // Find the median element in the linked list
   private Node findMedianElement() {
-    Node curr     = this;
-    Node hopOnce  = curr;
-    Node hopTwice = curr;
+    Node hopOnce  = this;
+    Node hopTwice = this;
 
     while(true) {
 
