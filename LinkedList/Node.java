@@ -7,30 +7,74 @@ public class Node {
     data = d;
   }
 
-  // Appends data to the end of the linked list
+  /* Appends data to the end of the linked list */
   private void appendToTail(int data) {
-
     Node curr = this;
-    Node end  = new Node(data);
 
-    while(curr.next != null) {
+    while (curr.next != null) {
       curr = curr.next;
     }
 
-    curr.next = end;
+    /* Set the end node */
+    curr.next = new Node(data);
     return;
   }
 
-  // Iterate through the linked list
-  private void traverseList() {
+  /* Appends the Node to the end of the linked list */
+  private void appendToTail(Node n) {
     Node curr = this;
 
-    while(curr != null) {
+    while (curr.next != null) {
+      curr = curr.next;
+    }
+
+    /* Set the end node */
+    curr.next = n;
+    return;
+  }
+
+  private boolean isCircular() {
+    Node hopOnce  = this;
+    Node hopTwice = this;
+
+    /* Accounts for non-circular linked lists of length < 3 */
+    try {
+      hopTwice = hopTwice.next.next;
+    } catch (NullPointerException e) { return false; }
+
+    while (hopOnce != hopTwice) {
+
+      /* The list has an end Node */
+      if (hopTwice == null || hopOnce == null) {
+        return false;
+      }
+
+      else {
+        hopOnce = hopOnce.next;
+
+        /* Account for non-circular */
+        try {
+          hopTwice = hopTwice.next.next;
+        } catch (NullPointerException e) { return false; }
+
+      }
+    }
+
+    return true;
+  }
+
+  /* Iterate and display the nodes of the linked list */
+  private void traverseList() {
+    Node curr = this;
+    Node head = this;
+
+    do {
       System.out.println(
         "Node: "    + curr +
         "\tValue: " + curr.data);
       curr = curr.next;
-    }
+    /* Accounts for circular linked list traversal */
+    } while (curr != null && curr != head);
     return;
   }
 
@@ -38,21 +82,21 @@ public class Node {
   private void delete(Node n, int data) {
   }
 
-  // Find the median element in the linked list
+  /* Find the median element in the linked list */
   private Node findMedianElement() {
     Node hopOnce  = this;
     Node hopTwice = this;
 
     while(true) {
 
-      // Weve reached the end of the list, hopOnce is the median.
+      /* Weve reached the end of the list, hopOnce is the median. */
       if (hopTwice.next == null) {
         System.out.println("End Node Value: \t"    + hopTwice.data);
         System.out.println("Median Node Value: \t" + hopOnce.data);
         return hopOnce;
       }
 
-      // hopTwice is one Node from the end, go to the end
+      /* hopTwice is one Node from the end, go to the end */
       else if (hopTwice.next.next == null) {
         hopTwice = hopTwice.next;
       }
@@ -64,10 +108,10 @@ public class Node {
     }
   }
 
-
   // Example function calls
   public static void main(String[] args) {
 
+    // Populate the linked list
     Node head = new Node(10);
     head.appendToTail(15);
     head.appendToTail(20);
@@ -79,6 +123,10 @@ public class Node {
 
     head.traverseList();
     head.findMedianElement();
+
+    // Makes the list circular
+    head.appendToTail(head);
+    System.out.println("Linked list is circular: " + head.isCircular());
   }
 
 }
