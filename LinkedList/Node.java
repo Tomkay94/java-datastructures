@@ -11,17 +11,27 @@ public class Node {
   private void appendToTail(int data) {
 
     Node curr = this;
-    Node end = new Node(data);
+    Node end  = new Node(data);
 
     while(curr.next != null) {
       curr = curr.next;
     }
 
     curr.next = end;
+    return;
   }
 
   // Iterate through the linked list
   private void traverseList() {
+    Node curr = this;
+
+    while(curr != null) {
+      System.out.println(
+        "Node: "    + curr +
+        "\tValue: " + curr.data);
+      curr = curr.next;
+    }
+    return;
   }
 
   // Delete the node from linked list n with data
@@ -67,7 +77,7 @@ public class Node {
     head.appendToTail(35);
     head.appendToTail(40);
     head.appendToTail(45);
-    head.findMedianElement();
+    head.traverseList();
 
   }
 
