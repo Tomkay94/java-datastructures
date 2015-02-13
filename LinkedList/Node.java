@@ -7,8 +7,8 @@ public class Node {
     data = d;
   }
 
-  /* Appends data to the end of the linked list */
-  private void appendToTail(int data) {
+  /* Appends newNode to the end of the linked list */
+  private void appendToTail(Node newNode) {
     Node curr = this;
 
     while (curr.next != null) {
@@ -16,20 +16,7 @@ public class Node {
     }
 
     /* Set the end node */
-    curr.next = new Node(data);
-    return;
-  }
-
-  /* Appends the Node to the end of the linked list */
-  private void appendToTail(Node n) {
-    Node curr = this;
-
-    while (curr.next != null) {
-      curr = curr.next;
-    }
-
-    /* Set the end node */
-    curr.next = n;
+    curr.next = newNode;
     return;
   }
 
@@ -113,13 +100,13 @@ public class Node {
 
     // Populate the linked list
     Node head = new Node(10);
-    head.appendToTail(15);
-    head.appendToTail(20);
-    head.appendToTail(25);
-    head.appendToTail(30);
-    head.appendToTail(35);
-    head.appendToTail(40);
-    head.appendToTail(45);
+    head.appendToTail(new Node(15));
+    head.appendToTail(new Node(20));
+    head.appendToTail(new Node(25));
+    head.appendToTail(new Node(30));
+    head.appendToTail(new Node(35));
+    head.appendToTail(new Node(40));
+    head.appendToTail(new Node(45));
 
     head.traverseList();
     head.findMedianElement();
