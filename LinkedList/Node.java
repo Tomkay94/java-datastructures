@@ -50,10 +50,12 @@ public class Node {
     return true;
   }
 
-  /* Iterate and display the nodes of the linked list */
-  private void traverseList() {
+  /* Iterate and display the nodes of the linked list.
+  Returns the number of elements in the linked list. */
+  private int traverseList() {
     Node curr = this;
     Node head = this;
+    int listLength = 0;
 
     do {
       System.out.println(
@@ -62,11 +64,12 @@ public class Node {
       curr = curr.next;
     /* Accounts for circular linked list traversal */
     } while (curr != null && curr != head);
-    return;
+    return listLength;
   }
 
   // Delete the node from linked list n with data
   private void delete(Node n, int data) {
+
   }
 
   /* Find the median element in the linked list */
