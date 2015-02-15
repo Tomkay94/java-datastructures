@@ -69,7 +69,10 @@ public class Node {
 
   // Delete the node from linked list n with data
   private void delete(Node n, int data) {
+  }
 
+  // Determines if the linked list is a palindrome
+  private void isPalindrome() {
   }
 
   /* Find the median element in the linked list */
