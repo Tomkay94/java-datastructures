@@ -89,7 +89,7 @@ public class Node {
   }
 
   /* Reverse the first half of the linked list. */
-  protected int[] _reverseIntArray(int[] intArray) {
+  private int[] _reverseIntArray(int[] intArray) {
     int valuesMedian = (int) Math.floor(intArray.length / 2);
     for (int i = 0; i < valuesMedian; ++i) {
       intArray[i]                       ^= intArray[intArray.length - 1 - i];
