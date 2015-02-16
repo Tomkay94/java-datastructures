@@ -9,7 +9,7 @@ public class HashTable {
   }
 
   /* Simple (and bad) hash function. Maps values to same index for that value. */
-  private void hashFunctionIndex(String newElementVal) {
+  protected void hashFunctionIndex(String newElementVal) {
     this.arrayTable[Integer.parseInt(newElementVal)] = newElementVal;
 
     System.out.println(
@@ -21,7 +21,7 @@ public class HashTable {
   }
 
   /* Better hash function. Uses modulus index. */
-  private void hashFunctionMod(String newElementVal) {
+  protected void hashFunctionMod(String newElementVal) {
     int arrayIndex = Integer.parseInt(newElementVal) % this.arrayTable.length;
     System.out.println(
       "Modulus index= " + arrayIndex + " for value " + newElementVal
@@ -39,7 +39,7 @@ public class HashTable {
 
   }
 
-  private String findKey(String key) {
+  protected String findKey(String key) {
     // the hash function
     int arrayIndexHash = Integer.parseInt(key) % this.arrayTable.length;
     while(arrayTable[arrayIndexHash] != null) {
