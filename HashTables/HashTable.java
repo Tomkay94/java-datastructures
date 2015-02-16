@@ -39,6 +39,20 @@ public class HashTable {
 
   }
 
+  private String findKey(String key) {
+    // the hash function
+    int arrayIndexHash = Integer.parseInt(key) % this.arrayTable.length;
+    while(arrayTable[arrayIndexHash] != null) {
+      if(arrayTable[arrayIndexHash] == key) {
+        return arrayTable[arrayIndexHash];
+      }
+      arrayIndexHash++;
+      arrayIndexHash %= arraySize; /* Goto the beginning of the table if not found */
+    }
+    /* They key is not in the table */
+    return null;
+  }
+
   public static void main(String[] args) {
     HashTable ht = new HashTable(17);
     ht.hashFunctionMod("35");
