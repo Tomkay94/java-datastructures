@@ -88,6 +88,56 @@ public class Node {
   private void delete(Node n, int data) {
   }
 
+  /* Reverse the first half of the linked list. */
+  private int[] _reverseIntArray(int[] intArray) {
+    int valuesMedian = (int) Math.floor(intArray.length / 2);
+    for (int i = 0; i < valuesMedian; ++i) {
+      intArray[i]                       ^= intArray[intArray.length - 1 - i];
+      intArray[intArray.length - 1 - i] ^= intArray[i];
+      intArray[i]                       ^= intArray[intArray.length - 1 - i];
+    }
+    return intArray;
+  }
+
+  // Determines if the linked list is a palindrome
+  private boolean isPalindrome() {
+    int counter      = 0;
+    Node head        = this;
+    int listLength   = head.getLength();
+
+    /* We will store the values in the first half here */
+    int[] nodeValues = new int[listLength / 2];
+
+    /* Copy the first half of the linked list into nodeValues */
+    while(counter < listLength / 2 && head != null) {
+      nodeValues[counter] = head.data;
+      head = head.next;
+      ++counter;
+    }
+
+    /* Reverse the first half's values*/
+    nodeValues = _reverseIntArray(nodeValues);
+
+    /* Skip the middle odd element to enforce same length comparisons */
+    if (listLength % 2 != 0 && listLength > 1) {
+      head = head.next;
+    }
+
+    /* Start comparing values from the second half to the reversed first half.*/
+    if (counter == (listLength / 2)) {
+      counter = 0;
+      while(head.next != null) {
+        if (head.data != nodeValues[counter]) {
+          return false;
+        }
+        head = head.next;
+        ++counter;
+      }
+
+    }
+    return true;
+  }
+
   /* Find the median element in the linked list */
   private Node findMedianElement() {
     Node hopOnce  = this;
