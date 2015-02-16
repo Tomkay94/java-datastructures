@@ -13,11 +13,14 @@ public class NodeTest {
 
   @Test
   public void testAppendToTailToManyNodes() {
-    Node head      = new Node(10);
-    Node afterHead = new Node(15);
+    Node head       = new Node(10);
+    head.appendToTail(new Node(15));
+    head.appendToTail(new Node(20));
+    head.appendToTail(new Node(25));
+    Node end        = new Node(30);
 
-    head.appendToTail(afterHead);
-    Assert.assertEquals(head.next, afterHead);
+    head.appendToTail(end);
+    Assert.assertEquals(head.next.next.next.next, end);
   }
 
   @Test
