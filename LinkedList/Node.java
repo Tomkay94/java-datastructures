@@ -52,27 +52,40 @@ public class Node {
 
   /* Iterate and display the nodes of the linked list.
   Returns the number of elements in the linked list. */
-  private int traverseList() {
+  private void traverseList() {
+    Node curr = this;
+    Node head = this;
+
+    do {
+      System.out.println(
+        "Node: "    + curr +
+        "\tValue: " + curr.data
+      );
+      curr = curr.next;
+    /* Accounts for circular linked list traversal */
+    } while (curr != null && curr != head);
+    return;
+  }
+
+  /* Iterate and display the nodes of the linked list.
+  Returns the number of elements in the linked list. */
+  private int getLength() {
     Node curr = this;
     Node head = this;
     int listLength = 0;
 
     do {
-      System.out.println(
-        "Node: "    + curr +
-        "\tValue: " + curr.data);
+      ++listLength;
       curr = curr.next;
     /* Accounts for circular linked list traversal */
     } while (curr != null && curr != head);
+
     return listLength;
   }
 
+
   // Delete the node from linked list n with data
   private void delete(Node n, int data) {
-  }
-
-  // Determines if the linked list is a palindrome
-  private void isPalindrome() {
   }
 
   /* Find the median element in the linked list */
@@ -104,7 +117,7 @@ public class Node {
   // Example function calls
   public static void main(String[] args) {
 
-    // Populate the linked list
+    // A regular linked list
     Node head = new Node(10);
     head.appendToTail(new Node(15));
     head.appendToTail(new Node(20));
@@ -114,12 +127,22 @@ public class Node {
     head.appendToTail(new Node(40));
     head.appendToTail(new Node(45));
 
-    head.traverseList();
+    // A palindrome linked list
+    Node palindrome = new Node(10);
+    palindrome.appendToTail(new Node(15));
+    palindrome.appendToTail(new Node(20));
+    palindrome.appendToTail(new Node(15));
+    palindrome.appendToTail(new Node(10));
+
     head.findMedianElement();
 
     // Makes the list circular
-    head.appendToTail(head);
+    // head.appendToTail(head);
+
     System.out.println("Linked list is circular: " + head.isCircular());
+    System.out.println("head palindrome? " + head.isPalindrome());
+    System.out.println("pal palindrome? " + palindrome.isPalindrome());
+
   }
 
 }
