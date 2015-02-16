@@ -147,8 +147,6 @@ public class Node {
 
       /* Weve reached the end of the list, hopOnce is the median. */
       if (hopTwice.next == null) {
-        System.out.println("End Node Value: \t"    + hopTwice.data);
-        System.out.println("Median Node Value: \t" + hopOnce.data);
         return hopOnce;
       }
 

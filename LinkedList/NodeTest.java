@@ -65,31 +65,31 @@ public class NodeTest {
   public void testOneNodeFindMedian() {
     Node head       = new Node(10);
 
-    Assert.assertEquals(head.findMedianElement(), head.data);
+    Assert.assertEquals(head.findMedianElement(), head);
   }
 
   @Test
   public void testOddNodeFindMedian() {
+    Node medianNode = new Node(10);
+
     Node head       = new Node(5);
-    head.appendToTail(new Node(10));
+    head.appendToTail(medianNode);
     head.appendToTail(new Node(15));
 
-    Node medianNode = head.findMedianElement();
-
-    Assert.assertEquals(medianNode.data, 10);
+    Assert.assertEquals(head.findMedianElement(), medianNode);
   }
 
 
   @Test
   public void testEvenNodeFindMedian() {
-    Node head       = new Node(10);
+    Node medianNode = new Node(10);
+
+    Node head       = new Node(5);
+    head.appendToTail(medianNode);
     head.appendToTail(new Node(15));
     head.appendToTail(new Node(20));
-    head.appendToTail(new Node(25));
 
-    Node medianNode = head.findMedianElement();
-
-    Assert.assertEquals(medianNode, 15);
+    Assert.assertEquals(head.findMedianElement(), medianNode);
   }
 
   @Test
