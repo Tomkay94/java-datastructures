@@ -20,6 +20,25 @@ public class HashTable {
     return;
   }
 
+  /* Better hash function. Uses modulus index. */
+  private void hashFunctionMod(String newElementVal) {
+    int arrayIndex = Integer.parseInt(newElementVal) % this.arrayTable.length;
+    System.out.println(
+      "Modulus index= " + arrayIndex + " for value " + newElementVal
+    );
+
+    /* If theres a collision, search for the next
+    available spot using linear probing. */
+    while(arrayTable[arrayIndex] != null) {
+      ++arrayIndex;
+      System.out.println("Collision for " + newElementVal + " try: " + arrayIndex + " instead");
+      arrayIndex %= arraySize;
+    }
+
+    arrayTable[arrayIndex] = newElementVal;
+
+  }
+
   public static void main(String[] args) {
     HashTable ht = new HashTable(17);
     ht.hashFunctionMod("35");
