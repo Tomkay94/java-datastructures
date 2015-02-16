@@ -162,35 +162,4 @@ public class Node {
     }
   }
 
-  // Example function calls
-  public static void main(String[] args) {
-
-    // A regular linked list
-    Node head = new Node(10);
-    head.appendToTail(new Node(15));
-    head.appendToTail(new Node(20));
-    head.appendToTail(new Node(25));
-    head.appendToTail(new Node(30));
-    head.appendToTail(new Node(35));
-    head.appendToTail(new Node(40));
-    head.appendToTail(new Node(45));
-
-    // A palindrome linked list
-    Node palindrome = new Node(10);
-    palindrome.appendToTail(new Node(15));
-    palindrome.appendToTail(new Node(20));
-    palindrome.appendToTail(new Node(15));
-    palindrome.appendToTail(new Node(10));
-
-    head.findMedianElement();
-
-    // Makes the list circular
-    // head.appendToTail(head);
-
-    System.out.println("Linked list is circular: " + head.isCircular());
-    System.out.println("head palindrome? " + head.isPalindrome());
-    System.out.println("pal palindrome? " + palindrome.isPalindrome());
-
-  }
-
 }
