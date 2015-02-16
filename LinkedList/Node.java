@@ -8,7 +8,7 @@ public class Node {
   }
 
   /* Appends newNode to the end of the linked list */
-  protected void appendToTail(Node newNode) {
+  protected void appendToTail(Node tailNode) {
     Node curr = this;
 
     while (curr.next != null) {
@@ -16,7 +16,7 @@ public class Node {
     }
 
     /* Set the end node */
-    curr.next = newNode;
+    curr.next = tailNode;
     return;
   }
 
@@ -84,7 +84,21 @@ public class Node {
   }
 
   // Delete the node from linked list n with data
-  protected void delete(Node n, int data) {
+  protected Node delete(Node head, int data) {
+    Node n = head;
+
+    if(n.data == data) {
+      return head.next;
+    }
+
+    while(n.next != null) {
+      if(n.next.data == data) {
+        n.next = n.next.next;
+        return head;
+      }
+      n = n.next;
+    }
+   return head;
   }
 
   /* Reverse the first half of the linked list. */
@@ -117,7 +131,8 @@ public class Node {
     /* Reverse the first half's values*/
     nodeValues = _reverseIntArray(nodeValues);
 
-    /* Skip the middle odd element to enforce same length comparisons */
+    /* Skip the middle odd element to enforce a same-length
+    comparison on the second half of the linked list.*/
     if (listLength % 2 != 0 && listLength > 1) {
       head = head.next;
     }
@@ -125,6 +140,7 @@ public class Node {
     /* Start comparing values from the second half to the reversed first half.*/
     if (counter == (listLength / 2)) {
       counter = 0;
+
       while(head.next != null) {
         if (head.data != nodeValues[counter]) {
           return false;
@@ -155,7 +171,7 @@ public class Node {
       }
 
       else {
-        hopOnce = hopOnce.next;
+        hopOnce  = hopOnce.next;
         hopTwice = hopTwice.next.next;
       }
     }

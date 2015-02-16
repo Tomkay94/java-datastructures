@@ -139,16 +139,15 @@ public class NodeTest {
     Assert.assertFalse(head.isCircular());
   }
 
-
   @Test
-  public void testNonCircularManyNode() {
+  public void testDeleteFirstNode() {
     Node head       = new Node(10);
-    head.appendToTail(new Node(15));
-    head.appendToTail(new Node(20));
-    head.appendToTail(new Node(25));
-    head.appendToTail(new Node(30));
-    head.appendToTail(new Node(35));
+    Node secondNode = new Node(15);
 
-    Assert.assertFalse(head.isCircular());
+    head.appendToTail(secondNode);
+    head.appendToTail(new Node(20));
+    head = head.delete(head, 10);
+
+    Assert.assertEquals(head, secondNode);
   }
 }
