@@ -8,8 +8,14 @@ TEST = org.junit.runner.JUnitCore
 #
 # Run the test suite
 #
-hashTests: HashTable.java HashTableTest.java
+tests: HashTable.java HashTableTest.java
 	$(JC) HashTable.java && $(JC) HashTableTest.java && $(JVM) $(TEST) HashTableTest
+
+#
+# Compile the main files
+#
+main: HashTable.java
+	$(JC) HashTable.java
 
 #
 # Clean for recompile
