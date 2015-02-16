@@ -83,7 +83,8 @@ public class Node {
     return listLength;
   }
 
-  // Delete the node from linked list n with data
+  /* Delete the node from linked list head with data.
+  Returns the new head of the linked list. */
   protected Node delete(Node head, int data) {
     Node curr = head;
 
@@ -138,7 +139,8 @@ public class Node {
       head = head.next;
     }
 
-    /* Start comparing values from the second half to the reversed first half.*/
+    /* Start comparing values from the
+    second half to the reversed first half.*/
     if (counter == (listLength / 2)) {
       counter = 0;
 
