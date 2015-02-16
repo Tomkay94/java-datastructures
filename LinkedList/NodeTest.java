@@ -6,8 +6,8 @@ public class NodeTest {
   public void testAppendToTailToOneNode() {
     Node head      = new Node(10);
     Node afterHead = new Node(15);
-
     head.appendToTail(afterHead);
+
     Assert.assertEquals(head.next, afterHead);
   }
 
@@ -18,8 +18,8 @@ public class NodeTest {
     head.appendToTail(new Node(20));
     head.appendToTail(new Node(25));
     Node end        = new Node(30);
-
     head.appendToTail(end);
+
     Assert.assertEquals(head.next.next.next.next, end);
   }
 
@@ -79,7 +79,6 @@ public class NodeTest {
     Assert.assertEquals(head.findMedianElement(), medianNode);
   }
 
-
   @Test
   public void testEvenNodeFindMedian() {
     Node medianNode = new Node(10);
@@ -94,19 +93,21 @@ public class NodeTest {
 
   @Test
   public void testFindListLengthForOneNode() {
-    Node head      = new Node(10);
-    Node afterHead = new Node(15);
+    Node head       = new Node(10);
 
-    head.appendToTail(afterHead);
-    Assert.assertEquals(head.next, afterHead);
+    Assert.assertEquals(head.getLength(), 1);
   }
 
   @Test
   public void testFindListLengthForManyNodes() {
-    Node head      = new Node(10);
-    Node afterHead = new Node(15);
+    Node head       = new Node(10);
+    head.appendToTail(new Node(15));
+    head.appendToTail(new Node(20));
+    head.appendToTail(new Node(25));
+    head.appendToTail(new Node(30));
+    head.appendToTail(new Node(35));
+    head.appendToTail(new Node(40));
 
-    head.appendToTail(afterHead);
-    Assert.assertEquals(head.next, afterHead);
+    Assert.assertEquals(head.getLength(), 7);
   }
 }
