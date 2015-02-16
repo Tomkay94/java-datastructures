@@ -85,18 +85,19 @@ public class Node {
 
   // Delete the node from linked list n with data
   protected Node delete(Node head, int data) {
-    Node n = head;
+    Node curr = head;
 
-    if(n.data == data) {
+    /* Deleting the first node, move the head over. */
+    if(curr.data == data) {
       return head.next;
     }
 
-    while(n.next != null) {
-      if(n.next.data == data) {
-        n.next = n.next.next;
+    while(curr.next != null) {
+      if(curr.next.data == data) {
+        curr.next = curr.next.next;
         return head;
       }
-      n = n.next;
+      curr = curr.next;
     }
    return head;
   }
