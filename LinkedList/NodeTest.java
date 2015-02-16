@@ -177,7 +177,6 @@ public class NodeTest {
     head.appendToTail(new Node(30));
 
     head = head.delete(head, 25);
-
     Assert.assertEquals(head.getLength(), 4);
   }
 }

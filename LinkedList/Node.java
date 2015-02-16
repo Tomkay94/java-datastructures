@@ -39,7 +39,7 @@ public class Node {
       else {
         hopOnce = hopOnce.next;
 
-        /* Account for non-circular */
+        /* Account for non-circular linked lists */
         try {
           hopTwice = hopTwice.next.next;
         } catch (NullPointerException e) { return false; }
@@ -50,8 +50,7 @@ public class Node {
     return true;
   }
 
-  /* Iterate and display the nodes of the linked list.
-  Returns the number of elements in the linked list. */
+  /* Iterate and display the nodes of the linked list. */
   protected void traverseList() {
     Node curr = this;
     Node head = this;
@@ -67,8 +66,7 @@ public class Node {
     return;
   }
 
-  /* Iterate and display the nodes of the linked list.
-  Returns the number of elements in the linked list. */
+  /* Returns the number of elements in the linked list. */
   protected int getLength() {
     Node curr = this;
     Node head = this;
@@ -103,7 +101,7 @@ public class Node {
    return head;
   }
 
-  /* Reverse the first half of the linked list. */
+  /* Reverse an array of integers. */
   private int[] _reverseIntArray(int[] intArray) {
     int valuesMedian = (int) Math.floor(intArray.length / 2);
     for (int i = 0; i < valuesMedian; ++i) {
@@ -114,7 +112,7 @@ public class Node {
     return intArray;
   }
 
-  /* Determines if the linked list's values form a palindrome */
+  /* Determine if the linked list's values form a palindrome */
   protected boolean isPalindrome() {
     int counter      = 0;
     Node head        = this;
