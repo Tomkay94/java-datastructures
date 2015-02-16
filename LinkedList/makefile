@@ -8,8 +8,14 @@ TEST = org.junit.runner.JUnitCore
 #
 # Run the test suite
 #
-nodeTests: Node.java NodeTest.java
+tests: Node.java NodeTest.java
 	$(JC) Node.java && $(JC) NodeTest.java && $(JVM) $(TEST) NodeTest
+
+#
+# Compile the main files
+#
+main: Node.java
+	$(JC) Node.java
 
 #
 # Clean for recompile
