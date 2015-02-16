@@ -24,30 +24,41 @@ public class NodeTest {
   }
 
   @Test
-  public void testValidPalindrome() {
-    Node head      = new Node(10);
-    Node afterHead = new Node(15);
+  public void testOddNodePalindrome() {
+    Node head       = new Node(10);
+    head.appendToTail(new Node(15));
+    head.appendToTail(new Node(20));
+    head.appendToTail(new Node(15));
+    head.appendToTail(new Node(10));
 
-    head.appendToTail(afterHead);
-    Assert.assertEquals(head.next, afterHead);
+    Assert.assertTrue(head.isPalindrome());
+  }
+
+  @Test
+  public void testEvenNodePalindrome() {
+    Node head       = new Node(10);
+    head.appendToTail(new Node(15));
+    head.appendToTail(new Node(15));
+    head.appendToTail(new Node(10));
+
+    Assert.assertTrue(head.isPalindrome());
   }
 
   @Test
   public void testInvalidPalindrome() {
-    Node head      = new Node(10);
-    Node afterHead = new Node(15);
+    Node head       = new Node(10);
+    head.appendToTail(new Node(15));
+    head.appendToTail(new Node(20));
+    head.appendToTail(new Node(15));
 
-    head.appendToTail(afterHead);
-    Assert.assertEquals(head.next, afterHead);
+    Assert.assertFalse(head.isPalindrome());
   }
 
   @Test
   public void testOneNodePalindrome() {
     Node head      = new Node(10);
-    Node afterHead = new Node(15);
 
-    head.appendToTail(afterHead);
-    Assert.assertEquals(head.next, afterHead);
+    Assert.assertTrue(head.isPalindrome());
   }
 
   @Test
