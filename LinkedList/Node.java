@@ -4,7 +4,7 @@ public class Node {
   int data;
 
   public Node(int d) {
-    data = d;
+    this.data = d;
   }
 
   /* Appends newNode to the end of the linked list */
