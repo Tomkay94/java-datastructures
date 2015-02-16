@@ -83,7 +83,6 @@ public class Node {
     return listLength;
   }
 
-
   // Delete the node from linked list n with data
   protected void delete(Node n, int data) {
   }
