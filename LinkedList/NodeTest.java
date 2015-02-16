@@ -110,4 +110,45 @@ public class NodeTest {
 
     Assert.assertEquals(head.getLength(), 7);
   }
+
+  @Test
+  public void testCircularListOneNode() {
+    Node head       = new Node(10);
+    head.appendToTail(head);
+
+    Assert.assertTrue(head.isCircular());
+  }
+
+  @Test
+  public void testCircularListManyNodes() {
+    Node head       = new Node(10);
+    head.appendToTail(new Node(15));
+    head.appendToTail(new Node(20));
+    head.appendToTail(new Node(25));
+    head.appendToTail(new Node(30));
+    head.appendToTail(new Node(35));
+    head.appendToTail(head);
+
+    Assert.assertTrue(head.isCircular());
+  }
+
+  @Test
+  public void testNonCircularOneNode() {
+    Node head       = new Node(10);
+
+    Assert.assertFalse(head.isCircular());
+  }
+
+
+  @Test
+  public void testNonCircularManyNode() {
+    Node head       = new Node(10);
+    head.appendToTail(new Node(15));
+    head.appendToTail(new Node(20));
+    head.appendToTail(new Node(25));
+    head.appendToTail(new Node(30));
+    head.appendToTail(new Node(35));
+
+    Assert.assertFalse(head.isCircular());
+  }
 }
