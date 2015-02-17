@@ -9,10 +9,12 @@ TEST = org.junit.runner.JUnitCore
 # Run the test suite
 #
 tests: Node.java NodeTest.java
-	$(JC) Node.java && $(JC) NodeTest.java && $(JVM) $(TEST) NodeTest
+	$(JC) Node.java && \
+	$(JC) NodeTest.java && \
+	$(JVM) $(TEST) NodeTest
 
 #
-# Compile the main files
+# Compile the class files
 #
 main: Node.java
 	$(JC) Node.java

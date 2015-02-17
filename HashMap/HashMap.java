@@ -37,7 +37,7 @@ public class HashMap {
       }
     }
     /* Accounts for n = 1 */
-    return nSquared + 1;
+    return n + 1;
   }
 
   /* Hash and return the given key */
@@ -46,7 +46,7 @@ public class HashMap {
     key.length() *
       (
         (int) (key.charAt(key.length() - 1)) +
-        (int) (key.charAt(0) )
+        (int) (key.charAt(0))
       ) % this.size);
   }
 
@@ -78,4 +78,24 @@ public class HashMap {
 
     table[hash] = new HashEntry(k, v);
   }
+
+  /* Remove the entry with key k */
+  protected void delete(String k) {
+    int hash = applyHashFunction(k);
+
+    while(table[hash] != null && table[hash].getKey() != k) {
+      hash = (hash + 1) % this.size;
+    }
+
+    /* The key is not in the hash map */
+    if (table[hash] == null) {
+      return;
+    }
+
+    else {
+      table[hash] = null;
+      return;
+    }
+  }
+
 }

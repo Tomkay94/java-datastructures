@@ -23,6 +23,7 @@ public class Node {
     return;
   }
 
+  /* Determine if a linked list is circular */
   protected boolean isCircular() {
     Node hopOnce  = this;
     Node hopTwice = this;

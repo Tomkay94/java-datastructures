@@ -30,7 +30,7 @@ public class HashMapTest {
   }
 
   @Test
-  public void testInsertInvalidKey() {
+  public void testGetInvalidKey() {
 
     Assert.assertEquals(hm.getKey("Copenhagen"), -1);
   }
@@ -40,6 +40,14 @@ public class HashMapTest {
     HashMap hmap = new HashMap(4);
 
     Assert.assertEquals(hmap.size, 5);
+  }
+
+  @Test
+  public void testDeleteEntry() {
+    hm.put("Toronto", 10);
+    hm.delete("Toronto");
+
+    Assert.assertEquals(hm.getKey("Toronto") , -1);
   }
 
 }
