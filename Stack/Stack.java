@@ -18,14 +18,18 @@ public class Stack {
       this.stackArray[size] = item;
       this.size++;
     }
+    return;
   }
 
-  /* Pop the item off the top of the stack. */
-  protected void pop() {
+  /* Pop the item off the top of the stack and return it. */
+  protected String pop() {
     if (this.size > 0) {
+      String poppedItem = this.stackArray[size - 1];
       this.stackArray[size - 1] = null;
       this.size--;
+      return poppedItem;
     }
+    return null;
   }
 
   /* Determine if the stack is empty. */
