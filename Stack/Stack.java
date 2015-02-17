@@ -1,5 +1,6 @@
 
-/* Implements the Stack data structure. */
+/* Implements the Stack data structure
+   using a String array. */
 
 public class Stack {
 

@@ -1,5 +1,6 @@
 
-/* Implements the Queue data structure. */
+/* Implements the Queue data structure
+   using a String array. */
 
 public class Queue {
 
