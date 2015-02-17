@@ -14,6 +14,7 @@ public class Stack {
   }
 
   /* Push the new item to the top of the stack. */
+  /* Time Complexity: O(1) */
   protected void push(String item) {
     if (this.size < this.capacity) {
       this.stackArray[size] = item;
@@ -23,6 +24,7 @@ public class Stack {
   }
 
   /* Pop the item off the top of the stack and return it. */
+  /* Time Complexity: O(1) */
   protected String pop() {
     if (this.size > 0) {
       String poppedItem = this.stackArray[size - 1];
@@ -34,16 +36,19 @@ public class Stack {
   }
 
   /* Determine if the stack is empty. */
+  /* Time Complexity: O(1) */
   protected boolean isEmpty() {
     return this.size == 0;
   }
 
   /* Determine if the stack still has space for more elements. */
+  /* Time Complexity: O(1) */
   protected boolean hasSpace() {
     return this.size < this.capacity;
   }
 
   /* Show the elements in the stack */
+  /* Time Complexity: O(n), n is the # of items in the stack. */
   protected void displayStack() {
     for (String item : this.stackArray) {
       if (item != null) {
