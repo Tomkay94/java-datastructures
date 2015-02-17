@@ -35,4 +35,11 @@ public class HashMapTest {
     Assert.assertEquals(hm.getKey("someKey"), -1);
   }
 
+  @Test
+  public void testHashSizeGetsNextPrime() {
+    HashMap hmap = new HashMap(4);
+
+    Assert.assertEquals(hmap.size, 5);
+  }
+
 }

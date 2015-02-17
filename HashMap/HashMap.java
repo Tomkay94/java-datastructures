@@ -3,7 +3,7 @@
 
 public class HashMap {
 
-  private int size;
+  protected int size;
   private HashEntry[] table;
 
   public HashMap(int size) {
@@ -72,6 +72,5 @@ public class HashMap {
     }
 
     table[hash] = new HashEntry(k, v);
-    System.out.println("Inserted entry: " + table[hash] + "at index: " + hash);
   }
 }
