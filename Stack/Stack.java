@@ -3,7 +3,7 @@
 
 public class Stack {
 
-  private int size;
+  protected int size;
   private int capacity;
   private String[] stackArray;
 
@@ -14,14 +14,18 @@ public class Stack {
 
   /* Push the new item to the top of the stack. */
   protected void push(String item) {
-    this.stackArray[size] = item;
-    this.size++;
+    if (this.size < this.capacity) {
+      this.stackArray[size] = item;
+      this.size++;
+    }
   }
 
   /* Pop the item off the top of the stack. */
   protected void pop() {
-    this.stackArray[size - 1] = null;
-    this.size--;
+    if (this.size > 0) {
+      this.stackArray[size - 1] = null;
+      this.size--;
+    }
   }
 
   /* Determine if the stack is empty. */
