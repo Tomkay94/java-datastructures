@@ -16,23 +16,23 @@ public class HashMapTest {
 
   @Test
   public void testInsertSingleKey() {
-    hm.put("someKey", 8);
+    hm.put("Toronto", 10);
 
-    Assert.assertEquals(hm.getKey("someKey"), 8);
+    Assert.assertEquals(hm.getKey("Toronto"), 10);
   }
 
   @Test
   public void testInsertDuplicateKeyUpdates() {
-    hm.put("someKey", 8);
-    hm.put("someKey", 10);
+    hm.put("New York", 15);
+    hm.put("New York", 10);
 
-    Assert.assertEquals(hm.getKey("someKey"), 10);
+    Assert.assertEquals(hm.getKey("New York"), 10);
   }
 
   @Test
   public void testInsertInvalidKey() {
 
-    Assert.assertEquals(hm.getKey("someKey"), -1);
+    Assert.assertEquals(hm.getKey("Copenhagen"), -1);
   }
 
   @Test

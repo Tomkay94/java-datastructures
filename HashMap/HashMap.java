@@ -12,6 +12,7 @@ public class HashMap {
     this.table = new HashEntry[primeSize];
   }
 
+  /* Determine if number if prime */
   private static boolean isPrime(int number) {
     if (number < 2) {
       return false;
@@ -26,6 +27,7 @@ public class HashMap {
     return true;
   }
 
+  /* Find the first prime greater than n */
   private static int findNextPrime(int n) {
 
     int nSquared = (int) Math.pow(n, 2);
@@ -38,6 +40,7 @@ public class HashMap {
     return nSquared + 1;
   }
 
+  /* Hash and return the given key */
   private int applyHashFunction(String key) {
     return (
     key.length() *
@@ -47,6 +50,7 @@ public class HashMap {
       ) % this.size);
   }
 
+  /* Get the value hashed to by the key k */
   protected int getKey(String k) {
     int hash = applyHashFunction(k);
 
@@ -64,6 +68,7 @@ public class HashMap {
     }
   }
 
+  /* Insert the entry with key k and value v */
   protected void put(String k, int v) {
     int hash = applyHashFunction(k);
 
