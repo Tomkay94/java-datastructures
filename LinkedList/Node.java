@@ -1,3 +1,6 @@
+
+/* Implements a single node for a linked list */
+
 public class Node {
 
   Node next = null;

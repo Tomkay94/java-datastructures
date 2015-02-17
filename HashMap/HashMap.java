@@ -1,4 +1,5 @@
-// import HashEntry;
+
+/* Implements the hash map data structure */
 
 public class HashMap {
   private int size;
@@ -7,13 +8,6 @@ public class HashMap {
   public HashMap(int size) {
     this.size = size;
     this.table = new HashEntry[size];
-    this.init();
-  }
-
-  private void init() {
-    for(int i = 0; i < this.size; ++i) {
-      table[i] = null;
-    }
   }
 
   private int applyHashFunction(String key) {
@@ -53,12 +47,4 @@ public class HashMap {
     System.out.println("Inserted entry: " + table[hash] + "at index: " + hash);
   }
 
-  public static void main(String[] args) {
-    HashMap hm = new HashMap(11);
-
-    hm.put("THelloAdasdasd", 4);
-    hm.put("PHelloQP", 4);
-    hm.put("LHelloRasdasdasd", 4);
-
-  }
 }
