@@ -64,6 +64,25 @@ public class StackTest {
   }
 
   @Test
+  public void testPopGetsTopItem() {
+    cities.push("Toronto");
+    cities.push("New York");
+    cities.push("Copenhagen");
+    cities.push("Rome");
+    cities.push("London");
+    String poppedItem = cities.pop();
+
+    Assert.assertEquals(poppedItem, "London");
+  }
+
+  @Test
+  public void testPopGetsNullOnEmpty() {
+    String poppedItem = cities.pop();
+
+    Assert.assertEquals(poppedItem, null);
+  }
+
+  @Test
   public void testPopOnRegular() {
     cities.push("Toronto");
     cities.push("New York");
