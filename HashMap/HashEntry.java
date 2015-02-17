@@ -1,3 +1,6 @@
+
+/* Acts as a single element in a HashMap */
+
 public class HashEntry {
 
   private String key;

@@ -5,8 +5,13 @@ public class HashMapTest {
   HashMap hm;
 
   @Before
-  public void init() {
+  public void setUp() {
     hm = new HashMap(7);
+  }
+
+  @After
+  public void tearDown() {
+    hm = null;
   }
 
   @Test
