@@ -9,7 +9,7 @@ TEST = org.junit.runner.JUnitCore
 # Run the test suite
 #
 tests: HashEntry.java HashMap.java HashMapTest.java
-	$(JC) HashEntry.java && $(JC) HashMap.java && $(JC) HashMapTest.java && $(JVM) $(TEST) HashTableTest
+	$(JC) HashEntry.java && $(JC) HashMap.java && $(JC) HashMapTest.java && $(JVM) $(TEST) HashMapTest
 
 #
 # Compile the main files
