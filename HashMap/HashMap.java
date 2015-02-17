@@ -2,12 +2,40 @@
 /* Implements the hash map data structure */
 
 public class HashMap {
+
   private int size;
   private HashEntry[] table;
 
   public HashMap(int size) {
-    this.size = size;
-    this.table = new HashEntry[size];
+    int primeSize = findNextPrime(size);
+    this.size = primeSize;
+    this.table = new HashEntry[primeSize];
+  }
+
+  private static boolean isPrime(int number) {
+    if (number < 2) {
+      return false;
+    }
+
+    for (int i = 2; i < number; ++i) {
+      if (number % i == 0) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  private static int findNextPrime(int n) {
+
+    int nSquared = (int) Math.pow(n, 2);
+    for (int i = n; i < nSquared; ++i) {
+      if (isPrime(i) && i > n) {
+        return i;
+      }
+    }
+    /* Accounts for n = 1 */
+    return nSquared + 1;
   }
 
   private int applyHashFunction(String key) {
@@ -46,5 +74,4 @@ public class HashMap {
     table[hash] = new HashEntry(k, v);
     System.out.println("Inserted entry: " + table[hash] + "at index: " + hash);
   }
-
 }

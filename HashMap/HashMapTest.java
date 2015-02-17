@@ -22,7 +22,7 @@ public class HashMapTest {
   }
 
   @Test
-  public void testInsertDuplicateUpdates() {
+  public void testInsertDuplicateKeyUpdates() {
     hm.put("someKey", 8);
     hm.put("someKey", 10);
 
