@@ -1,4 +1,6 @@
 
+/* Implements the Binary Search Tree data structure. */
+
 public class BinarySearchTree {
 
   private Node root;
@@ -7,6 +9,7 @@ public class BinarySearchTree {
     root = null;
   }
 
+  /* Insert a node with key and data into the binary tree */
   protected void insert(int key, String data) {
     Node newNode = new Node(key, data);
 
@@ -47,13 +50,15 @@ public class BinarySearchTree {
     }
   }
 
+  /* Return the node with key in the binary tree.
+  Return null if the key is not in the binary tree. */
   protected Node findNode(int key) {
     Node focusNode = root;
 
     while (focusNode.key != key) {
       if (key < focusNode.key) {
-          /* Shift the focusNode left */
-          focusNode = focusNode.leftChild;
+        /* Shift the focusNode left */
+        focusNode = focusNode.leftChild;
       }
 
       else if (key > focusNode.key){
@@ -68,6 +73,7 @@ public class BinarySearchTree {
     return focusNode;
   }
 
+  /* Perform an in-order traversal on the binary tree. */
   protected void traverseInOrder(Node focusNode) {
     if (focusNode != null) {
       traverseInOrder(focusNode.leftChild);
@@ -77,6 +83,7 @@ public class BinarySearchTree {
     return;
   }
 
+  /* Perform a pre-order traversal on the binary tree. */
   protected void traversePreOrder(Node focusNode) {
     if (focusNode != null) {
       System.out.println(focusNode);
@@ -86,6 +93,7 @@ public class BinarySearchTree {
     return;
   }
 
+  /* Perform a post-order traversal on the binary tree. */
   protected void traversePostOrder(Node focusNode) {
     if (focusNode != null) {
       traversePostOrder(focusNode.leftChild);
