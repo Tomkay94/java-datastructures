@@ -3,7 +3,7 @@
 
 public class BinarySearchTree {
 
-  private Node root;
+  protected Node root;
 
   public BinarySearchTree() {
     root = null;

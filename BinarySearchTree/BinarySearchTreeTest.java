@@ -1,3 +1,4 @@
+import org.junit.*;
 
 public class BinarySearchTreeTest {
 
@@ -10,7 +11,13 @@ public class BinarySearchTreeTest {
 
   @After
   public void tearDown() {
-    best = null;
+    bst = null;
   }
 
+  @Test
+  public void testInsertIntoEmptyBST() {
+    bst.insert(50, "Toronto");
+
+    Assert.assertEquals(bst.root.data, "Toronto");
+  }
 }
