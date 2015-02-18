@@ -16,10 +16,13 @@ public class Queue<T> {
     this.queueArray = new ArrayList<T>(capacity);
   }
 
-  protected void enqueue(T item) {
-    this.queueArray.add(item);
-    this.size++;
-    return;
+  protected boolean enqueue(T item) {
+    if (this.size < this.capacity) {
+      this.queueArray.add(item);
+      this.size++;
+      return true;
+    }
+    return false;
   }
 
   protected T dequeue() {

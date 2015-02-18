@@ -28,7 +28,20 @@ public class QueueTest {
   }
 
   @Test
-  public void testDequeueOnEmpty() {
+  public void testEnqueueOnFullCapacityFails() {
+    q.enqueue(5);
+    q.enqueue(4);
+    q.enqueue(3);
+    q.enqueue(2);
+    q.enqueue(1);
+
+    boolean isQueued = q.enqueue(0);
+
+    Assert.assertFalse(isQueued);
+  }
+
+  @Test
+  public void testDequeueOnEmptyFails() {
     Integer removed = q.dequeue();
 
     Assert.assertEquals(removed, null);
