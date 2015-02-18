@@ -7,11 +7,13 @@ import java.util.ArrayList;
 public class Queue<T> {
 
   protected int size;
+  private int capacity;
   private List<T> queueArray;
 
-  public Queue() {
+  public Queue(int capacity) {
     this.size = 0;
-    this.queueArray = new ArrayList<T>();
+    this.capacity = capacity;
+    this.queueArray = new ArrayList<T>(capacity);
   }
 
   protected void enqueue(T item) {

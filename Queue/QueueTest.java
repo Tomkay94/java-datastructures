@@ -6,7 +6,7 @@ public class QueueTest {
 
   @Before
   public void setUp() {
-    q = new Queue<Integer>();
+    q = new Queue<Integer>(5);
   }
 
   @After

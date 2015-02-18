@@ -13,7 +13,7 @@ public class Stack<T> {
   public Stack(int capacity) {
     this.size = 0;
     this.capacity = capacity;
-    this.stackArray = new ArrayList<T>();
+    this.stackArray = new ArrayList<T>(capacity);
   }
 
   /* Push the new item to the top of the stack. */
