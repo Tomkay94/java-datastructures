@@ -31,4 +31,25 @@ public class MinHeap {
     return (index - 1) / 2;
   }
 
+  protected void insert(int value) {
+    if (!this.isEmpty()) {
+      heapSize++;
+      data[heapSize - 1] = value;
+      siftUp(heapSize - 1);
+    }
+  }
+
+  protected void siftUp(int index) {
+    int parentIndex, tmp;
+    if (index != 0) {
+      parentIndex = getParentIndex(index);
+      if (heapArray[parentIndex] > heapArray[index]) {
+        tmp = heapArray[parentIndex];
+        heapArray[parentIndex] = heapArray[index];
+        heapArray[index] = tmp;
+        siftUp(parentIndex);
+      }
+    }
+  }
+  
 }
