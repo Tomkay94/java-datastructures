@@ -13,7 +13,7 @@ public class HashMap {
     this.table = new HashEntry[primeSize];
   }
 
-  /* Determine if number if prime */
+  /* Determine if number is prime */
   private static boolean isPrime(int number) {
     if (number < 2) {
       return false;

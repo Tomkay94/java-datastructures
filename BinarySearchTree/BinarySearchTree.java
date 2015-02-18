@@ -29,20 +29,20 @@ public class BinarySearchTree {
 
         /* newNode goes on the left subtree */
         if (key < focusNode.key) {
-          focusNode = focusNode.leftChild;
+          focusNode = focusNode.left;
 
           if (focusNode == null) {
-            parent.leftChild = newNode;
+            parent.left = newNode;
             return;
           }
         }
 
         /* newNode goes on the right subtree */
         else if (key > focusNode.key) {
-          focusNode = focusNode.rightChild;
+          focusNode = focusNode.right;
 
           if (focusNode == null) {
-            parent.rightChild = newNode;
+            parent.right = newNode;
             return;
           }
         }
@@ -63,12 +63,12 @@ public class BinarySearchTree {
 
       if (key < focusNode.key) {
         isLeftChild = true;
-        focusNode = focusNode.leftChild;
+        focusNode = focusNode.left;
       }
 
       else if (key > focusNode.key) {
         isLeftChild = false;
-        focusNode = focusNode.rightChild;
+        focusNode = focusNode.right;
       }
 
       else if (focusNode == null) {
@@ -77,48 +77,48 @@ public class BinarySearchTree {
     }
 
     /* If the found node has no children */
-    if (focusNode.leftChild == null && focusNode.rightChild == null) {
+    if (focusNode.left == null && focusNode.right == null) {
       /* Deleting the root. */
       if (focusNode == root) {
         root = null;
       }
 
       else if (isLeftChild) {
-        parent.leftChild = null;
+        parent.left = null;
       }
 
       else {
-        parent.rightChild = null;
+        parent.right = null;
       }
     }
 
     /* If the found node has no right child */
-    else if (focusNode.rightChild == null) {
+    else if (focusNode.right == null) {
       if (focusNode == root) {
-        root = focusNode.leftChild;
+        root = focusNode.left;
       }
 
       else if (isLeftChild) {
-        parent.leftChild = focusNode.leftChild;
+        parent.left = focusNode.left;
       }
 
       else {
-        parent.rightChild = focusNode.leftChild;
+        parent.right = focusNode.left;
       }
     }
 
     /* The found node has no left child */
-    else if (focusNode.leftChild == null) {
+    else if (focusNode.left == null) {
       if (focusNode == root) {
-        root = focusNode.rightChild;
+        root = focusNode.right;
       }
 
       else if (isLeftChild) {
-        parent.leftChild = focusNode.rightChild;
+        parent.left = focusNode.right;
       }
 
       else {
-        parent.rightChild = focusNode.leftChild;
+        parent.right = focusNode.left;
       }
     }
 
@@ -131,14 +131,14 @@ public class BinarySearchTree {
       }
 
       else if (isLeftChild) {
-        parent.leftChild = replacementNode;
+        parent.left = replacementNode;
       }
 
       else {
-        parent.rightChild = replacementNode;
+        parent.right = replacementNode;
       }
 
-      replacementNode.leftChild = focusNode.leftChild;
+      replacementNode.left = focusNode.left;
     }
 
     /* The node was successfully deleted */
@@ -150,17 +150,17 @@ public class BinarySearchTree {
   private Node getReplacementNode(Node replacedNode) {
     Node replacementParent = replacedNode;
     Node replacement       = replacedNode;
-    Node focusNode         = replacedNode.rightChild;
+    Node focusNode         = replacedNode.right;
 
     while(focusNode != null) {
       replacementParent = replacement;
       replacement       = focusNode;
-      focusNode         = focusNode.leftChild;
+      focusNode         = focusNode.left;
     }
 
-    if (replacement != replacedNode.rightChild) {
-      replacementParent.leftChild = replacement.rightChild;
-      replacement.rightChild      = replacedNode.rightChild;
+    if (replacement != replacedNode.right) {
+      replacementParent.left = replacement.right;
+      replacement.right      = replacedNode.right;
     }
 
     return replacement;
@@ -174,12 +174,12 @@ public class BinarySearchTree {
     while (focusNode.key != key) {
       if (key < focusNode.key) {
         /* Shift the focusNode left */
-        focusNode = focusNode.leftChild;
+        focusNode = focusNode.left;
       }
 
       else if (key > focusNode.key){
         /* Shift the focusNode right */
-        focusNode = focusNode.rightChild;
+        focusNode = focusNode.right;
       }
 
       if (focusNode == null) {
@@ -192,9 +192,9 @@ public class BinarySearchTree {
   /* Perform an in-order traversal on the binary tree. */
   protected void traverseInOrder(Node focusNode) {
     if (focusNode != null) {
-      traverseInOrder(focusNode.leftChild);
+      traverseInOrder(focusNode.left);
       System.out.println(focusNode);
-      traverseInOrder(focusNode.rightChild);
+      traverseInOrder(focusNode.right);
     }
     return;
   }
@@ -203,8 +203,8 @@ public class BinarySearchTree {
   protected void traversePreOrder(Node focusNode) {
     if (focusNode != null) {
       System.out.println(focusNode);
-      traversePreOrder(focusNode.leftChild);
-      traversePreOrder(focusNode.rightChild);
+      traversePreOrder(focusNode.left);
+      traversePreOrder(focusNode.right);
     }
     return;
   }
@@ -212,10 +212,47 @@ public class BinarySearchTree {
   /* Perform a post-order traversal on the binary tree. */
   protected void traversePostOrder(Node focusNode) {
     if (focusNode != null) {
-      traversePostOrder(focusNode.leftChild);
-      traversePostOrder(focusNode.rightChild);
+      traversePostOrder(focusNode.left);
+      traversePostOrder(focusNode.right);
       System.out.println(focusNode);
     }
     return;
+  }
+
+  /* Determine if the binary tree is balanced. */
+  protected boolean isBalanced(Node root) {
+    if(checkHeight(root) == -1) {
+      return false;
+    }
+
+    else {
+      return true;
+    }
+  }
+
+  /* Check binary tree level heights */
+  private int checkHeight(Node root) {
+    if (root == null) {
+      return 0;
+    }
+
+    int leftHeight = checkHeight(root.left);
+    if (leftHeight == -1) {
+      return -1;
+    }
+
+    int rightHeight = checkHeight(root.right);
+    if (rightHeight == -1) {
+      return -1;
+    }
+
+    int heightDiff = Math.abs(leftHeight - rightHeight);
+    if (heightDiff > 1) {
+      return -1;
+    }
+
+    else {
+      return Math.max(leftHeight, rightHeight) + 1;
+    }
   }
 }

@@ -50,7 +50,7 @@ public class BinarySearchTreeTest {
     bst.insert(50, "Toronto");
     bst.insert(25, "Waterloo");
 
-    Assert.assertEquals(bst.root.leftChild.key, 25);
+    Assert.assertEquals(bst.root.left.key, 25);
   }
 
   @Test
@@ -63,7 +63,7 @@ public class BinarySearchTreeTest {
 
     Node foundNode = bst.findNode(75);
 
-    Assert.assertEquals(foundNode.leftChild.key, 70);
+    Assert.assertEquals(foundNode.left.key, 70);
   }
 
   @Test
@@ -76,7 +76,7 @@ public class BinarySearchTreeTest {
 
     Node foundNode = bst.findNode(75);
 
-    Assert.assertEquals(foundNode.rightChild.key, 85);
+    Assert.assertEquals(foundNode.right.key, 85);
   }
 
   @Test
@@ -84,7 +84,7 @@ public class BinarySearchTreeTest {
     bst.insert(50, "Toronto");
     bst.insert(75, "Waterloo");
 
-    Assert.assertEquals(bst.root.rightChild.key, 75);
+    Assert.assertEquals(bst.root.right.key, 75);
   }
 
   @Test
@@ -102,7 +102,7 @@ public class BinarySearchTreeTest {
     bst.insert(75, "New York");
     bst.remove(75);
 
-    Assert.assertEquals(bst.root.rightChild, null);
+    Assert.assertEquals(bst.root.right, null);
   }
 
   @Test
@@ -112,7 +112,7 @@ public class BinarySearchTreeTest {
     bst.insert(75, "New York");
     bst.remove(25);
 
-    Assert.assertEquals(bst.root.leftChild, null);
+    Assert.assertEquals(bst.root.left, null);
   }
 
   @Test
@@ -126,7 +126,7 @@ public class BinarySearchTreeTest {
 
     Node foundNode = bst.findNode(50);
 
-    Assert.assertEquals(foundNode.rightChild, null);
+    Assert.assertEquals(foundNode.right, null);
   }
 
   @Test
@@ -140,7 +140,7 @@ public class BinarySearchTreeTest {
 
     Node foundNode = bst.findNode(50);
 
-    Assert.assertEquals(foundNode.rightChild.key, 70);
+    Assert.assertEquals(foundNode.right.key, 70);
   }
 
   @Test
@@ -155,7 +155,7 @@ public class BinarySearchTreeTest {
 
     Node foundNode = bst.findNode(50);
 
-    Assert.assertEquals(foundNode.rightChild.key, 85);
+    Assert.assertEquals(foundNode.right.key, 85);
   }
 
   @Test
@@ -170,6 +170,6 @@ public class BinarySearchTreeTest {
 
     Node foundNode = bst.findNode(75);
 
-    Assert.assertEquals(foundNode.rightChild.key, 85);
+    Assert.assertEquals(foundNode.right.key, 85);
   }
 }

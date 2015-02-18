@@ -3,16 +3,16 @@
 
 public class Node {
 
-  protected Node leftChild;
-  protected Node rightChild;
+  protected Node left;
+  protected Node right;
   protected int key;
   protected String data;
 
   public Node(int key, String data) {
-    this.key = key;
-    this.data = data;
-    this.leftChild = null;
-    this.rightChild = null;
+    this.key   = key;
+    this.data  = data;
+    this.left  = null;
+    this.right = null;
   }
 
   @Override
