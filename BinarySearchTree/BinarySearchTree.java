@@ -78,13 +78,13 @@ public class BinarySearchTree {
 
     /* If the found node has no children */
     if (focusNode.leftChild == null && focusNode.rightChild == null) {
-      /* Were deleting the root. */
+      /* Deleting the root. */
       if (focusNode == root) {
         root = null;
       }
 
       else if (isLeftChild) {
-        parent.leftChild = null; // deleting the node
+        parent.leftChild = null;
       }
 
       else {
@@ -154,13 +154,13 @@ public class BinarySearchTree {
 
     while(focusNode != null) {
       replacementParent = replacement;
-      replacement = focusNode;
-      focusNode = focusNode.leftChild;
+      replacement       = focusNode;
+      focusNode         = focusNode.leftChild;
     }
 
     if (replacement != replacedNode.rightChild) {
       replacementParent.leftChild = replacement.rightChild;
-      replacement.rightChild = replacedNode.rightChild;
+      replacement.rightChild      = replacedNode.rightChild;
     }
 
     return replacement;
