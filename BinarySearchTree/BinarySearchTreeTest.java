@@ -172,4 +172,51 @@ public class BinarySearchTreeTest {
 
     Assert.assertEquals(foundNode.right.key, 85);
   }
+
+  @Test
+  public void testIsBalancedHeavyLeftSubtree() {
+    bst.insert(50, "Toronto");
+    bst.insert(25, "Madrid");
+    bst.insert(20, "Copenhagen");
+    bst.insert(30, "Moscow");
+
+    Assert.assertFalse(bst.isBalanced(bst.root));
+  }
+
+  @Test
+  public void testIsBalancedHeavyRightSubtree() {
+    bst.insert(50, "Toronto");
+    bst.insert(75, "Waterloo");
+    bst.insert(70, "New York");
+    bst.insert(85, "Seattle");
+
+    Assert.assertFalse(bst.isBalanced(bst.root));
+  }
+
+  @Test
+  public void testIsBalancedFullSubtrees() {
+    bst.insert(50, "Toronto");
+    bst.insert(75, "Waterloo");
+    bst.insert(70, "New York");
+    bst.insert(85, "Seattle");
+    bst.insert(25, "Madrid");
+    bst.insert(20, "Copenhagen");
+    bst.insert(30, "Moscow");
+
+    Assert.assertTrue(bst.isBalanced(bst.root));
+  }
+
+  @Test
+  public void testIsBalancedOneNode() {
+    bst.insert(50, "Toronto");
+
+    Assert.assertTrue(bst.isBalanced(bst.root));
+  }
+
+  @Test
+  public void testIsBalancedRoot() {
+
+    Assert.assertTrue(bst.isBalanced(bst.root));
+  }
+  
 }
