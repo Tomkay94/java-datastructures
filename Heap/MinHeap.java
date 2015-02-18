@@ -1,3 +1,6 @@
+
+/* Implements the Min Heap data structure. */
+
 public class MinHeap {
 
   private int[] heapArray;
@@ -34,7 +37,7 @@ public class MinHeap {
   protected void insert(int value) {
     if (!this.isEmpty()) {
       heapSize++;
-      data[heapSize - 1] = value;
+      heapArray[heapSize - 1] = value;
       siftUp(heapSize - 1);
     }
   }
@@ -51,5 +54,5 @@ public class MinHeap {
       }
     }
   }
-  
+
 }
