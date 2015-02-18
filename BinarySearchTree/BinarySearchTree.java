@@ -58,7 +58,7 @@ public class BinarySearchTree {
     boolean isLeftChild = true;
 
     /* First, find the node */
-    while(focusNode != key) {
+    while(focusNode.key != key) {
       parent = focusNode;
 
       if (key < focusNode.key) {
@@ -127,7 +127,7 @@ public class BinarySearchTree {
       Node replacementNode = getReplacementNode(focusNode);
 
       if (focusNode == root) {
-        root = repalcementNode;
+        root = replacementNode;
       }
 
       else if (isLeftChild) {
@@ -218,5 +218,4 @@ public class BinarySearchTree {
     }
     return;
   }
-
 }
