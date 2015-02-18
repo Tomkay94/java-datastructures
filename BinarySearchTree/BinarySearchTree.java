@@ -50,6 +50,122 @@ public class BinarySearchTree {
     }
   }
 
+  /* Return true if the key was removed */
+  protected boolean remove(int key) {
+    Node focusNode = root;
+    Node parent    = root;
+
+    boolean isLeftChild = true;
+
+    /* First, find the node */
+    while(focusNode != key) {
+      parent = focusNode;
+
+      if (key < focusNode.key) {
+        isLeftChild = true;
+        focusNode = focusNode.leftChild;
+      }
+
+      else if (key > focusNode.key) {
+        isLeftChild = false;
+        focusNode = focusNode.rightChild;
+      }
+
+      else if (focusNode == null) {
+        return false;
+      }
+    }
+
+    /* If the found node has no children */
+    if (focusNode.leftChild == null && focusNode.rightChild == null) {
+      /* Were deleting the root. */
+      if (focusNode == root) {
+        root = null;
+      }
+
+      else if (isLeftChild) {
+        parent.leftChild = null; // deleting the node
+      }
+
+      else {
+        parent.rightChild = null;
+      }
+    }
+
+    /* If the found node has no right child */
+    else if (focusNode.rightChild == null) {
+      if (focusNode == root) {
+        root = focusNode.leftChild;
+      }
+
+      else if (isLeftChild) {
+        parent.leftChild = focusNode.leftChild;
+      }
+
+      else {
+        parent.rightChild = focusNode.leftChild;
+      }
+    }
+
+    /* The found node has no left child */
+    else if (focusNode.leftChild == null) {
+      if (focusNode == root) {
+        root = focusNode.rightChild;
+      }
+
+      else if (isLeftChild) {
+        parent.leftChild = focusNode.rightChild;
+      }
+
+      else {
+        parent.rightChild = focusNode.leftChild;
+      }
+    }
+
+    /* The found node has two children */
+    else {
+      Node replacementNode = getReplacementNode(focusNode);
+
+      if (focusNode == root) {
+        root = repalcementNode;
+      }
+
+      else if (isLeftChild) {
+        parent.leftChild = replacementNode;
+      }
+
+      else {
+        parent.rightChild = replacementNode;
+      }
+
+      replacementNode.leftChild = focusNode.leftChild;
+    }
+
+    /* The node was successfully deleted */
+    return true;
+  }
+
+  /* Finds the node that replaces replacedNode
+  for a binary search tree deletion. */
+  private Node getReplacementNode(Node replacedNode) {
+    Node replacementParent = replacedNode;
+    Node replacement       = replacedNode;
+    Node focusNode         = replacedNode.rightChild;
+
+    while(focusNode != null) {
+      replacementParent = replacement;
+      replacement = focusNode;
+      focusNode = focusNode.leftChild;
+    }
+
+    if (replacement != replacedNode.rightChild) {
+      replacementParent.leftChild = replacement.rightChild;
+      replacement.rightChild = replacedNode.rightChild;
+    }
+
+    return replacement;
+  }
+
   /* Return the node with key in the binary tree.
   Return null if the key is not in the binary tree. */
   protected Node findNode(int key) {
