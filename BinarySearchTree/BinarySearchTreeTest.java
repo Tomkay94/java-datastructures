@@ -2,11 +2,11 @@ import org.junit.*;
 
 public class BinarySearchTreeTest {
 
-  BinarySearchTree bst;
+  BinarySearchTree<String> bst;
 
   @Before
   public void setUp() {
-    bst = new BinarySearchTree();
+    bst = new BinarySearchTree<String>();
   }
 
   @After

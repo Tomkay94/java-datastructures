@@ -1,14 +1,14 @@
 
 /* Acts as a single node in a Binary Search Tree */
 
-public class Node {
+public class Node<T> {
 
   protected Node left;
   protected Node right;
   protected int key;
-  protected String data;
+  protected T data;
 
-  public Node(int key, String data) {
+  public Node(int key, T data) {
     this.key   = key;
     this.data  = data;
     this.left  = null;

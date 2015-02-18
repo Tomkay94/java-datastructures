@@ -1,7 +1,7 @@
 
 /* Implements the Binary Search Tree data structure. */
 
-public class BinarySearchTree {
+public class BinarySearchTree<T> {
 
   protected Node root;
 
@@ -10,8 +10,8 @@ public class BinarySearchTree {
   }
 
   /* Insert a node with key and data into the binary tree */
-  protected void insert(int key, String data) {
-    Node newNode = new Node(key, data);
+  protected void insert(int key, T data) {
+    Node<T> newNode = new Node<T>(key, data);
 
     /* First node in the tree */
     if (root == null) {
