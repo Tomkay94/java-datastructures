@@ -8,8 +8,8 @@ TEST = org.junit.runner.JUnitCore
 #
 # Run the test suite
 #
-tests: BSTNode.java BinarySearchTree.java BinarySearchTreeTest.java
-	$(JC) BSTNode.java && \
+tests: Node.java BinarySearchTree.java BinarySearchTreeTest.java
+	$(JC) Node.java && \
 	$(JC) BinarySearchTree.java && \
 	$(JC) BinarySearchTreeTest.java && \
 	$(JVM) $(TEST) BinarySearchTreeTest
@@ -17,9 +17,9 @@ tests: BSTNode.java BinarySearchTree.java BinarySearchTreeTest.java
 #
 # Compile the class files
 #
-main: BinarySearchTree.java BSTNode.java
+main: BinarySearchTree.java Node.java
 	$(JC) BinarySearchTree.java && \
-	$(JC) BSTNode.java
+	$(JC) Node.java
 
 #
 # Clean for recompile
