@@ -2,11 +2,11 @@ import org.junit.*;
 
 public class StackTest {
 
-  Stack cities;
+  Stack<String> cities;
 
   @Before
   public void setUp() {
-    cities = new Stack(5);
+    cities = new Stack<String>(5);
   }
 
   @After

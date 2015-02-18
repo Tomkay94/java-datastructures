@@ -1,23 +1,26 @@
+import java.util.List;
+import java.util.ArrayList;
 
 /* Implements the Stack data structure
    using a String array. */
 
-public class Stack {
+public class Stack<T> {
 
   protected int size;
   private int capacity;
-  private String[] stackArray;
+  private List<T> stackArray;
 
   public Stack(int capacity) {
+    this.size = 0;
     this.capacity = capacity;
-    this.stackArray = new String[capacity];
+    this.stackArray = new ArrayList<T>();
   }
 
   /* Push the new item to the top of the stack. */
   /* Time Complexity: O(1) */
-  protected void push(String item) {
+  protected void push(T item) {
     if (this.size < this.capacity) {
-      this.stackArray[size] = item;
+      this.stackArray.add(item);
       this.size++;
     }
     return;
@@ -25,10 +28,9 @@ public class Stack {
 
   /* Pop the item off the top of the stack and return it. */
   /* Time Complexity: O(1) */
-  protected String pop() {
+  protected T pop() {
     if (this.size > 0) {
-      String poppedItem = this.stackArray[size - 1];
-      this.stackArray[size - 1] = null;
+      T poppedItem = this.stackArray.remove(size - 1);
       this.size--;
       return poppedItem;
     }
@@ -49,9 +51,9 @@ public class Stack {
 
   /* Return the item on the top of the stack without removing it.*/
   /* Time Complexity: O(n) */
-  protected String peek() {
+  protected T peek() {
     if (!this.isEmpty()) {
-      return this.stackArray[size - 1];
+      return this.stackArray.get(size - 1);
     }
     return null;
   }
@@ -59,7 +61,7 @@ public class Stack {
   /* Show the elements in the stack */
   /* Time Complexity: O(n), n is the # of items in the stack. */
   protected void displayStack() {
-    for (String item : this.stackArray) {
+    for (T item : this.stackArray) {
       if (item != null) {
       System.out.println(item);
       }
