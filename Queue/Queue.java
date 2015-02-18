@@ -1,46 +1,32 @@
+import java.util.List;
+import java.util.ArrayList;
 
 /* Implements the Queue data structure
    using a String array. */
 
-public class Queue {
+public class Queue<T> {
 
-  private int size;
-  private int capacity;
-  private String[] queueArray;
+  protected int size;
+  private List<T> queueArray;
 
-  public Queue(int capacity) {
-    this.capacity = capacity;
-    this.queueArray = new String[capacity];
+  public Queue() {
+    this.size = 0;
+    this.queueArray = new ArrayList<T>();
   }
 
-  private void _shiftQueue() {
-    for(int i = 1; i < this.queueArray.length; ++i) {
-      this.queueArray[i - 1] = this.queueArray[i];
-    }
-    this.queueArray[queueArray.length - 1] = null;
+  protected void enqueue(T item) {
+    this.queueArray.add(item);
+    this.size++;
     return;
   }
 
-  protected void enqueue(String item) {
-    if (this.hasCapacity()) {
-      this.queueArray[size] = item;
-      this.size++;
-    }
-    return;
-  }
-
-  protected String dequeue() {
-    if (this.isEmpty()) {
-      String dequeuedItem = this.queueArray[0];
-      this._shiftQueue();
+  protected T dequeue() {
+    if (!this.isEmpty()) {
+      T dequeuedItem = this.queueArray.remove(0);
       this.size--;
       return dequeuedItem;
     }
     return null;
-  }
-
-  protected boolean hasCapacity() {
-    return this.size < this.capacity;
   }
 
   protected boolean isEmpty() {
@@ -48,7 +34,7 @@ public class Queue {
   }
 
   protected void displayQueue() {
-    for (String item : this.queueArray) {
+    for (T item : this.queueArray) {
       if (item != null) {
         System.out.println(item);
       }

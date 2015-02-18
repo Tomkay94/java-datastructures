@@ -2,11 +2,11 @@ import org.junit.*;
 
 public class QueueTest {
 
-  Queue q;
+  Queue<Integer> q;
 
   @Before
   public void setUp() {
-    q = new Queue(5);
+    q = new Queue<Integer>();
   }
 
   @After
@@ -17,40 +17,21 @@ public class QueueTest {
   @Test
   public void testIsEmptyOnEmpty() {
 
-  }
-
-  @Test
-  public void testIsEmpty() {
-
-  }
-
-  @Test
-  public void testHasCapacityOnEmpty() {
-
-  }
-
-  @Test
-  public void testHasCapacityOnFull() {
-
+    Assert.assertTrue(q.isEmpty());
   }
 
   @Test
   public void testEnqueueOnEmpty() {
+    q.enqueue(5);
 
-  }
-
-  @Test
-  public void testEnqueueOnFull() {
-
+    Assert.assertEquals(q.size, 1);
   }
 
   @Test
   public void testDequeueOnEmpty() {
+    Integer removed = q.dequeue();
 
+    Assert.assertEquals(removed, null);
   }
 
-  @Test
-  public void testDequeueOnFull() {
-
-  }
 }
