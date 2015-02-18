@@ -47,6 +47,15 @@ public class Stack {
     return this.size < this.capacity;
   }
 
+  /* Return the item on the top of the stack without removing it.*/
+  /* Time Complexity: O(n) */
+  protected String peek() {
+    if (!this.isEmpty()) {
+      return this.stackArray[size - 1];
+    }
+    return null;
+  }
+
   /* Show the elements in the stack */
   /* Time Complexity: O(n), n is the # of items in the stack. */
   protected void displayStack() {

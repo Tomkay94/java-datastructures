@@ -123,4 +123,14 @@ public class StackTest {
     Assert.assertFalse(cities.hasSpace());
   }
 
+  @Test
+  public void testPeekTop() {
+    cities.push("Toronto");
+    cities.push("New York");
+    cities.push("Copenhagen");
+    cities.push("Rome");
+    cities.push("London");
+
+    Assert.assertEquals(cities.peek(), "London");
+  }
 }
