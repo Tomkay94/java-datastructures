@@ -255,4 +255,27 @@ public class BinarySearchTree {
       return Math.max(leftHeight, rightHeight) + 1;
     }
   }
+
+  /* Determine if a given binary tree is also a binary search tree.*/
+  protected boolean isBST(Node root) {
+    return checkBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+  }
+
+  /* Determine whether node's subtrees fulfill
+  the binary search tree properties. */
+  private boolean checkBST(Node node, int MIN, int MAX) {
+    if (node == null) {
+      return true;
+    }
+
+    if (node.key > MIN &&
+        node.key < MAX &&
+        checkBST(node.left, MIN, Math.min(node.key, MAX)) &&
+        checkBST(node.right, Math.max(node.key, MIN), MAX)) {
+          return true;
+        }
+        else {
+          return false;
+        }
+  }
 }

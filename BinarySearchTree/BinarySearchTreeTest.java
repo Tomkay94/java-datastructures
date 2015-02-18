@@ -218,5 +218,17 @@ public class BinarySearchTreeTest {
 
     Assert.assertTrue(bst.isBalanced(bst.root));
   }
-  
+
+  @Test
+  public void testIsBST() {
+    bst.insert(50, "Toronto");
+    bst.insert(75, "Waterloo");
+    bst.insert(70, "New York");
+    bst.insert(85, "Seattle");
+    bst.insert(25, "Madrid");
+    bst.insert(20, "Copenhagen");
+    bst.insert(30, "Moscow");
+
+    Assert.assertTrue(bst.isBST(bst.root));
+  }
 }
