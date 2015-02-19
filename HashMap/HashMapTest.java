@@ -15,6 +15,20 @@ public class HashMapTest {
   }
 
   @Test
+  public void testMapSizeBecomesPrimeWhenInputEven() {
+    HashMap mapEvenSize = new HashMap(4);
+
+    Assert.assertEquals(mapEvenSize.size, 5);
+  }
+
+  @Test
+  public void testMapSizeBecomesPrimeWhenInputOdd() {
+    HashMap mapOddSize = new HashMap(15);
+
+    Assert.assertEquals(mapOddSize.size, 17);
+  }
+
+  @Test
   public void testInsertSingleKey() {
     hm.put("Toronto", 10);
 
