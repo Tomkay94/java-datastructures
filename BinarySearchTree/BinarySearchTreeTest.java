@@ -1,3 +1,4 @@
+import static org.junit.Assert.*;
 import org.junit.*;
 
 public class BinarySearchTreeTest {
@@ -23,7 +24,7 @@ public class BinarySearchTreeTest {
     bst.insert(70, "Washington");
     Node foundNode = bst.findNode(70);
 
-    Assert.assertEquals(foundNode.key, 70);
+    assertEquals(foundNode.key, 70);
   }
 
   @Test
@@ -35,14 +36,14 @@ public class BinarySearchTreeTest {
     bst.insert(70, "Washington");
     Node foundNode = bst.findNode(65);
 
-    Assert.assertEquals(foundNode, null);
+    assertEquals(foundNode, null);
   }
 
   @Test
   public void testInsertIntoEmptyBST() {
     bst.insert(50, "Toronto");
 
-    Assert.assertEquals(bst.root.data, "Toronto");
+    assertEquals(bst.root.data, "Toronto");
   }
 
   @Test
@@ -50,7 +51,7 @@ public class BinarySearchTreeTest {
     bst.insert(50, "Toronto");
     bst.insert(25, "Waterloo");
 
-    Assert.assertEquals(bst.root.left.key, 25);
+    assertEquals(bst.root.left.key, 25);
   }
 
   @Test
@@ -63,7 +64,7 @@ public class BinarySearchTreeTest {
 
     Node foundNode = bst.findNode(75);
 
-    Assert.assertEquals(foundNode.left.key, 70);
+    assertEquals(foundNode.left.key, 70);
   }
 
   @Test
@@ -76,7 +77,7 @@ public class BinarySearchTreeTest {
 
     Node foundNode = bst.findNode(75);
 
-    Assert.assertEquals(foundNode.right.key, 85);
+    assertEquals(foundNode.right.key, 85);
   }
 
   @Test
@@ -84,7 +85,7 @@ public class BinarySearchTreeTest {
     bst.insert(50, "Toronto");
     bst.insert(75, "Waterloo");
 
-    Assert.assertEquals(bst.root.right.key, 75);
+    assertEquals(bst.root.right.key, 75);
   }
 
   @Test
@@ -92,7 +93,7 @@ public class BinarySearchTreeTest {
     bst.insert(50, "Toronto");
     bst.remove(50);
 
-    Assert.assertEquals(bst.root, null);
+    assertEquals(bst.root, null);
   }
 
   @Test
@@ -102,7 +103,7 @@ public class BinarySearchTreeTest {
     bst.insert(75, "New York");
     bst.remove(75);
 
-    Assert.assertEquals(bst.root.right, null);
+    assertEquals(bst.root.right, null);
   }
 
   @Test
@@ -112,7 +113,7 @@ public class BinarySearchTreeTest {
     bst.insert(75, "New York");
     bst.remove(25);
 
-    Assert.assertEquals(bst.root.left, null);
+    assertEquals(bst.root.left, null);
   }
 
   @Test
@@ -126,7 +127,7 @@ public class BinarySearchTreeTest {
 
     Node foundNode = bst.findNode(50);
 
-    Assert.assertEquals(foundNode.right, null);
+    assertEquals(foundNode.right, null);
   }
 
   @Test
@@ -140,7 +141,7 @@ public class BinarySearchTreeTest {
 
     Node foundNode = bst.findNode(50);
 
-    Assert.assertEquals(foundNode.right.key, 70);
+    assertEquals(foundNode.right.key, 70);
   }
 
   @Test
@@ -155,7 +156,7 @@ public class BinarySearchTreeTest {
 
     Node foundNode = bst.findNode(50);
 
-    Assert.assertEquals(foundNode.right.key, 85);
+    assertEquals(foundNode.right.key, 85);
   }
 
   @Test
@@ -170,7 +171,7 @@ public class BinarySearchTreeTest {
 
     Node foundNode = bst.findNode(75);
 
-    Assert.assertEquals(foundNode.right.key, 85);
+    assertEquals(foundNode.right.key, 85);
   }
 
   @Test
@@ -180,7 +181,7 @@ public class BinarySearchTreeTest {
     bst.insert(20, "Copenhagen");
     bst.insert(30, "Moscow");
 
-    Assert.assertFalse(bst.isBalanced(bst.root));
+    assertFalse(bst.isBalanced(bst.root));
   }
 
   @Test
@@ -190,7 +191,7 @@ public class BinarySearchTreeTest {
     bst.insert(70, "New York");
     bst.insert(85, "Seattle");
 
-    Assert.assertFalse(bst.isBalanced(bst.root));
+    assertFalse(bst.isBalanced(bst.root));
   }
 
   @Test
@@ -203,20 +204,20 @@ public class BinarySearchTreeTest {
     bst.insert(20, "Copenhagen");
     bst.insert(30, "Moscow");
 
-    Assert.assertTrue(bst.isBalanced(bst.root));
+    assertTrue(bst.isBalanced(bst.root));
   }
 
   @Test
   public void testIsBalancedOneNode() {
     bst.insert(50, "Toronto");
 
-    Assert.assertTrue(bst.isBalanced(bst.root));
+    assertTrue(bst.isBalanced(bst.root));
   }
 
   @Test
   public void testIsBalancedRoot() {
 
-    Assert.assertTrue(bst.isBalanced(bst.root));
+    assertTrue(bst.isBalanced(bst.root));
   }
 
   @Test
@@ -229,6 +230,6 @@ public class BinarySearchTreeTest {
     bst.insert(20, "Copenhagen");
     bst.insert(30, "Moscow");
 
-    Assert.assertTrue(bst.isBST(bst.root));
+    assertTrue(bst.isBST(bst.root));
   }
 }

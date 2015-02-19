@@ -1,3 +1,4 @@
+import static org.junit.Assert.*;
 import org.junit.*;
 
 public class QueueTest {
@@ -17,14 +18,14 @@ public class QueueTest {
   @Test
   public void testIsEmptyOnEmpty() {
 
-    Assert.assertTrue(q.isEmpty());
+    assertTrue(q.isEmpty());
   }
 
   @Test
   public void testEnqueueOnEmpty() {
     q.enqueue(5);
 
-    Assert.assertEquals(q.size, 1);
+    assertEquals(q.size, 1);
   }
 
   @Test
@@ -37,14 +38,14 @@ public class QueueTest {
 
     boolean isQueued = q.enqueue(0);
 
-    Assert.assertFalse(isQueued);
+    assertFalse(isQueued);
   }
 
   @Test
   public void testDequeueOnEmptyFails() {
     Integer removed = q.dequeue();
 
-    Assert.assertEquals(removed, null);
+    assertEquals(removed, null);
   }
 
 }

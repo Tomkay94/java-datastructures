@@ -20,4 +20,11 @@ public class MinHeapTest {
     assertEquals(heap.size, 0);
   }
 
+  @Test
+  public void testInsertElement() {
+    heap.insert(5);
+
+    assertEquals(heap.getMin(), 5);
+  }
+
 }

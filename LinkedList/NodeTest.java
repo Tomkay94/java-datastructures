@@ -1,3 +1,4 @@
+import static org.junit.Assert.*;
 import org.junit.*;
 
 public class NodeTest {
@@ -8,7 +9,7 @@ public class NodeTest {
     Node<Integer> afterHead = new Node<Integer>(15);
     head.appendToTail(afterHead);
 
-    Assert.assertEquals(head.next, afterHead);
+    assertEquals(head.next, afterHead);
   }
 
   @Test
@@ -20,7 +21,7 @@ public class NodeTest {
     Node<Integer> end = new Node<Integer>(30);
     head.appendToTail(end);
 
-    Assert.assertEquals(head.next.next.next.next, end);
+    assertEquals(head.next.next.next.next, end);
   }
 
   @Test
@@ -31,7 +32,7 @@ public class NodeTest {
     head.appendToTail(new Node<Integer>(15));
     head.appendToTail(new Node<Integer>(10));
 
-    Assert.assertTrue(head.isPalindrome());
+    assertTrue(head.isPalindrome());
   }
 
   @Test
@@ -41,7 +42,7 @@ public class NodeTest {
     head.appendToTail(new Node<Integer>(15));
     head.appendToTail(new Node<Integer>(10));
 
-    Assert.assertTrue(head.isPalindrome());
+    assertTrue(head.isPalindrome());
   }
 
   @Test
@@ -51,21 +52,21 @@ public class NodeTest {
     head.appendToTail(new Node<Integer>(20));
     head.appendToTail(new Node<Integer>(15));
 
-    Assert.assertFalse(head.isPalindrome());
+    assertFalse(head.isPalindrome());
   }
 
   @Test
   public void testOneNodePalindrome() {
     Node<Integer> head = new Node<Integer>(10);
 
-    Assert.assertTrue(head.isPalindrome());
+    assertTrue(head.isPalindrome());
   }
 
   @Test
   public void testOneNodeFindMedian() {
     Node<Integer> head = new Node<Integer>(10);
 
-    Assert.assertEquals(head.findMedianElement(), head);
+    assertEquals(head.findMedianElement(), head);
   }
 
   @Test
@@ -76,7 +77,7 @@ public class NodeTest {
     head.appendToTail(medianNode);
     head.appendToTail(new Node<Integer>(15));
 
-    Assert.assertEquals(head.findMedianElement(), medianNode);
+    assertEquals(head.findMedianElement(), medianNode);
   }
 
   @Test
@@ -88,14 +89,14 @@ public class NodeTest {
     head.appendToTail(new Node<Integer>(15));
     head.appendToTail(new Node<Integer>(20));
 
-    Assert.assertEquals(head.findMedianElement(), medianNode);
+    assertEquals(head.findMedianElement(), medianNode);
   }
 
   @Test
   public void testFindListLengthForOneNode() {
     Node<Integer> head = new Node<Integer>(10);
 
-    Assert.assertEquals(head.getLength(), 1);
+    assertEquals(head.getLength(), 1);
   }
 
   @Test
@@ -108,7 +109,7 @@ public class NodeTest {
     head.appendToTail(new Node<Integer>(35));
     head.appendToTail(new Node<Integer>(40));
 
-    Assert.assertEquals(head.getLength(), 7);
+    assertEquals(head.getLength(), 7);
   }
 
   @Test
@@ -116,7 +117,7 @@ public class NodeTest {
     Node<Integer> head = new Node<Integer>(10);
     head.appendToTail(head);
 
-    Assert.assertTrue(head.isCircular());
+    assertTrue(head.isCircular());
   }
 
   @Test
@@ -129,14 +130,14 @@ public class NodeTest {
     head.appendToTail(new Node<Integer>(35));
     head.appendToTail(head);
 
-    Assert.assertTrue(head.isCircular());
+    assertTrue(head.isCircular());
   }
 
   @Test
   public void testNonCircularOneNode() {
     Node<Integer> head = new Node<Integer>(10);
 
-    Assert.assertFalse(head.isCircular());
+    assertFalse(head.isCircular());
   }
 
   @Test
@@ -149,7 +150,7 @@ public class NodeTest {
 
     head = head.delete(head, head.data);
 
-    Assert.assertEquals(head, second);
+    assertEquals(head, second);
   }
 
   @Test
@@ -165,7 +166,7 @@ public class NodeTest {
 
     head = head.delete(head, last.data);
 
-    Assert.assertEquals(secondLast.next, null);
+    assertEquals(secondLast.next, null);
   }
 
   @Test
@@ -178,6 +179,6 @@ public class NodeTest {
 
     head = head.delete(head, 25);
 
-    Assert.assertEquals(head.getLength(), 4);
+    assertEquals(head.getLength(), 4);
   }
 }
