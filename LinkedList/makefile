@@ -8,10 +8,10 @@ TEST = org.junit.runner.JUnitCore
 #
 # Run the test suite
 #
-tests: Node.java NodeTest.java
+tests: Node.java LinkedListTest.java
 	$(JC) Node.java && \
-	$(JC) NodeTest.java && \
-	$(JVM) $(TEST) NodeTest
+	$(JC) LinkedListTest.java && \
+	$(JVM) $(TEST) LinkedListTest
 
 #
 # Compile the class files

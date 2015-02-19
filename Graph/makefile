@@ -8,10 +8,10 @@ TEST = org.junit.runner.JUnitCore
 #
 # Run the test suite
 #
-tests: GraphAdjacencyMatrix.java GraphAdjacencyMatrixTest.java
+tests: GraphAdjacencyMatrix.java GraphTest.java
 	$(JC) GraphAdjacencyMatrix.java && \
-	$(JC) GraphAdjacencyMatrixTest.java && \
-	$(JVM) $(TEST) GraphAdjacencyMatrixTest
+	$(JC) GraphTest.java && \
+	$(JVM) $(TEST) GraphTest
 
 #
 # Compile the class files

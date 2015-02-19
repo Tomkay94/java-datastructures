@@ -1,7 +1,7 @@
 import static org.junit.Assert.*;
 import org.junit.*;
 
-public class NodeTest {
+public class LinkedListTest {
 
   @Test
   public void testAppendToTailToOneNode() {
