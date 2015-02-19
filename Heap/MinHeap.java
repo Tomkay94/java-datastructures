@@ -4,11 +4,11 @@
 public class MinHeap {
 
   private int[] heapArray;
-  private int heapSize;
+  protected int size;
 
-  public MinHeap(int heapSize) {
-    this.heapSize = 0;
-    this.heapArray = new int[heapSize];
+  public MinHeap(int size) {
+    this.size = 0;
+    this.heapArray = new int[size];
   }
 
   protected int getMin() {
@@ -19,7 +19,7 @@ public class MinHeap {
   }
 
   protected boolean isEmpty() {
-    return this.heapSize == 0;
+    return this.size == 0;
   }
 
   protected int getLeftChildIndex(int index) {
@@ -36,9 +36,9 @@ public class MinHeap {
 
   protected boolean insert(int value) {
     if (!this.isEmpty()) {
-      heapSize++;
-      heapArray[heapSize - 1] = value;
-      siftUp(heapSize - 1);
+      size++;
+      heapArray[size - 1] = value;
+      siftUp(size - 1);
       return true;
     }
     return false;

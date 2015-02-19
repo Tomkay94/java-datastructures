@@ -67,7 +67,7 @@ public class HashMapTest {
   @Test
   public void testGetInvalidKey() {
 
-    Assert.assertEquals(hm.getKey("Copenhagen"), null);
+    Assert.assertNull(hm.getKey("Copenhagen"));
   }
 
   @Test
@@ -75,7 +75,7 @@ public class HashMapTest {
     hm.put("Toronto", 10);
     hm.delete("Toronto");
 
-    Assert.assertEquals(hm.getKey("Toronto") , null);
+    Assert.assertNull(hm.getKey("Toronto"));
   }
 
   @Test
