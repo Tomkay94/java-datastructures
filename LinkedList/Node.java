@@ -1,18 +1,21 @@
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /* Implements a single node for a linked list */
 
-public class Node {
+public class Node<T> {
 
-  Node next = null;
-  int data;
+  Node<T> next;
+  T data;
 
-  public Node(int d) {
-    this.data = d;
+  public Node(T data) {
+    this.data = data;
   }
 
   /* Appends newNode to the end of the linked list */
-  protected void appendToTail(Node tailNode) {
-    Node curr = this;
+  protected void appendToTail(Node<T> tailNode) {
+    Node<T> curr = this;
 
     while (curr.next != null) {
       curr = curr.next;
@@ -25,8 +28,8 @@ public class Node {
 
   /* Determine if a linked list is circular */
   protected boolean isCircular() {
-    Node hopOnce  = this;
-    Node hopTwice = this;
+    Node<T> hopOnce  = this;
+    Node<T> hopTwice = this;
 
     /* Accounts for non-circular linked lists of length < 3 */
     try {
@@ -56,8 +59,8 @@ public class Node {
 
   /* Iterate and display the nodes of the linked list. */
   protected void traverseList() {
-    Node curr = this;
-    Node head = this;
+    Node<T> curr = this;
+    Node<T> head = this;
 
     do {
       System.out.println(
@@ -72,8 +75,8 @@ public class Node {
 
   /* Returns the number of elements in the linked list. */
   protected int getLength() {
-    Node curr = this;
-    Node head = this;
+    Node<T> curr = this;
+    Node<T> head = this;
     int listLength = 0;
 
     do {
@@ -87,8 +90,8 @@ public class Node {
 
   /* Delete the node from linked list head with data.
   Returns the new head of the linked list. */
-  protected Node delete(Node head, int data) {
-    Node curr = head;
+  protected Node<T> delete(Node<T> head, T data) {
+    Node<T> curr = head;
 
     /* Deleting the first node, move the head over. */
     if(curr.data == data) {
@@ -106,34 +109,32 @@ public class Node {
   }
 
   /* Reverse an array of integers. */
-  private int[] _reverseIntArray(int[] intArray) {
-    int valuesMedian = (int) Math.floor(intArray.length / 2);
-    for (int i = 0; i < valuesMedian; ++i) {
-      intArray[i]                       ^= intArray[intArray.length - 1 - i];
-      intArray[intArray.length - 1 - i] ^= intArray[i];
-      intArray[i]                       ^= intArray[intArray.length - 1 - i];
+  private List<T> _reverseList(List<T> list) {
+    int last = list.size() - 1;
+    for (int i = 0; i < (list.size() / 2); ++i) {
+      Collections.swap(list, i, last - i);
     }
-    return intArray;
+    return list;
   }
 
   /* Determine if the linked list's values form a palindrome */
   protected boolean isPalindrome() {
-    int counter      = 0;
-    Node head        = this;
-    int listLength   = head.getLength();
+    int counter    = 0;
+    Node<T> head   = this;
+    int listLength = head.getLength();
 
     /* We will store the values in the first half here */
-    int[] nodeValues = new int[listLength / 2];
+    List<T> nodeValues = new ArrayList<T>(listLength / 2);
 
     /* Copy the first half of the linked list into nodeValues */
     while(counter < listLength / 2 && head != null) {
-      nodeValues[counter] = head.data;
+      nodeValues.add(head.data);
       head = head.next;
       ++counter;
     }
 
     /* Reverse the first half's values*/
-    nodeValues = _reverseIntArray(nodeValues);
+    nodeValues = _reverseList(nodeValues);
 
     /* Skip the middle odd element to enforce a same-length
     comparison on the second half of the linked list.*/
@@ -147,7 +148,7 @@ public class Node {
       counter = 0;
 
       while(head.next != null) {
-        if (head.data != nodeValues[counter]) {
+        if (head.data != nodeValues.get(counter)) {
           return false;
         }
         head = head.next;
@@ -159,9 +160,9 @@ public class Node {
   }
 
   /* Find the median element in the linked list */
-  protected Node findMedianElement() {
-    Node hopOnce  = this;
-    Node hopTwice = this;
+  protected Node<T> findMedianElement() {
+    Node<T> hopOnce  = this;
+    Node<T> hopTwice = this;
 
     while(true) {
 

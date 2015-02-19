@@ -4,8 +4,8 @@ public class NodeTest {
 
   @Test
   public void testAppendToTailToOneNode() {
-    Node head      = new Node(10);
-    Node afterHead = new Node(15);
+    Node<Integer> head = new Node<Integer>(10);
+    Node<Integer> afterHead = new Node<Integer>(15);
     head.appendToTail(afterHead);
 
     Assert.assertEquals(head.next, afterHead);
@@ -13,11 +13,11 @@ public class NodeTest {
 
   @Test
   public void testAppendToTailToManyNodes() {
-    Node head       = new Node(10);
-    head.appendToTail(new Node(15));
-    head.appendToTail(new Node(20));
-    head.appendToTail(new Node(25));
-    Node end        = new Node(30);
+    Node<Integer> head = new Node<Integer>(10);
+    head.appendToTail(new Node<Integer>(15));
+    head.appendToTail(new Node<Integer>(20));
+    head.appendToTail(new Node<Integer>(25));
+    Node<Integer> end = new Node<Integer>(30);
     head.appendToTail(end);
 
     Assert.assertEquals(head.next.next.next.next, end);
@@ -25,95 +25,95 @@ public class NodeTest {
 
   @Test
   public void testOddNodePalindrome() {
-    Node head       = new Node(10);
-    head.appendToTail(new Node(15));
-    head.appendToTail(new Node(20));
-    head.appendToTail(new Node(15));
-    head.appendToTail(new Node(10));
+    Node<Integer> head = new Node<Integer>(10);
+    head.appendToTail(new Node<Integer>(15));
+    head.appendToTail(new Node<Integer>(20));
+    head.appendToTail(new Node<Integer>(15));
+    head.appendToTail(new Node<Integer>(10));
 
     Assert.assertTrue(head.isPalindrome());
   }
 
   @Test
   public void testEvenNodePalindrome() {
-    Node head       = new Node(10);
-    head.appendToTail(new Node(15));
-    head.appendToTail(new Node(15));
-    head.appendToTail(new Node(10));
+    Node<Integer> head = new Node<Integer>(10);
+    head.appendToTail(new Node<Integer>(15));
+    head.appendToTail(new Node<Integer>(15));
+    head.appendToTail(new Node<Integer>(10));
 
     Assert.assertTrue(head.isPalindrome());
   }
 
   @Test
   public void testInvalidPalindrome() {
-    Node head       = new Node(10);
-    head.appendToTail(new Node(15));
-    head.appendToTail(new Node(20));
-    head.appendToTail(new Node(15));
+    Node<Integer> head = new Node<Integer>(10);
+    head.appendToTail(new Node<Integer>(15));
+    head.appendToTail(new Node<Integer>(20));
+    head.appendToTail(new Node<Integer>(15));
 
     Assert.assertFalse(head.isPalindrome());
   }
 
   @Test
   public void testOneNodePalindrome() {
-    Node head      = new Node(10);
+    Node<Integer> head = new Node<Integer>(10);
 
     Assert.assertTrue(head.isPalindrome());
   }
 
   @Test
   public void testOneNodeFindMedian() {
-    Node head       = new Node(10);
+    Node<Integer> head = new Node<Integer>(10);
 
     Assert.assertEquals(head.findMedianElement(), head);
   }
 
   @Test
   public void testOddNodeFindMedian() {
-    Node medianNode = new Node(10);
+    Node<Integer> medianNode = new Node<Integer>(10);
 
-    Node head       = new Node(5);
+    Node<Integer> head = new Node<Integer>(5);
     head.appendToTail(medianNode);
-    head.appendToTail(new Node(15));
+    head.appendToTail(new Node<Integer>(15));
 
     Assert.assertEquals(head.findMedianElement(), medianNode);
   }
 
   @Test
   public void testEvenNodeFindMedian() {
-    Node medianNode = new Node(10);
+    Node<Integer> medianNode = new Node<Integer>(10);
 
-    Node head       = new Node(5);
+    Node<Integer> head = new Node<Integer>(5);
     head.appendToTail(medianNode);
-    head.appendToTail(new Node(15));
-    head.appendToTail(new Node(20));
+    head.appendToTail(new Node<Integer>(15));
+    head.appendToTail(new Node<Integer>(20));
 
     Assert.assertEquals(head.findMedianElement(), medianNode);
   }
 
   @Test
   public void testFindListLengthForOneNode() {
-    Node head       = new Node(10);
+    Node<Integer> head = new Node<Integer>(10);
 
     Assert.assertEquals(head.getLength(), 1);
   }
 
   @Test
   public void testFindListLengthForManyNodes() {
-    Node head       = new Node(10);
-    head.appendToTail(new Node(15));
-    head.appendToTail(new Node(20));
-    head.appendToTail(new Node(25));
-    head.appendToTail(new Node(30));
-    head.appendToTail(new Node(35));
-    head.appendToTail(new Node(40));
+    Node<Integer> head = new Node<Integer>(10);
+    head.appendToTail(new Node<Integer>(15));
+    head.appendToTail(new Node<Integer>(20));
+    head.appendToTail(new Node<Integer>(25));
+    head.appendToTail(new Node<Integer>(30));
+    head.appendToTail(new Node<Integer>(35));
+    head.appendToTail(new Node<Integer>(40));
 
     Assert.assertEquals(head.getLength(), 7);
   }
 
   @Test
   public void testCircularListOneNode() {
-    Node head = new Node(10);
+    Node<Integer> head = new Node<Integer>(10);
     head.appendToTail(head);
 
     Assert.assertTrue(head.isCircular());
@@ -121,12 +121,12 @@ public class NodeTest {
 
   @Test
   public void testCircularListManyNodes() {
-    Node head       = new Node(10);
-    head.appendToTail(new Node(15));
-    head.appendToTail(new Node(20));
-    head.appendToTail(new Node(25));
-    head.appendToTail(new Node(30));
-    head.appendToTail(new Node(35));
+    Node<Integer> head = new Node<Integer>(10);
+    head.appendToTail(new Node<Integer>(15));
+    head.appendToTail(new Node<Integer>(20));
+    head.appendToTail(new Node<Integer>(25));
+    head.appendToTail(new Node<Integer>(30));
+    head.appendToTail(new Node<Integer>(35));
     head.appendToTail(head);
 
     Assert.assertTrue(head.isCircular());
@@ -134,18 +134,18 @@ public class NodeTest {
 
   @Test
   public void testNonCircularOneNode() {
-    Node head = new Node(10);
+    Node<Integer> head = new Node<Integer>(10);
 
     Assert.assertFalse(head.isCircular());
   }
 
   @Test
   public void testDeleteFirstNode() {
-    Node head   = new Node(10);
-    Node second = new Node(15);
+    Node<Integer> head   = new Node<Integer>(10);
+    Node<Integer> second = new Node<Integer>(15);
 
     head.appendToTail(second);
-    head.appendToTail(new Node(20));
+    head.appendToTail(new Node<Integer>(20));
 
     head = head.delete(head, head.data);
 
@@ -154,12 +154,12 @@ public class NodeTest {
 
   @Test
   public void testDeleteLastNode() {
-    Node head       = new Node(10);
-    Node secondLast = new Node(25);
-    Node last       = new Node(30);
+    Node<Integer> head = new Node<Integer>(10);
+    Node<Integer> secondLast = new Node<Integer>(25);
+    Node<Integer> last       = new Node<Integer>(30);
 
-    head.appendToTail(new Node(15));
-    head.appendToTail(new Node(20));
+    head.appendToTail(new Node<Integer>(15));
+    head.appendToTail(new Node<Integer>(20));
     head.appendToTail(secondLast);
     head.appendToTail(last);
 
@@ -170,13 +170,14 @@ public class NodeTest {
 
   @Test
   public void testDeleteNodeAffectsLength() {
-    Node head       = new Node(10);
-    head.appendToTail(new Node(15));
-    head.appendToTail(new Node(20));
-    head.appendToTail(new Node(25));
-    head.appendToTail(new Node(30));
+    Node<Integer> head = new Node<Integer>(10);
+    head.appendToTail(new Node<Integer>(15));
+    head.appendToTail(new Node<Integer>(20));
+    head.appendToTail(new Node<Integer>(25));
+    head.appendToTail(new Node<Integer>(30));
 
     head = head.delete(head, 25);
+
     Assert.assertEquals(head.getLength(), 4);
   }
 }
