@@ -4,9 +4,9 @@
 public class HashEntry {
 
   private String key;
-  private int value;
+  private Integer value;
 
-  public HashEntry(String key, int value) {
+  public HashEntry(String key, Integer value) {
     this.key = key;
     this.value = value;
   }
@@ -15,7 +15,7 @@ public class HashEntry {
     return this.key;
   }
 
-  public int getValue() {
+  public Integer getValue() {
     return this.value;
   }
 }

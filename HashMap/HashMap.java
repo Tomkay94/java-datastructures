@@ -52,8 +52,9 @@ public class HashMap {
       ) % this.size);
   }
 
-  /* Return the value hashed to by the key k */
-  protected int getKey(String k) {
+  /* Return the value hashed to by the key k.
+     Return null if the key is not found. */
+  protected Integer getKey(String k) {
     int hash = applyHashFunction(k);
 
     while (table[hash] != null && table[hash].getKey() != k) {
@@ -62,7 +63,7 @@ public class HashMap {
 
     /* The key is not in the table */
     if (table[hash] == null) {
-      return -1;
+      return null;
     }
 
     else {
@@ -71,7 +72,7 @@ public class HashMap {
   }
 
   /* Insert the entry with key k and value v */
-  protected void put(String k, int v) {
+  protected void put(String k, Integer v) {
     int hash = applyHashFunction(k);
 
     while (table[hash] != null && table[hash].getKey() != k) {
