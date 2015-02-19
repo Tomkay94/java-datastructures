@@ -8,6 +8,7 @@ public class GraphAdjacencyMatrix {
     this.adjMatrix = new boolean[numVertexes][numVertexes];
   }
 
+  /* Add an edge between i and j. */
   protected void addEdge(int i, int j) {
     if (i >= 0 && i < numVertexes && j > 0 && j < numVertexes) {
       adjMatrix[i][j] = true;
@@ -15,6 +16,7 @@ public class GraphAdjacencyMatrix {
     }
   }
 
+  /* Remove the edge between i and j. */
   protected void removeEdge(int i, int j) {
     if (i >= 0 && i < numVertexes && j > 0 && j < numVertexes) {
       adjMatrix[i][j] = false;
@@ -22,6 +24,7 @@ public class GraphAdjacencyMatrix {
     }
   }
 
+  /* Return true if there exists an edge between i and j. */
   protected boolean isEdge(int i, int j) {
     if (i >= 0 && i < numVertexes && j > 0 && j < numVertexes) {
       return adjMatrix[i][j];

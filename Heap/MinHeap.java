@@ -34,12 +34,14 @@ public class MinHeap {
     return (index - 1) / 2;
   }
 
-  protected void insert(int value) {
+  protected boolean insert(int value) {
     if (!this.isEmpty()) {
       heapSize++;
       heapArray[heapSize - 1] = value;
       siftUp(heapSize - 1);
+      return true;
     }
+    return false;
   }
 
   protected void siftUp(int index) {

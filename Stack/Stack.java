@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Stack<T> {
 
   protected int size;
-  private int capacity;
+  protected int capacity;
   private List<T> stackArray;
 
   public Stack(int capacity) {
@@ -16,17 +16,19 @@ public class Stack<T> {
     this.stackArray = new ArrayList<T>(capacity);
   }
 
-  /* Push the new item to the top of the stack. */
+  /* Push the new item to the top of the stack.
+  Return true if the item was successfully added. */
   /* Time Complexity: O(1) */
-  protected void push(T item) {
+  protected boolean push(T item) {
     if (this.size < this.capacity) {
       this.stackArray.add(item);
       this.size++;
+      return true;
     }
-    return;
+    return false;
   }
 
-  /* Pop the item off the top of the stack and return it. */
+  /* Remove the item off the top of the stack and return it. */
   /* Time Complexity: O(1) */
   protected T pop() {
     if (this.size > 0) {
@@ -37,13 +39,13 @@ public class Stack<T> {
     return null;
   }
 
-  /* Determine if the stack is empty. */
+  /* Return true if the stack is empty. */
   /* Time Complexity: O(1) */
   protected boolean isEmpty() {
     return this.size == 0;
   }
 
-  /* Determine if the stack still has space for more elements. */
+  /* Return true if the stack still has space for more elements. */
   /* Time Complexity: O(1) */
   protected boolean hasSpace() {
     return this.size < this.capacity;

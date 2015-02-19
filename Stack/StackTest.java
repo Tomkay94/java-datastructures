@@ -16,6 +16,13 @@ public class StackTest {
 
   @Test
   public void testPushOnEmpty() {
+    boolean wasAdded = cities.push("Toronto");
+
+    Assert.assertTrue(wasAdded);
+  }
+
+  @Test
+  public void testPushOnEmptySizeUpdates() {
     cities.push("Toronto");
 
     Assert.assertEquals(cities.size, 1);
@@ -30,25 +37,48 @@ public class StackTest {
     cities.push("London");
 
     /* Push past the capacity */
-    cities.push("Moscow");
+    boolean wasAdded = cities.push("Moscow");
 
-    Assert.assertEquals(cities.size, 5);
+    Assert.assertFalse(wasAdded);
   }
 
   @Test
-  public void testPushOnStack() {
+  public void testPushOnFullSizeUnchanged() {
+    cities.push("Toronto");
+    cities.push("New York");
+    cities.push("Copenhagen");
+    cities.push("Rome");
+    cities.push("London");
+
+    /* Push past the capacity, should fail. */
+    cities.push("Moscow");
+
+    Assert.assertEquals(cities.size, cities.capacity);
+  }
+
+  @Test
+  public void testPushGoesToTopOfStack() {
     cities.push("Toronto");
     cities.push("New York");
     cities.push("Copenhagen");
 
-    Assert.assertEquals(cities.size, 3);
+    String topItem = cities.pop();
+
+    Assert.assertEquals(topItem, "Copenhagen");
   }
 
   @Test
-  public void testPopOnEmpty() {
+  public void testPopOnEmptySizeUnchanged() {
     cities.pop();
 
     Assert.assertEquals(cities.size, 0);
+  }
+
+  @Test
+  public void testPopOnEmptyReturnsFalse() {
+    String poppedItem = cities.pop();
+
+    Assert.assertEquals(poppedItem, null);
   }
 
   @Test

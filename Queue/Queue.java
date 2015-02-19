@@ -16,6 +16,8 @@ public class Queue<T> {
     this.queueArray = new ArrayList<T>(capacity);
   }
 
+  /* Add the item to the top of the queue.
+  Return true if the item was successfully added.*/
   protected boolean enqueue(T item) {
     if (this.size < this.capacity) {
       this.queueArray.add(item);
@@ -25,6 +27,8 @@ public class Queue<T> {
     return false;
   }
 
+  /* Remove the item from the bottom of the queue.
+  Return the node that was removed.*/
   protected T dequeue() {
     if (!this.isEmpty()) {
       T dequeuedItem = this.queueArray.remove(0);

@@ -145,7 +145,7 @@ public class BinarySearchTree<T> {
     return true;
   }
 
-  /* Finds the node that replaces replacedNode
+  /* Return the node that replaces replacedNode
   for a binary search tree deletion. */
   private Node getReplacementNode(Node replacedNode) {
     Node replacementParent = replacedNode;
@@ -219,7 +219,7 @@ public class BinarySearchTree<T> {
     return;
   }
 
-  /* Determine if the binary tree is balanced. */
+  /* Return true if the binary tree is balanced. */
   protected boolean isBalanced(Node root) {
     if(checkHeight(root) == -1) {
       return false;
@@ -256,12 +256,12 @@ public class BinarySearchTree<T> {
     }
   }
 
-  /* Determine if a given binary tree is also a binary search tree.*/
+  /* Return true if a given binary tree is also a binary search tree.*/
   protected boolean isBST(Node root) {
     return checkBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
   }
 
-  /* Determine whether node's subtrees fulfill
+  /* Return true if all of node's subtrees fulfill
   the binary search tree properties. */
   private boolean checkBST(Node node, int MIN, int MAX) {
     if (node == null) {

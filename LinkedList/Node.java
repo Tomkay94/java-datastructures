@@ -117,7 +117,7 @@ public class Node<T> {
     return list;
   }
 
-  /* Determine if the linked list's values form a palindrome */
+  /* Return true if the linked list's values form a palindrome */
   protected boolean isPalindrome() {
     int counter    = 0;
     Node<T> head   = this;

@@ -13,7 +13,7 @@ public class HashMap {
     this.table = new HashEntry[primeSize];
   }
 
-  /* Determine if number is prime */
+  /* Return true if number is prime */
   private static boolean isPrime(int number) {
     if (number < 2) {
       return false;
@@ -41,7 +41,7 @@ public class HashMap {
     return n + 1;
   }
 
-  /* Hash and return the given key */
+  /* Return the hash of the given key */
   private int applyHashFunction(String key) {
     return (
     key.length() *
@@ -51,7 +51,7 @@ public class HashMap {
       ) % this.size);
   }
 
-  /* Get the value hashed to by the key k */
+  /* Return the value hashed to by the key k */
   protected int getKey(String k) {
     int hash = applyHashFunction(k);
 
@@ -81,7 +81,7 @@ public class HashMap {
   }
 
   /* Remove the entry with key k */
-  protected void delete(String k) {
+  protected boolean delete(String k) {
     int hash = applyHashFunction(k);
 
     while(table[hash] != null && table[hash].getKey() != k) {
@@ -90,12 +90,13 @@ public class HashMap {
 
     /* The key is not in the hash map */
     if (table[hash] == null) {
-      return;
+      return false;
     }
 
+    /* Remove the key */
     else {
       table[hash] = null;
-      return;
+      return true;
     }
   }
 
