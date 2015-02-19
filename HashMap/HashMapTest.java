@@ -29,6 +29,13 @@ public class HashMapTest {
   }
 
   @Test
+  public void testMapSizeRemainsPrimeWhenInputPrime() {
+    HashMap mapPrimeSize = new HashMap(17);
+
+    Assert.assertEquals(mapPrimeSize.size, 17);
+  }
+
+  @Test
   public void testInsertSingleKey() {
     hm.put("Toronto", 10);
 

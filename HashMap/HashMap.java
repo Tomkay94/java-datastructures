@@ -8,9 +8,10 @@ public class HashMap {
   private HashEntry[] table;
 
   public HashMap(int size) {
-    int primeSize = findNextPrime(size);
-    this.size = primeSize;
-    this.table = new HashEntry[primeSize];
+    /* Ensure that the Hash Map's size is always prime */
+    if (!isPrime(size)) { size = findNextPrime(size); }
+    this.size = size;
+    this.table = new HashEntry[size];
   }
 
   /* Return true if number is prime */
