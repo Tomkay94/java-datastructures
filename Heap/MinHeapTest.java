@@ -21,10 +21,21 @@ public class MinHeapTest {
   }
 
   @Test
-  public void testInsertElement() {
-    heap.insert(5);
+  public void testIsEmptyOnEmpty() {
 
-    assertEquals(heap.getMin(), 5);
+    assertTrue(heap.isEmpty());
   }
 
+  @Test
+  public void testIsEmptyOnNonEmpty() {
+    heap.insert(50);
+
+    assertTrue(heap.isEmpty());
+  }
+
+  @Test
+  public void testGetMinEmptyHeap() {
+
+    assertEquals(heap.getMin(), -1);
+  }
 }
