@@ -5,14 +5,15 @@
 # ################### #
 
 JVM=java
+JVC=javac
 TEST=org.junit.runner.JUnitCore
-testSuffix="Test"
+testSuffix='Test'
 
 for dir in $(ls -d */); do
   dirFile=${dir%%/*} # Remove end slash from dir
-  echo "======================="
+  echo '======================='
   echo "*** Testing: $dirFile ***"
-  echo "======================="
+  echo '======================='
   testFile="$dirFile$testSuffix"
-  cd $dir && $JVC *.java && $JVM $TEST $testFile && cd ..
+  cd $dirFile && $JVC *.java && $JVM $TEST $testFile && cd ..
 done
