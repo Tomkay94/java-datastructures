@@ -48,4 +48,17 @@ public class QueueTest {
     assertEquals(removed, null);
   }
 
+  @Test
+  public void testDequeueOnFull() {
+    q.enqueue(5);
+    q.enqueue(4);
+    q.enqueue(3);
+    q.enqueue(2);
+    q.enqueue(1);
+
+    Integer removed = q.dequeue();
+
+    assertEquals(removed, Integer.valueOf(5));
+  }
+
 }

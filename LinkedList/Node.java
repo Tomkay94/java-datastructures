@@ -108,7 +108,7 @@ public class Node<T> {
    return head;
   }
 
-  /* Reverse an array of integers. */
+  /* Reverse a list. */
   private List<T> _reverseList(List<T> list) {
     int last = list.size() - 1;
     for (int i = 0; i < (list.size() / 2); ++i) {
@@ -133,7 +133,7 @@ public class Node<T> {
       ++counter;
     }
 
-    /* Reverse the first half's values*/
+    /* Reverse the first half of the linked list's values*/
     nodeValues = _reverseList(nodeValues);
 
     /* Skip the middle odd element to enforce a same-length
