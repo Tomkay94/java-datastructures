@@ -3,7 +3,7 @@
 
 public class MinHeap {
 
-  private int[] heapArray;
+  protected int[] heapArray;
   protected int size;
 
   public MinHeap(int size) {
@@ -16,6 +16,10 @@ public class MinHeap {
       return heapArray[0];
     }
     return -1;
+  }
+
+  protected boolean isLeaf(int index) {
+    return (index > (this.size / 2)) && (index < this.size);
   }
 
   protected boolean isEmpty() {
