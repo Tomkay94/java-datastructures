@@ -16,6 +16,11 @@ public class StackTest {
   }
 
   @Test
+  public void testStackConstructor() {
+    assertEquals(cities.size, 0);
+  }
+
+  @Test
   public void testPushOnEmpty() {
     boolean wasAdded = cities.push("Toronto");
 

@@ -16,6 +16,11 @@ public class BinarySearchTreeTest {
   }
 
   @Test
+  public void testBSTConstructor() {
+    assertNull(bst.root);
+  }
+
+  @Test
   public void testFindExistingNode() {
     bst.insert(50, "Toronto");
     bst.insert(75, "New York");

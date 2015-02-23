@@ -16,6 +16,12 @@ public class HashMapTest {
   }
 
   @Test
+  public void testHashMapConstructor() {
+    assertEquals(hm.size, 7);
+    assertEquals(hm.table.length, 7);
+  }
+
+  @Test
   public void testMapSizeBecomesPrimeWhenInputEven() {
     HashMap mapEvenSize = new HashMap(4);
 

@@ -5,7 +5,7 @@
 public class HashMap {
 
   protected int size;
-  private HashEntry[] table;
+  protected HashEntry[] table;
 
   public HashMap(int size) {
     /* Ensure that the Hash Map's size is always prime */

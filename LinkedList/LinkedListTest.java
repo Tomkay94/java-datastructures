@@ -4,6 +4,14 @@ import org.junit.*;
 public class LinkedListTest {
 
   @Test
+  public void testNodeConstructor() {
+    Node<Integer> head = new Node<Integer>(10);
+
+    assertEquals(head.data, Integer.valueOf(10));
+    assertEquals(head.next, null);
+  }
+
+  @Test
   public void testAppendToTailToOneNode() {
     Node<Integer> head = new Node<Integer>(10);
     Node<Integer> afterHead = new Node<Integer>(15);

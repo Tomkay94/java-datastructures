@@ -16,6 +16,11 @@ public class QueueTest {
   }
 
   @Test
+  public void testQueueConstructor() {
+    assertEquals(q.size, 0);
+  }
+
+  @Test
   public void testIsEmptyOnEmpty() {
 
     assertTrue(q.isEmpty());
