@@ -7,7 +7,8 @@ public class DynamicArrayTest {
 
   @Before
   public void setUp() {
-    da = new DynamicArray(5);
+    /* Create an array that doubles in size when its capacity is reached. */
+    da = new DynamicArray(5, 2);
   }
 
   @After
@@ -18,7 +19,7 @@ public class DynamicArrayTest {
   @Test
   public void testDynamicArrayConstructor() {
     assertNotNull(da);
-    assertEquals(da.size, 0);
+    assertEquals(da.getSize(), 0);
   }
 
 }
