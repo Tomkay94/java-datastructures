@@ -17,7 +17,7 @@ public class StackTest {
 
   @Test
   public void testStackConstructor() {
-    assertEquals(cities.size, 0);
+    assertEquals(cities.getSize(), 0);
   }
 
   @Test
@@ -31,7 +31,7 @@ public class StackTest {
   public void testPushOnEmptySizeUpdates() {
     cities.push("Toronto");
 
-    assertEquals(cities.size, 1);
+    assertEquals(cities.getSize(), 1);
   }
 
   @Test
@@ -59,7 +59,7 @@ public class StackTest {
     /* Push past the capacity, should fail. */
     cities.push("Moscow");
 
-    assertEquals(cities.size, cities.capacity);
+    assertEquals(cities.getSize(), cities.getCapacity());
   }
 
   @Test
@@ -77,7 +77,7 @@ public class StackTest {
   public void testPopOnEmptySizeUnchanged() {
     cities.pop();
 
-    assertEquals(cities.size, 0);
+    assertEquals(cities.getSize(), 0);
   }
 
   @Test
@@ -96,7 +96,7 @@ public class StackTest {
     cities.push("London");
     cities.pop();
 
-    assertEquals(cities.size, 4);
+    assertEquals(cities.getSize(), 4);
   }
 
   @Test
@@ -124,7 +124,7 @@ public class StackTest {
     cities.push("New York");
     cities.pop();
 
-    assertEquals(cities.size, 1);
+    assertEquals(cities.getSize(), 1);
   }
 
   @Test

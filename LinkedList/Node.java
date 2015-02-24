@@ -6,8 +6,8 @@ import java.util.Collections;
 
 public class Node<T> {
 
-  Node<T> next;
-  T data;
+  protected Node<T> next;
+  protected T data;
 
   public Node(T data) {
     this.data = data;

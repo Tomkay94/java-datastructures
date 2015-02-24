@@ -17,8 +17,8 @@ public class MinHeapTest {
 
   @Test
   public void testHeapConstructor() {
-    assertEquals(heap.size, 0);
-    assertNotNull(heap.heapArray);
+    assertEquals(heap.getSize(), 0);
+    assertNotNull(heap.getHeapArray());
   }
 
   @Test

@@ -4,8 +4,8 @@
 
 public class HashMap {
 
-  protected int size;
-  protected HashEntry[] table;
+  private int size;
+  private HashEntry[] table;
 
   public HashMap(int size) {
     /* Ensure that the Hash Map's size is always prime */
@@ -100,6 +100,14 @@ public class HashMap {
       table[hash] = null;
       return true;
     }
+  }
+
+  protected HashEntry[] getTable() {
+    return this.table;
+  }
+
+  protected int getSize() {
+    return this.size;
   }
 
 }

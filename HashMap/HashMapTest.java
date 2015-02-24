@@ -17,29 +17,29 @@ public class HashMapTest {
 
   @Test
   public void testHashMapConstructor() {
-    assertEquals(hm.size, 7);
-    assertEquals(hm.table.length, 7);
+    assertEquals(hm.getSize(), 7);
+    assertEquals(hm.getTable().length, 7);
   }
 
   @Test
   public void testMapSizeBecomesPrimeWhenInputEven() {
     HashMap mapEvenSize = new HashMap(4);
 
-    assertEquals(mapEvenSize.size, 5);
+    assertEquals(mapEvenSize.getSize(), 5);
   }
 
   @Test
   public void testMapSizeBecomesPrimeWhenInputOdd() {
     HashMap mapOddSize = new HashMap(15);
 
-    assertEquals(mapOddSize.size, 17);
+    assertEquals(mapOddSize.getSize(), 17);
   }
 
   @Test
   public void testMapSizeRemainsPrimeWhenInputPrime() {
     HashMap mapPrimeSize = new HashMap(17);
 
-    assertEquals(mapPrimeSize.size, 17);
+    assertEquals(mapPrimeSize.getSize(), 17);
   }
 
   @Test

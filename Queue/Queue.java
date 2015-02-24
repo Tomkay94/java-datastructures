@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Queue<T> {
 
-  protected int size;
+  private int size;
   private int capacity;
   private List<T> queueArray;
 
@@ -49,5 +49,9 @@ public class Queue<T> {
       }
     }
     return;
+  }
+
+  protected int getSize() {
+    return this.size;
   }
 }

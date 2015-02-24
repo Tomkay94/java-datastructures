@@ -3,7 +3,7 @@
 
 public class BinarySearchTree<T> {
 
-  protected Node root;
+  private Node root;
 
   public BinarySearchTree() {
     root = null;
@@ -277,5 +277,9 @@ public class BinarySearchTree<T> {
         else {
           return false;
         }
+  }
+
+  protected Node getRoot() {
+    return this.root;
   }
 }

@@ -17,7 +17,7 @@ public class QueueTest {
 
   @Test
   public void testQueueConstructor() {
-    assertEquals(q.size, 0);
+    assertEquals(q.getSize(), 0);
   }
 
   @Test
@@ -30,7 +30,7 @@ public class QueueTest {
   public void testEnqueueOnEmpty() {
     q.enqueue(5);
 
-    assertEquals(q.size, 1);
+    assertEquals(q.getSize(), 1);
   }
 
   @Test

@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class Stack<T> {
 
-  protected int size;
-  protected int capacity;
+  private int size;
+  private int capacity;
   private List<T> stackArray;
 
   public Stack(int capacity) {
@@ -70,4 +70,11 @@ public class Stack<T> {
     }
   }
 
+  protected int getSize() {
+    return this.size;
+  }
+
+  protected int getCapacity() {
+    return this.capacity;
+  }
 }

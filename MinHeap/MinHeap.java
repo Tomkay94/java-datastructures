@@ -3,8 +3,8 @@
 
 public class MinHeap {
 
-  protected int[] heapArray;
-  protected int size;
+  private int[] heapArray;
+  private int size;
 
   public MinHeap(int size) {
     this.size = 0;
@@ -59,6 +59,14 @@ public class MinHeap {
         siftUp(parentIndex);
       }
     }
+  }
+
+  protected int[] getHeapArray() {
+    return this.heapArray;
+  }
+
+  protected int getSize() {
+    return this.size;
   }
 
 }
