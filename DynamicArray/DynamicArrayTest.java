@@ -7,7 +7,7 @@ public class DynamicArrayTest {
 
   @Before
   public void setUp() {
-    da = new DynamicArray<Integer>(5);
+    da = new DynamicArray(5);
   }
 
   @After
@@ -17,7 +17,8 @@ public class DynamicArrayTest {
 
   @Test
   public void testDynamicArrayConstructor() {
-
+    assertNotNull(da);
+    assertEquals(da.size, 0);
   }
 
 }

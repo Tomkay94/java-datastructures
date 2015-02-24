@@ -1,9 +1,11 @@
 public class DynamicArray {
 
-  private int size;
+  protected int size;
+  private int[] growingArray;
 
-  public void DynamicArray(int size) {
+  public DynamicArray(int size) {
     this.size = 0;
+    this.growingArray = new int[size];
   }
 
 }
