@@ -14,7 +14,7 @@ public class DynamicArray {
 
   /* Copy the elements of the current array into a larger array.
      Return the new larger array. */
-  private int[] resizeArray() {
+  private int[] resizeAndFillArray() {
     int newCapacity = capacity * resizeFactor;
     int[] grownArray = new int[newCapacity];
     for (int i = 0; i < this.size; ++i) {
@@ -28,7 +28,7 @@ public class DynamicArray {
   protected void insert(int item) {
     /* The current array is full, resize it. */
     if (this.size == this.capacity) {
-      this.growingArray = resizeArray();
+      this.growingArray = resizeAndFillArray();
     }
     this.growingArray[size] = item;
     this.size++;
