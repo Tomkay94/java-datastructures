@@ -14,7 +14,7 @@ public class MinHeap {
   /* Return the root of the heap without removing it.
      Return -1 if the heap is empty. */
   protected int getMin() {
-    return (!this.isEmpty() ? this.heapArray[0] : -1);
+    return ( !this.isEmpty() ? this.heapArray[0] : -1 );
   }
 
   /* Return true if the given index is a leaf in the heap. */
@@ -24,23 +24,23 @@ public class MinHeap {
 
   /* Return true if the heap has no elements. */
   protected boolean isEmpty() {
-    return this.size == 0;
+    return (this.size == 0);
   }
 
   /* Return the left child index of index. */
   protected int getLeftChildIndex(int index) {
-    return 2 * index + 1;
+    return (2 * index + 1);
   }
 
   /* Return the right child index of index. */
   protected int getRightChildIndex(int index) {
-    return 2 * index + 2;
+    return (2 * index + 2);
   }
 
   /* Return the parent index of index.
      Return -1 if the index is the root. */
   protected int getParentIndex(int index)  {
-    return ((index > 0) ? ((index - 1) / 2) : -1);
+    return ( (index > 0) ? ((index - 1) / 2) : -1 );
   }
 
   /* Insert an element with value into the heap. */
@@ -60,12 +60,18 @@ public class MinHeap {
     int parentIndex;
     int tmp;
 
+    /* Stop when the heap root is reached. */
     if (index != 0) {
       parentIndex = this.getParentIndex(index);
+
+      /* The min-heap property is violated */
       if (this.heapArray[parentIndex] > this.heapArray[index]) {
+
+        /* Swap the elements */
         tmp = this.heapArray[parentIndex];
         this.heapArray[parentIndex] = this.heapArray[index];
         this.heapArray[index] = tmp;
+
         this.siftUp(parentIndex);
       }
     }
