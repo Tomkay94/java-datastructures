@@ -93,4 +93,59 @@ public class DynamicArrayTest {
     assertEquals(da.getCapacity(), 3);
     assertFalse(da.hasElement(100));
   }
+
+  @Test
+  public void testGetSizeOnSingleElementArray() {
+    da.insert(10);
+
+    assertEquals(da.getElementByIndex(da.getSize() - 1), Integer.valueOf(10));
+    assertEquals(da.getElementByIndex(0), Integer.valueOf(10));
+  }
+
+  @Test
+  public void testGetSizeDetectsLastElement() {
+    da.insert(10);
+    da.insert(100);
+    da.insert(1000);
+    da.insert(10000);
+    da.insert(100000);
+
+    assertEquals(da.getElementByIndex(da.getSize() - 1), Integer.valueOf(100000));
+  }
+
+  @Test
+  public void testGetSizeDetectsArbitraryElement() {
+    da.insert(10);
+    da.insert(100);
+    da.insert(1000);
+    da.insert(10000);
+
+    assertEquals(da.getElementByIndex(2), Integer.valueOf(1000));
+  }
+
+  @Test
+  public void testHasElementOnNonExistingItem() {
+    da.insert(10);
+    da.insert(100);
+    da.insert(1000);
+    da.insert(10000);
+
+    assertFalse(da.hasElement(500));
+  }
+
+  @Test
+  public void testHasElementOnExistingItem() {
+    da.insert(10);
+    da.insert(100);
+    da.insert(1000);
+    da.insert(10000);
+
+    assertTrue(da.hasElement(1000));
+  }
+
+  @Test
+  public void testHasElementOnEmptyArray() {
+
+    assertFalse(da.hasElement(1000));
+  }
 }

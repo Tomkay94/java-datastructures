@@ -47,6 +47,16 @@ public class DynamicArray {
     return removed;
   }
 
+  /* Return true if the element exists in the array */
+  protected boolean hasElement(Integer element) {
+    for (int i = 0; i < this.getSize(); ++i) {
+      if (this.growingArray[i].equals(element.intValue())) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   /* Return the number of elements in the dynamic array. */
   protected int getSize() {
     return this.size;
@@ -62,18 +72,14 @@ public class DynamicArray {
     return this.resizeFactor;
   }
 
+  /* Return the element at the index. */
+  protected Integer getElementByIndex(int index) {
+    return this.growingArray[index];
+  }
+
   /* Update the resize factor for the dynamic array. */
   protected void setResizeFactor(int newFactor) {
     this.resizeFactor = newFactor;
-  }
-
-  protected boolean hasElement(Integer element) {
-    for (int i = 0; i < this.getSize(); ++i) {
-      if (this.growingArray[i].equals(element.intValue())) {
-        return true;
-      }
-    }
-    return false;
   }
 
   protected void show() {
