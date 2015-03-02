@@ -3,23 +3,26 @@ public class DynamicArray {
   private int size;
   private int capacity;
   private int resizeFactor;
-  private int[] growingArray;
+  private Integer[] growingArray;
 
   public DynamicArray(int capacity, int resizeFactor) {
     this.size = 0;
     this.capacity = capacity;
     this.resizeFactor = resizeFactor;
-    this.growingArray = new int[capacity];
+    this.growingArray = new Integer[capacity];
   }
 
   /* Copy the elements of the current array into a larger array.
      Return the new larger array. */
-  private int[] resizeAndFillArray() {
+  private Integer[] resizeAndPopulateArray() {
     int newCapacity = capacity * resizeFactor;
-    int[] grownArray = new int[newCapacity];
+    Integer[] grownArray = new Integer[newCapacity];
+
+    /* Insert the old array's elements into the new larger array. */
     for (int i = 0; i < this.size; ++i) {
       grownArray[i] = this.growingArray[i];
     }
+
     this.capacity = newCapacity;
     return grownArray;
   }
@@ -28,16 +31,18 @@ public class DynamicArray {
   protected void insert(int item) {
     /* The current array is full, resize it. */
     if (this.size == this.capacity) {
-      this.growingArray = resizeAndFillArray();
+      this.growingArray = resizeAndPopulateArray();
     }
-    this.growingArray[this.size++] = item;
+
+    this.growingArray[this.size] = item;
+    ++this.size;
     return;
   }
 
   /* Remove the item at index from the array. */
-  protected int remove(int index) {
-    int removed = this.growingArray[index];
-    this.growingArray[index] = -1;
+  protected Integer remove(int index) {
+    Integer removed = this.growingArray[index];
+    this.growingArray[index] = null;
     --this.size;
     return removed;
   }
@@ -60,6 +65,15 @@ public class DynamicArray {
   /* Update the resize factor for the dynamic array. */
   protected void setResizeFactor(int newFactor) {
     this.resizeFactor = newFactor;
+  }
+
+  protected boolean hasElement(Integer element) {
+    for (int i = 0; i < this.getSize(); ++i) {
+      if (this.growingArray[i].equals(element.intValue())) {
+        return true;
+      }
+    }
+    return false;
   }
 
   protected void show() {
