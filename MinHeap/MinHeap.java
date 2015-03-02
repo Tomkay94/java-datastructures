@@ -11,12 +11,10 @@ public class MinHeap {
     this.heapArray = new int[size];
   }
 
-  /* Return the root of the heap without removing it. */
+  /* Return the root of the heap without removing it.
+     Return -1 if the heap is empty. */
   protected int getMin() {
-    if (!this.isEmpty()) {
-      return this.heapArray[0];
-    }
-    return -1;
+    return (!this.isEmpty() ? this.heapArray[0] : -1);
   }
 
   /* Return true if the given index is a leaf in the heap. */
@@ -42,18 +40,15 @@ public class MinHeap {
   /* Return the parent index of index.
      Return -1 if the index is the root. */
   protected int getParentIndex(int index)  {
-    if (index > 0) {
-      return (index - 1) / 2;
-    }
-    return -1;
+    return ((index > 0) ? ((index - 1) / 2) : -1);
   }
 
   /* Insert an element with value into the heap. */
   protected boolean insert(int value) {
     if (this.size < this.heapArray.length) {
       ++this.size;
-      this.heapArray[size - 1] = value;
-      this.siftUp(size - 1);
+      this.heapArray[this.size - 1] = value;
+      this.siftUp(this.size - 1);
       return true;
     }
     return false;
