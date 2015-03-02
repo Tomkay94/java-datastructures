@@ -8,8 +8,8 @@ public class DynamicArray {
   public DynamicArray(int capacity, int resizeFactor) {
     this.size = 0;
     this.capacity = capacity;
-    this.resizeFactor = 0;
-    this.growingArray = new int[size];
+    this.resizeFactor = resizeFactor;
+    this.growingArray = new int[capacity];
   }
 
   /* Copy the elements of the current array into a larger array.
@@ -30,8 +30,7 @@ public class DynamicArray {
     if (this.size == this.capacity) {
       this.growingArray = resizeAndFillArray();
     }
-    this.growingArray[size] = item;
-    this.size++;
+    this.growingArray[this.size++] = item;
     return;
   }
 
@@ -39,7 +38,7 @@ public class DynamicArray {
   protected int remove(int index) {
     int removed = this.growingArray[index];
     this.growingArray[index] = -1;
-    this.size--;
+    --this.size;
     return removed;
   }
 
@@ -61,6 +60,12 @@ public class DynamicArray {
   /* Update the resize factor for the dynamic array. */
   protected void setResizeFactor(int newFactor) {
     this.resizeFactor = newFactor;
+  }
+
+  protected void show() {
+    for(int i = 0; i < this.size; ++i) {
+      System.out.println("Array at index [" + i + "] is: " + this.growingArray[i]);
+    }
   }
 
 }
