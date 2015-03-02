@@ -23,7 +23,7 @@ public class DynamicArrayTest {
   }
 
   @Test
-  public void testArrayExpandsToFactor() {
+  public void testArrayResizesToFactor() {
     da.insert(10);
     da.insert(100);
     da.insert(1000);
@@ -38,11 +38,31 @@ public class DynamicArrayTest {
   }
 
   @Test
-  public void testArrayDoesNotExpand() {
+  public void testArrayDoesNotResize() {
     da.insert(10);
     da.insert(100);
     assertEquals(da.getCapacity(), 3);
   }
+
+  @Test
+  public void testArrayDoesNotResizeTwice() {
+    /* Resize the array once by overflowing it. */
+    da.insert(10);
+    da.insert(100);
+    da.insert(1000);
+    da.insert(10000);
+
+    /* Remove elements to decrease to its previous size. */
+    da.removeAtIndex(2);
+    da.removeAtIndex(3);
+
+    /* Insert again to attempt to prompt resize. */
+    da.insert(1000);
+    da.insert(100);
+
+    assertEquals(da.getCapacity(), 6);
+  }
+
 
   @Test
   public void testInsertUpdatesSize() {
@@ -77,7 +97,7 @@ public class DynamicArrayTest {
     da.insert(10);
     da.insert(100);
 
-    da.remove(1);
+    da.removeAtIndex(1);
     assertEquals(da.getSize(), 1);
     assertEquals(da.getCapacity(), 3);
   }
@@ -87,7 +107,7 @@ public class DynamicArrayTest {
     da.insert(10);
     da.insert(100);
 
-    Integer elementRemoved = da.remove(1);
+    Integer elementRemoved = da.removeAtIndex(1);
     assertEquals(elementRemoved, Integer.valueOf(100));
     assertEquals(da.getSize(), 1);
     assertEquals(da.getCapacity(), 3);

@@ -40,7 +40,7 @@ public class DynamicArray {
   }
 
   /* Remove the item at index from the array. */
-  protected Integer remove(int index) {
+  protected Integer removeAtIndex(int index) {
     Integer removed = this.growingArray[index];
     this.growingArray[index] = null;
     --this.size;
