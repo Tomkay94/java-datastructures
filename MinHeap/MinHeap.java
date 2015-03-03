@@ -54,8 +54,8 @@ public class MinHeap {
     return false;
   }
 
-  /* Traverse up the heap and swap elements which do not fulfill the
-     min-heap property. */
+  /* Traverse up the heap and swap elements which
+     do not fulfill the min-heap property. */
   protected void siftUp(int index) {
     int parentIndex;
     int tmp;
@@ -92,4 +92,8 @@ public class MinHeap {
     return this.size;
   }
 
+  /* Display the heap's structure. */
+  protected void displayHeap() {
+
+  }
 }

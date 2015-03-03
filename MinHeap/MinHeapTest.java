@@ -24,6 +24,7 @@ public class MinHeapTest {
   @Test
   public void testIsEmptyOnEmpty() {
 
+    assertEquals(heap.getSize(), 0);
     assertTrue(heap.isEmpty());
   }
 
@@ -31,12 +32,14 @@ public class MinHeapTest {
   public void testIsEmptyOnNonEmpty() {
     heap.insert(5);
 
+    assertTrue(heap.getSize() > 0);
     assertFalse(heap.isEmpty());
   }
 
   @Test
   public void testGetMinEmptyHeap() {
 
+    assertTrue(heap.isEmpty());
     assertEquals(heap.getMin(), -1);
   }
 
@@ -77,7 +80,10 @@ public class MinHeapTest {
     heap.insert(500);
     heap.insert(5000);
 
-    assertEquals(heap.getElementByIndex(heap.getLeftChildIndex(0)), 50);
+    assertEquals(
+      heap.getElementByIndex(heap.getLeftChildIndex(0))
+      , 50
+    );
   }
 
   @Test
@@ -87,7 +93,10 @@ public class MinHeapTest {
     heap.insert(500);
     heap.insert(5000);
 
-    assertEquals(heap.getElementByIndex(heap.getRightChildIndex(0)), 500);
+    assertEquals(
+      heap.getElementByIndex(heap.getRightChildIndex(0))
+      , 500
+    );
   }
 
   @Test
@@ -97,6 +106,9 @@ public class MinHeapTest {
     heap.insert(500);
     heap.insert(5000);
 
-    assertEquals(heap.getElementByIndex(heap.getParentIndex(2)), 5);
+    assertEquals(
+      heap.getElementByIndex(heap.getParentIndex(2))
+      , 5
+    );
   }
 }
