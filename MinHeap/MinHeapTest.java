@@ -7,7 +7,7 @@ public class MinHeapTest {
 
   @Before
   public void setUp() {
-    heap = new MinHeap(5);
+    heap = new MinHeap(4);
   }
 
   @After

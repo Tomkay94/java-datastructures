@@ -91,9 +91,5 @@ public class MinHeap {
   protected int getSize() {
     return this.size;
   }
-
-  /* Display the heap's structure. */
-  protected void displayHeap() {
-
-  }
+  
 }
