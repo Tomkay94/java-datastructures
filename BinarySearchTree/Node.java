@@ -17,6 +17,6 @@ public class Node<T> {
 
   @Override
   public String toString() {
-    return this.key + " has data: " + this.data;
+    return ("Key: " + this.key + "| Data: " + this.data);
   }
 }

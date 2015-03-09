@@ -22,7 +22,7 @@ public class Stack<T> {
   protected boolean push(T item) {
     if (this.size < this.capacity) {
       this.stackArray.add(item);
-      this.size++;
+      ++this.size;
       return true;
     }
     return false;

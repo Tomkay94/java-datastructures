@@ -21,7 +21,7 @@ public class Queue<T> {
   protected boolean enqueue(T item) {
     if (this.size < this.capacity) {
       this.queueArray.add(item);
-      this.size++;
+      ++this.size;
       return true;
     }
     return false;

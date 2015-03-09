@@ -68,9 +68,9 @@ public class MinHeap {
       if (this.heapArray[parentIndex] > this.heapArray[index]) {
 
         /* Swap the elements */
-        tmp = this.heapArray[parentIndex];
+        tmp                         = this.heapArray[parentIndex];
         this.heapArray[parentIndex] = this.heapArray[index];
-        this.heapArray[index] = tmp;
+        this.heapArray[index]       = tmp;
 
         this.siftUp(parentIndex);
       }
@@ -91,5 +91,5 @@ public class MinHeap {
   protected int getSize() {
     return this.size;
   }
-  
+
 }
