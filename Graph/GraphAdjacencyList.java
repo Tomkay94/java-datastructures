@@ -26,19 +26,26 @@ class GraphAdjacencyList<T> {
     return;
   }
 
+  /* Add an edge from firstNode and secondNode, and
+     add another edge from secondNode to firstNode. */
+  protected void addUndirectedEdge(T firstNode, T secondNode) {
+    return;
+  }
+
   /* Remove the edge from firstNode to secondNode. */
   protected void removeDirectedEdge(T firstNode, T secondNode) {
     return;
   }
 
-  /* Remove the edge between both firstNode and secondNode. */
+  /* Remove the edge from firstNode and secondNode, and
+     remove the edge from secondNode to firstNode. */
   protected void removeUndirectedEdge(T firstNode, T secondNode) {
     return;
   }
 
   /* Finds the linked list starting with node value findData. */
   private Node getNode(T findData) {
-    Node current = this;
+    Node current = this.adjacencyList.get(0);
 
     while(current.data != findData) {
       current = current.next;

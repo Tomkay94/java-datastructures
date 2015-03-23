@@ -3,8 +3,8 @@
 
 class Node<T> {
 
-  private Node<T> next;
-  private T data;
+  protected Node<T> next;
+  protected T data;
 
   public Node (T value) {
     this.data = data;
@@ -23,11 +23,4 @@ class Node<T> {
     return;
   }
 
-  protected void setData(T newData) {
-    this.data = newData;
-  }
-
-  protected T getData() {
-    return this.data;
-  }
 }

@@ -4,12 +4,12 @@ import org.junit.*;
 public class GraphTest {
 
   GraphAdjacencyMatrix adjMat;
-  GraphAdjacencyList adjList;
+  GraphAdjacencyList   adjList;
 
   @Before
   public void setUp() {
     adjMat  = new GraphAdjacencyMatrix(5);
-    adjList = new GraphAdjacencyList<String>();
+    adjList = new GraphAdjacencyList<String>(5);
   }
 
   @After
