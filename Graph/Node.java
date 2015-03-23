@@ -23,4 +23,23 @@ class Node<T> {
     return;
   }
 
+  /* Remove the node with data and return the new head node. */
+  protected Node<T> delete(Node<T> head, T data) {
+    /* Deleting the first node, move the head over. */
+    if (this.data == data) {
+      return head.next;
+    }
+
+    Node<T> curr = head;
+
+    while(curr.next != null) {
+      if (curr.next.data == data) {
+        curr.next = curr.next.next;
+        return curr;
+      }
+      curr = curr.next;
+    }
+
+    return head;
+  }
 }
