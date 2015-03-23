@@ -43,14 +43,8 @@ class GraphAdjacencyList<T> {
     return;
   }
 
-  /* Finds the linked list starting with node value findData. */
-  private Node getNode(T findData) {
-    Node current = this.adjacencyList.get(0);
-
-    while(current.data != findData) {
-      current = current.next;
-    }
-
-    return current;
+  /* Return the head node of the linked list at index. */
+  private Node getNodeAtIndex(int index) {
+    return this.adjacencyList.get(index);
   }
 }
