@@ -26,6 +26,16 @@ class GraphAdjacencyList<T> {
     return;
   }
 
+  /* Remove the edge from firstNode to secondNode. */
+  protected void removeDirectedEdge(T firstNode, T secondNode) {
+    return;
+  }
+
+  /* Remove the edge between both firstNode and secondNode. */
+  protected void removeUndirectedEdge(T firstNode, T secondNode) {
+    return;
+  }
+
   /* Finds the linked list starting with node value findData. */
   private Node getNode(T findData) {
     Node current = this;
