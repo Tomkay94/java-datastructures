@@ -13,7 +13,7 @@ public class LinkedListTest {
 
   @Test
   public void testAppendToTailToOneNode() {
-    Node<Integer> head = new Node<Integer>(10);
+    Node<Integer> head      = new Node<Integer>(10);
     Node<Integer> afterHead = new Node<Integer>(15);
     head.appendToTail(afterHead);
 
@@ -163,7 +163,7 @@ public class LinkedListTest {
 
   @Test
   public void testDeleteLastNode() {
-    Node<Integer> head = new Node<Integer>(10);
+    Node<Integer> head       = new Node<Integer>(10);
     Node<Integer> secondLast = new Node<Integer>(25);
     Node<Integer> last       = new Node<Integer>(30);
 

@@ -1,12 +1,12 @@
 
 /* Implements a node in a linked list for GraphAdjacencyList */
 
-class Node<T> {
+public class Node<T> {
 
-  protected Node<T> next;
   protected T data;
+  protected Node<T> next;
 
-  public Node (T value) {
+  public Node (T data) {
     this.data = data;
     this.next = null;
   }
