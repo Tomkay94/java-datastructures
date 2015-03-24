@@ -3,11 +3,11 @@ import java.util.ArrayList;
 
 /* Implements an adjacency list using linked lists. */
 
-class GraphAdjacencyList<T> {
+class AdjacencyList<T> {
 
   private List<Node<T>> adjacencyList;
 
-  public GraphAdjacencyList(int size) {
+  public AdjacencyList(int size) {
     this.adjacencyList = new ArrayList<Node<T>>(size);
   }
 

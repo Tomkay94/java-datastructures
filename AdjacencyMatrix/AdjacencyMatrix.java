@@ -1,9 +1,9 @@
-public class GraphAdjacencyMatrix {
+public class AdjacencyMatrix {
 
   private boolean[][] adjMatrix;
   private int numVertexes;
 
-  public GraphAdjacencyMatrix(int numVertexes) {
+  public AdjacencyMatrix(int numVertexes) {
     this.numVertexes = numVertexes;
     this.adjMatrix = new boolean[numVertexes][numVertexes];
   }

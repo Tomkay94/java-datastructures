@@ -1,26 +1,18 @@
 import static org.junit.Assert.*;
 import org.junit.*;
 
-public class GraphTest {
+public class AdjacencyListTest {
 
-  GraphAdjacencyMatrix adjMat;
-  GraphAdjacencyList   adjList;
+  AdjacencyList adjList;
 
   @Before
   public void setUp() {
-    adjMat  = new GraphAdjacencyMatrix(5);
-    adjList = new GraphAdjacencyList<Integer>(5);
+    adjList = new AdjacencyList<Integer>(5);
   }
 
   @After
   public void tearDown() {
-    adjMat  = null;
     adjList = null;
-  }
-
-  @Test
-  public void testAdjMatrixConstructor() {
-    assertNotNull(adjMat);
   }
 
   @Test
