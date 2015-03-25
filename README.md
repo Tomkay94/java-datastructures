@@ -14,6 +14,11 @@ To run all tests for a certain data structure:
  - run `make tests`.
 
 ##### For _All_ Data Structures
+
+Before you run all tests for the first time, you must first globally install
+`shelljs`, a test script dependency. To do so, run:
+- `npm install -g shelljs`
+
 To run all tests for _all_ data structures:
  - `cd` to the root of the repo folder
- - run `source runTests.sh`.
+ - run `shjs runTests.js`.
