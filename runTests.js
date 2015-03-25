@@ -1,11 +1,11 @@
-require('shelljs/global');
+require('./lib/shelljs/global.js');
 
 // ################### //
 // Run all test suites //
 // ################### //
 
 const
-  OMITTED_DIRS = ['node_modules'];
+  OMITTED_DIRS = ['lib'];
 
 (function main() {
   ls('.').forEach(function(dir) {
