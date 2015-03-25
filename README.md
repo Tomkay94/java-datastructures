@@ -10,15 +10,10 @@ Before running these tests, you must first open a terminal and clone the repo:
 
 ##### For A _Specific_ Data Structure
 To run all tests for a certain data structure:
- - `cd` to the specific data structure's folder
+ - `cd` to the specific data structure's folder.
  - run `make tests`.
 
 ##### For _All_ Data Structures
-
-Before you run all tests for the first time, you must first globally install
-`shelljs`, a test script dependency. To do so, run:
-- `npm install -g shelljs`
-
 To run all tests for _all_ data structures:
- - `cd` to the root of the repo folder
- - run `shjs runTests.js`.
+ - `cd` to the root of the repo folder.
+ - run `source makeTests.sh`.
