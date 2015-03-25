@@ -1,4 +1,5 @@
-require('./lib/shelljs/global.js');
+#!/usr/bin/env node
+require('./lib/node_modules/shelljs/global.js');
 
 // ################### //
 // Run all test suites //
