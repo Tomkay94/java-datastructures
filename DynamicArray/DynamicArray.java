@@ -3,20 +3,20 @@ public class DynamicArray {
   private int size;
   private int capacity;
   private int resizeFactor;
-  private Integer[] growingArray;
+  private int[] growingArray;
 
   public DynamicArray(int capacity, int resizeFactor) {
     this.size = 0;
     this.capacity = capacity;
     this.resizeFactor = resizeFactor;
-    this.growingArray = new Integer[capacity];
+    this.growingArray = new int[capacity];
   }
 
   /* Copy the elements of the current array into a larger array.
      Return the new larger array. */
-  private Integer[] resizeAndPopulateArray() {
+  private int[] resizeAndPopulateArray() {
     int newCapacity = capacity * resizeFactor;
-    Integer[] grownArray = new Integer[newCapacity];
+    int[] grownArray = new int[newCapacity];
 
     /* Insert the old array's elements into the new larger array. */
     for (int i = 0; i < this.size; ++i) {
@@ -40,17 +40,37 @@ public class DynamicArray {
   }
 
   /* Remove the item at index from the array. */
-  protected Integer removeAtIndex(int index) {
-    Integer removed = this.growingArray[index];
-    this.growingArray[index] = null;
+  protected int removeAtIndex(int index) {
+    /* Copy the array from the remove index to the end. */
+    int[] copiedElements = new int[this.getSize() - index - 1];
+
+    for (int i = index + 1, j = 0; i < this.getSize(); ++i, ++j) {
+      copiedElements[j] = this.growingArray[i];
+    }
+
+    /* Remove the element by copying over it's index. */
+    int[] updatedArray = new int[this.getCapacity()];
     --this.size;
-    return removed;
+
+    for (int i = 0, j = 0; i < this.getSize(); ++i) {
+      if (i < index) {
+        updatedArray[i] = this.growingArray[i];
+      }
+      else {
+        updatedArray[i] = copiedElements[j];
+        ++j;
+      }
+    }
+
+    int removedElement = this.growingArray[index];
+    this.growingArray = updatedArray;
+    return removedElement;
   }
 
   /* Return true if the element exists in the array */
-  protected boolean hasElement(Integer element) {
+  protected boolean hasElement(int element) {
     for (int i = 0; i < this.getSize(); ++i) {
-      if (this.growingArray[i].equals(element.intValue())) {
+      if (this.growingArray[i] == element) {
         return true;
       }
     }
@@ -73,7 +93,7 @@ public class DynamicArray {
   }
 
   /* Return the element at the index. */
-  protected Integer getElementByIndex(int index) {
+  protected int getElementByIndex(int index) {
     return this.growingArray[index];
   }
 
@@ -83,9 +103,8 @@ public class DynamicArray {
   }
 
   protected void show() {
-    for(int i = 0; i < this.size; ++i) {
+    for(int i = 0; i < this.getSize(); ++i) {
       System.out.println("Array at index [" + i + "] is: " + this.growingArray[i]);
     }
   }
-
 }

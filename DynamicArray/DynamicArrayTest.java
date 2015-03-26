@@ -54,13 +54,14 @@ public class DynamicArrayTest {
 
     /* Remove elements to decrease to its previous size. */
     da.removeAtIndex(2);
-    da.removeAtIndex(3);
+    da.removeAtIndex(1);
 
     /* Insert again to attempt to prompt resize. */
     da.insert(1000);
     da.insert(100);
 
     assertEquals(da.getCapacity(), 6);
+    assertEquals(da.getSize(), 4);
   }
 
 
@@ -107,8 +108,8 @@ public class DynamicArrayTest {
     da.insert(10);
     da.insert(100);
 
-    Integer elementRemoved = da.removeAtIndex(1);
-    assertEquals(elementRemoved, Integer.valueOf(100));
+    int elementRemoved = da.removeAtIndex(1);
+    assertEquals(elementRemoved, 100);
     assertEquals(da.getSize(), 1);
     assertEquals(da.getCapacity(), 3);
     assertFalse(da.hasElement(100));
@@ -118,8 +119,8 @@ public class DynamicArrayTest {
   public void testGetSizeOnSingleElementArray() {
     da.insert(10);
 
-    assertEquals(da.getElementByIndex(da.getSize() - 1), Integer.valueOf(10));
-    assertEquals(da.getElementByIndex(0), Integer.valueOf(10));
+    assertEquals(da.getElementByIndex(da.getSize() - 1), 10);
+    assertEquals(da.getElementByIndex(0), 10);
   }
 
   @Test
@@ -130,7 +131,7 @@ public class DynamicArrayTest {
     da.insert(10000);
     da.insert(100000);
 
-    assertEquals(da.getElementByIndex(da.getSize() - 1), Integer.valueOf(100000));
+    assertEquals(da.getElementByIndex(da.getSize() - 1), 100000);
   }
 
   @Test
@@ -140,7 +141,7 @@ public class DynamicArrayTest {
     da.insert(1000);
     da.insert(10000);
 
-    assertEquals(da.getElementByIndex(2), Integer.valueOf(1000));
+    assertEquals(da.getElementByIndex(2), 1000);
   }
 
   @Test
