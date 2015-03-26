@@ -43,6 +43,11 @@ class AdjacencyList<T> {
     return;
   }
 
+  /* Display the AdjacencyList in a readable format. */
+  protected void show() {
+    return;
+  }
+
   /* Return the head node of the linked list at index. */
   private Node getNodeAtIndex(int index) {
     return this.adjacencyList.get(index);

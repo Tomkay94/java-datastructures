@@ -73,4 +73,75 @@ public class AdjacencyListTest {
     assertEquals(node2.next.data, Integer.valueOf(20));
     assertEquals(tail.data, Integer.valueOf(20));
   }
+
+  @Test
+  public void testNodeExistsTrue() {
+    Node<Integer> head  = new Node<Integer>(5);
+    Node<Integer> node1 = new Node<Integer>(10);
+    Node<Integer> node2 = new Node<Integer>(15);
+
+    head.appendToTail(node1);
+    head.appendToTail(node2);
+    assertTrue(head.nodeExists(10));
+  }
+
+  @Test
+  public void testNodeExistsFalse() {
+    Node<Integer> head  = new Node<Integer>(5);
+    Node<Integer> node1 = new Node<Integer>(10);
+    Node<Integer> node2 = new Node<Integer>(15);
+
+    head.appendToTail(node1);
+    head.appendToTail(node2);
+    assertFalse(head.nodeExists(20));
+  }
+
+  @Test
+  public void testNodeExistsAfterInsert() {
+    Node<Integer> head  = new Node<Integer>(5);
+    Node<Integer> node1 = new Node<Integer>(10);
+    Node<Integer> node2 = new Node<Integer>(15);
+
+    head.appendToTail(node1);
+    assertFalse(head.nodeExists(15));
+    head.appendToTail(node2);
+    assertTrue(head.nodeExists(15));
+  }
+
+  @Test
+  public void testNodeNotExistsAfterRemove() {
+    Node<Integer> head  = new Node<Integer>(5);
+    Node<Integer> node1 = new Node<Integer>(10);
+    Node<Integer> node2 = new Node<Integer>(15);
+
+    head.appendToTail(node1);
+    head.appendToTail(node2);
+    assertTrue(head.nodeExists(10));
+
+    /* Point head to the list with the removed node. */
+    head = head.remove(head, 10);
+    assertFalse(head.nodeExists(10));
+  }
+
+  @Test
+  public void testNodeExistsFirstNode() {
+    Node<Integer> head  = new Node<Integer>(5);
+    Node<Integer> node1 = new Node<Integer>(10);
+    Node<Integer> node2 = new Node<Integer>(15);
+
+    head.appendToTail(node1);
+    head.appendToTail(node2);
+    assertTrue(head.nodeExists(5));
+  }
+
+  @Test
+  public void testNodeExistsLastNode() {
+    Node<Integer> head  = new Node<Integer>(5);
+    Node<Integer> node1 = new Node<Integer>(10);
+    Node<Integer> node2 = new Node<Integer>(15);
+
+    head.appendToTail(node1);
+    head.appendToTail(node2);
+    assertTrue(head.nodeExists(10));
+  }
 }

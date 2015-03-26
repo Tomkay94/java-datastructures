@@ -24,7 +24,7 @@ public class Node<T> {
   }
 
   /* Remove the node with data and return the new head node. */
-  protected Node<T> delete(Node<T> head, T data) {
+  protected Node<T> remove(Node<T> head, T data) {
     /* Deleting the first node, move the head over. */
     if (this.data == data) {
       return head.next;
@@ -41,5 +41,17 @@ public class Node<T> {
     }
 
     return head;
+  }
+
+  protected boolean nodeExists(T data) {
+    Node curr = this;
+
+    while(curr.data != data) {
+      if (curr.next == null) {
+        return false;
+      }
+      curr = curr.next;
+    }
+    return true;
   }
 }
