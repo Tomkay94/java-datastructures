@@ -16,4 +16,4 @@ To run all tests for a certain data structure:
 ##### For _All_ Data Structures
 To run all tests for _all_ data structures:
  - `cd` to the root of the repo folder.
- - run `source makeTests.sh`.
+ - run `./makeTests.sh`.
