@@ -144,4 +144,35 @@ public class AdjacencyListTest {
     head.appendToTail(node2);
     assertTrue(head.nodeExists(10));
   }
+
+  @Test
+  public void testDeleteFirstNode() {
+    Node<Integer> head  = new Node<Integer>(10);
+    Node<Integer> node1 = new Node<Integer>(15);
+    Node<Integer> node2 = new Node<Integer>(20);
+
+    head.appendToTail(node1);
+    head.appendToTail(node2);
+    head = head.remove(head, head.data);
+
+    assertEquals(head, node1);
+    assertFalse(head.nodeExists(10));
+  }
+
+  @Test
+  public void testDeleteLastNode() {
+    Node<Integer> head       = new Node<Integer>(10);
+    Node<Integer> secondLast = new Node<Integer>(25);
+    Node<Integer> last       = new Node<Integer>(30);
+
+    head.appendToTail(new Node<Integer>(15));
+    head.appendToTail(new Node<Integer>(20));
+    head.appendToTail(secondLast);
+    head.appendToTail(last);
+
+    head = head.remove(head, last.data);
+
+    assertEquals(secondLast.next, null);
+    assertFalse(head.nodeExists(30));
+  }
 }
