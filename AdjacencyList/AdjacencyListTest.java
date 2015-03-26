@@ -161,18 +161,16 @@ public class AdjacencyListTest {
 
   @Test
   public void testDeleteLastNode() {
-    Node<Integer> head       = new Node<Integer>(10);
-    Node<Integer> secondLast = new Node<Integer>(25);
-    Node<Integer> last       = new Node<Integer>(30);
+    Node<Integer> head  = new Node<Integer>(10);
+    Node<Integer> node1 = new Node<Integer>(25);
+    Node<Integer> node2 = new Node<Integer>(30);
 
-    head.appendToTail(new Node<Integer>(15));
-    head.appendToTail(new Node<Integer>(20));
-    head.appendToTail(secondLast);
-    head.appendToTail(last);
+    head.appendToTail(node1);
+    head.appendToTail(node2);
 
-    head = head.remove(head, last.data);
+    head = head.remove(head, node2.data);
 
-    assertEquals(secondLast.next, null);
+    assertEquals(node1.next, null);
     assertFalse(head.nodeExists(30));
   }
 }
