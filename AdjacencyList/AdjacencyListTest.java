@@ -16,11 +16,6 @@ public class AdjacencyListTest {
   }
 
   @Test
-  public void testAdjListConstructor() {
-    assertNotNull(adjList);
-  }
-
-  @Test
   public void testNodeInit() {
     Node<Integer> head = new Node<Integer>(5);
 
@@ -30,6 +25,9 @@ public class AdjacencyListTest {
     assertNull(head.next);
   }
 
+  /*****************************************/
+  /************* Node Tests ****************/
+  /*****************************************/
   @Test
   public void testAppendNodeOnce() {
     Node<Integer> head = new Node<Integer>(5);
@@ -172,5 +170,33 @@ public class AdjacencyListTest {
 
     assertEquals(node1.next, null);
     assertFalse(head.nodeExists(30));
+  }
+
+  /*****************************************/
+  /********** AdjacencyList Tests **********/
+  /*****************************************/
+  @Test
+  public void testAdjListConstructor() {
+    assertNotNull(adjList);
+    assertEquals(adjList.getNumEdges(), 5);
+  }
+
+  @Test
+  public void testHasDirectedEdgeOnly() {
+    adjList.addDirectedEdge(1, 2);
+    adjList.addDirectedEdge(1, 3);
+    adjList.addDirectedEdge(2, 3);
+    adjList.addDirectedEdge(3, 4);
+    assertTrue(adjList.hasDirectedEdge(1, 3));
+    assertFalse(adjList.hasDirectedEdge(3, 1));
+  }
+
+  @Test
+  public void testHasDirectedEdgeNone() {
+    adjList.addDirectedEdge(1, 2);
+    adjList.addDirectedEdge(1, 3);
+    adjList.addDirectedEdge(2, 3);
+    adjList.addDirectedEdge(3, 4);
+    assertFalse(adjList.hasDirectedEdge(1, 4));
   }
 }
