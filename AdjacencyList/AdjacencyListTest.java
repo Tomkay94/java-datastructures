@@ -3,11 +3,11 @@ import org.junit.*;
 
 public class AdjacencyListTest {
 
-  AdjacencyList adjList;
+  AdjacencyList<Integer> adjList;
 
   @Before
   public void setUp() {
-    adjList = new AdjacencyList<Integer>(5);
+    adjList = new AdjacencyList<Integer>();
   }
 
   @After
@@ -178,7 +178,7 @@ public class AdjacencyListTest {
   @Test
   public void testAdjListConstructor() {
     assertNotNull(adjList);
-    assertEquals(adjList.getNumEdges(), 5);
+    assertEquals(adjList.getNumEdges(), 0);
   }
 
   @Test

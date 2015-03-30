@@ -30,10 +30,10 @@ class AdjacencyList<T> {
   /* Add an edge from firstNode to secondNode. */
   protected void addDirectedEdge(T firstNode, T secondNode) {
     /* Check if this node exists. */
-    if (this.adjacencyList.containsNodeValue(firstNode) > -1) {
-      this.adjacencyList.add(new Node(firstNode));
+    if (this.containsNodeHead(firstNode)) {
+      this.adjacencyList.add(new Node<T>(firstNode));
     }
-    appendNodeAtIndex(new Node(firstNode), new Node(secondNode));
+    this.appendNodeAtIndex(new Node<T>(firstNode), new Node<T>(secondNode));
     ++this.numEdges;
     return;
   }
