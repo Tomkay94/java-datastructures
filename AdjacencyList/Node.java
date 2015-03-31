@@ -11,6 +11,7 @@ public class Node<T> {
     this.next = null;
   }
 
+  /* Append the tailNode to the linked list. */
   protected void appendToTail(Node<T> tailNode) {
     Node<T> curr = this;
 
@@ -43,8 +44,9 @@ public class Node<T> {
     return head;
   }
 
-  protected boolean nodeExists(T data) {
-    Node curr = this;
+  /* Return true if a node with data exists in the linked list.*/
+  protected boolean nodeWithDataExists(T data) {
+    Node<T> curr = this;
 
     while(curr.data != data) {
       if (curr.next == null) {
@@ -53,5 +55,17 @@ public class Node<T> {
       curr = curr.next;
     }
     return true;
+  }
+
+  /* Display the linked list. */
+  protected void showTraverse() {
+    Node<T> curr = this;
+    System.out.print("[" + curr.data + "] -> [");
+    curr = curr.next;
+    while(curr.next != null) {
+      System.out.print(curr.data + ", ");
+      curr = curr.next;
+    }
+    System.out.println(curr.data + "]");
   }
 }

@@ -8,8 +8,9 @@ TEST = org.junit.runner.JUnitCore
 #
 # Run the test suite
 #
-tests: AdjacencyList.java Node.java AdjacencyListTest.java
+tests: AdjacencyList.java Node.java HeadNode.java AdjacencyListTest.java
 	$(JC) Node.java && \
+	$(JC) HeadNode.java && \
 	$(JC) AdjacencyList.java && \
 	$(JC) AdjacencyListTest.java && \
 	$(JVM) $(TEST) AdjacencyListTest
@@ -17,8 +18,9 @@ tests: AdjacencyList.java Node.java AdjacencyListTest.java
 #
 # Compile the class files
 #
-main: AdjacencyList.java Node.java
+main: AdjacencyList.java HeadNode.java Node.java
 	$(JC) Node.java && \
+	$(JC) HeadNode.java && \
 	$(JC) AdjacencyList.java
 
 #

@@ -32,6 +32,7 @@ class AdjacencyList<T> {
     /* Check if this node exists. */
     if (this.containsNodeHead(firstNode)) {
       this.adjacencyList.add(new Node<T>(firstNode));
+      System.out.println("found " + firstNode);
     }
     this.appendNodeAtIndex(new Node<T>(firstNode), new Node<T>(secondNode));
     ++this.numEdges;
@@ -63,6 +64,9 @@ class AdjacencyList<T> {
 
   /* Display the AdjacencyList in a readable format. */
   protected void show() {
+    for (Node n : this.adjacencyList) {
+      n.showTraverse();
+    }
     return;
   }
 
@@ -73,8 +77,15 @@ class AdjacencyList<T> {
 
   /* Append the node at the linked list head determined by index. */
   private void appendNodeAtIndex(Node<T> head, Node<T> newNode) {
-    int headIndex = adjacencyList.indexOf(head);
-    this.adjacencyList.get(headIndex).appendToTail(newNode);
+    int headIndex = 0;
+    if (this.containsNodeHead(head.data)) {
+      headIndex = adjacencyList.indexOf(head);
+      this.adjacencyList.get(headIndex).appendToTail(newNode);
+    }
+
+    else {
+      this.adjacencyList.get(this.adjacencyList.size()).appendToTail(newNode);
+    }
     return;
   }
 
