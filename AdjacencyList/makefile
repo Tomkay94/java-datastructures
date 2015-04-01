@@ -8,20 +8,18 @@ TEST = org.junit.runner.JUnitCore
 #
 # Run the test suite
 #
-tests: AdjacencyList.java Node.java HeadNode.java AdjacencyListTest.java
+tests: Graph.java Node.java AdjacencyListTest.java
 	$(JC) Node.java && \
-	$(JC) HeadNode.java && \
-	$(JC) AdjacencyList.java && \
+	$(JC) Graph.java && \
 	$(JC) AdjacencyListTest.java && \
 	$(JVM) $(TEST) AdjacencyListTest
 
 #
 # Compile the class files
 #
-main: AdjacencyList.java HeadNode.java Node.java
+main: Graph.java Node.java
 	$(JC) Node.java && \
-	$(JC) HeadNode.java && \
-	$(JC) AdjacencyList.java
+	$(JC) Graph.java
 
 #
 # Clean for recompile

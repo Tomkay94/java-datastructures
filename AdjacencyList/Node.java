@@ -42,6 +42,12 @@ public class Node<T> {
       return head.next;
     }
 
+    /* If it's a head node */
+    if (head.down == null) {
+      // handle it
+      // call transferDownLinks(head);
+    }
+
     Node<T> curr = head;
 
     while(curr.next != null) {
@@ -97,25 +103,5 @@ public class Node<T> {
       curr = curr.down;
     }
     return false;
-  }
-
-  /* Remove the node with data and return the new head node. */
-  protected Node<T> remove(Node<T> head, T data) {
-    /* Deleting the first node, move the head over. */
-    if (this.data == data) {
-      return head.next;
-    }
-
-    Node<T> curr = head;
-
-    while(curr.next != null) {
-      if (curr.next.data == data) {
-        curr.next = curr.next.next;
-        return curr;
-      }
-      curr = curr.next;
-    }
-
-    return head;
   }
 }
