@@ -19,7 +19,7 @@ public class Graph<T> {
   private int numEdges;
   private Node<T> adjList;
 
-  public AdjacencyList() {
+  public Graph() {
     this.numEdges = 0;
     this.adjList  = null;
   }

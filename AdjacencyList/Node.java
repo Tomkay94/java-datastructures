@@ -1,14 +1,16 @@
 
-/* Implements a node in a linked list for GraphAdjacencyList */
+/* Implements a node in a linked list for an adjacency list Graph. */
 
 public class Node<T> {
 
   protected T data;
   protected Node<T> next;
+  protected Node<T> down;
 
   public Node (T data) {
     this.data = data;
     this.next = null;
+    this.down = null;
   }
 
   /* Append the tailNode to the linked list. */
@@ -64,9 +66,9 @@ public class Node<T> {
   /* If the node being removed is a head node,
      take the next node as usual, but add its
      down links from the node removed, if it had any. */
-  private Node<T> transferDownLinks(Node<T> head) {
-    return;
-  }
+  // private Node<T> transferDownLinks(Node<T> head) {
+  //   return;
+  // }
 
   /* Display the linked list. */
   protected void showTraverse() {
@@ -80,8 +82,9 @@ public class Node<T> {
     System.out.println(curr.data + "]");
   }
 
-  /* Return true if a node with data exists in the linked list.*/
-  protected boolean hasNodeData(T data) {
+  /* Return true if a node with data exists in the linked list
+  with links that are horizontal (see diagram in Graph.java).*/
+  protected boolean hasHorizontalNode(T data) {
     Node<T> curr = this;
 
     while(curr.data != data) {
@@ -93,8 +96,9 @@ public class Node<T> {
     return true;
   }
 
-  /* Return true if a Node with the data exists. */
-  protected boolean hasNodeData(T data) {
+  /* Return true if a node with data exists in the linked list
+  with links that are vertical (see diagram in Graph.java).*/
+  protected boolean hasVerticalNode(T data) {
     Node<T> curr = this;
     while (curr != null) {
       if (curr.data.equals(data)) {
