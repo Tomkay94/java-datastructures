@@ -1,21 +1,23 @@
 
-/* Implements an adjacency list using linked lists. */
+/* Implements an adjacency list graph
+   using a linked list of nodes.
+*/
 
 /*
 Type structure of the adjacency list:
 
-  HeadNode -> Node -> Node -> Node -> ... -> null
-     V
-  HeadNode -> Node -> ... -> null
-     V
-  HeadNode -> Node -> Node -> ... -> null
-     V
-   null
+  Node -> Node -> Node -> Node -> ... -> null
+   V
+  Node -> Node -> ... -> null
+   V
+  Node -> Node -> Node -> ... -> null
+   V
+  null
 */
-public class AdjacencyList<T> {
+public class Graph<T> {
 
   private int numEdges;
-  private HeadNode<T> adjList;
+  private Node<T> adjList;
 
   public AdjacencyList() {
     this.numEdges = 0;
@@ -24,31 +26,27 @@ public class AdjacencyList<T> {
 
   /* Return true if firstData points to secondData. */
   protected boolean hasDirectedEdge(T firstData, T secondData) {
-    // if (this.containsNodeHead(firstData)) {
-    //   int firstDataIndex = this.adjList.indexOf(new Node<T>(firstData));
-    //   return (this.adjList.get(firstDataIndex).nodeWithDataExists(secondData));
-    // }
+    if (this.adjList.hasNodeData(firstData)) {
+      Node<T> head = this.adjList.getNodeWithData(firstData);
+      return (head.next.hasNodeData(secondData));
+    }
     return false;
   }
 
   /* Return true if both firstData and secondData point to each other. */
   protected boolean hasUndirectedEdge(T firstData, T secondData) {
-    // return (
-    //   hasDirectedEdge(firstData, secondData) &&
-    //   hasDirectedEdge(secondData, firstData)
-    // );
-    return false;
+    return (
+      this.hasDirectedEdge(firstData, secondData) &&
+      this.hasDirectedEdge(secondData, firstData)
+    );
   }
 
   /* Add an edge from firstData to secondData. */
   protected void addDirectedEdge(T firstData, T secondData) {
     /* Check if this node exists. */
-    // if (this.containsNodeHead(firstData)) {
-    //   this.adjList.add(new Node<T>(firstData));
-    //   System.out.println("found " + firstData);
-    // }
-    // System.out.println("appending node ...");
-    // this.appendNodeAtIndex(new Node<T>(firstData), new Node<T>(secondData));
+    if (this.adjList.hasNodeData(firstData)) {
+      // check for the second node in that first node
+    }
     // ++this.numEdges;
     return;
   }
@@ -78,21 +76,28 @@ public class AdjacencyList<T> {
 
   /* Display the AdjacencyList in a readable format. */
   protected void show() {
-    HeadNode<T> curr = this;
-    while(curr != null) {
-      curr.next.showTraverse();
-      curr = curr.next;
-    }
+    // Node<T> curr = this;
+    // while(curr != null) {
+    //   curr.next.showTraverse();
+    //   curr = curr.next;
+    // }
     return;
+  }
+
+  /* Return true if the node exists in the adjacency list. */
+  protected boolean nodeWithDataExists(T data) {
+    Node<T> head = this.adjList;
+    while (head.down != null) {
+      if (head.next.hasNodeData(data)) {
+        return true;
+      }
+      head = head.down;
+    }
+    return false;
   }
 
   /* Return the number of linked lists in the adjacency list. */
   protected int getNumEdges() {
     return this.numEdges;
-  }
-
-  /* Append the node at the linked list head determined by index. */
-  private void appendNodeAtIndex(Node<T> head, Node<T> newNode) {
-    return;
   }
 }
