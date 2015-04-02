@@ -14,7 +14,7 @@ public class Node<T> {
   }
 
   /* Append the tailNode to the linked list. */
-  protected void appendToTail(Node<T> tailNode) {
+  protected void appendHorizontal(Node<T> tailNode) {
     Node<T> curr = this;
     while(curr.next != null) {
       curr = curr.next;
@@ -26,7 +26,7 @@ public class Node<T> {
   }
 
   /* Add a new Node to the bottom of the linked list. */
-  protected void appendToBottom(Node<T> head) {
+  protected void appendVertical(Node<T> head) {
     Node<T> curr = this;
     while (curr.down != null) {
       curr = curr.down;
@@ -70,35 +70,23 @@ public class Node<T> {
   //   return;
   // }
 
-  /* Display the linked list. */
-  protected void showTraverse() {
-    Node<T> curr = this;
-    System.out.print("[" + curr.data + "] -> [");
-    curr = curr.next;
-    while(curr.next != null) {
-      System.out.print(curr.data + ", ");
-      curr = curr.next;
-    }
-    System.out.println(curr.data + "]");
-  }
-
   /* Return true if a node with data exists in the linked list
   with links that are horizontal (see diagram in Graph.java).*/
-  protected boolean hasHorizontalNode(T data) {
+  protected boolean hasHorizontal(T data) {
     Node<T> curr = this;
-
-    while(curr.data != data) {
-      if (curr.next == null) {
-        return false;
+    while (curr != null) {
+      // System.out.println(curr.data);
+      if (curr.data.equals(data)) {
+        return true;
       }
       curr = curr.next;
     }
-    return true;
+    return false;
   }
 
   /* Return true if a node with data exists in the linked list
   with links that are vertical (see diagram in Graph.java).*/
-  protected boolean hasVerticalNode(T data) {
+  protected boolean hasVertical(T data) {
     Node<T> curr = this;
     while (curr != null) {
       if (curr.data.equals(data)) {
@@ -107,5 +95,38 @@ public class Node<T> {
       curr = curr.down;
     }
     return false;
+  }
+
+  /* Display the linked list. */
+  protected void showTraverse() {
+    Node<T> curr = this;
+    System.out.print("[" + curr.data + "] -> [");
+    while(curr.next != null) {
+      curr = curr.next;
+      System.out.print(curr.data + " ");
+    }
+    System.out.println("]");
+  }
+
+  public static void main(String[] args) {
+    // Node<Integer> n1 = new Node<Integer>(5);
+    // Node<Integer> n2 = new Node<Integer>(15);
+    // Node<Integer> n3 = new Node<Integer>(25);
+    // Node<Integer> n4 = new Node<Integer>(35);
+    // Node<Integer> n5 = new Node<Integer>(45);
+    //
+    // // n1.showTraverse();
+    // // n1.showTraverse();
+    //
+    // n1.showTraverse();
+    // System.out.println(n1.hasVertical(45));
+    // System.out.println(n1.hasHorizontal(45));
+    // n1.appendVertical(n2);
+    // n1.appendVertical(n3);
+    // n1.appendVertical(n4);
+    // n1.appendVertical(n5);
+    // System.out.println(n1.hasVertical(45));
+    // System.out.println(n1.hasHorizontal(45));
+    // n1.showTraverse();
   }
 }

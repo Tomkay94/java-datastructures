@@ -193,10 +193,10 @@ public class AdjacencyListTest {
 
   @Test
   public void testHasDirectedEdgeNone() {
-    // adjList.addDirectedEdge(1, 2);
-    // adjList.addDirectedEdge(1, 3);
-    // adjList.addDirectedEdge(2, 3);
-    // adjList.addDirectedEdge(3, 4);
-    // assertFalse(adjList.hasDirectedEdge(1, 4));
+    adjList.addDirectedEdge(1, 2);
+    adjList.addDirectedEdge(1, 3);
+    adjList.addDirectedEdge(2, 3);
+    adjList.addDirectedEdge(3, 4);
+    assertFalse(adjList.hasDirectedEdge(1, 4));
   }
 }
