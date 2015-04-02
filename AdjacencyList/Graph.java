@@ -118,24 +118,4 @@ public class Graph<T> {
   protected int getNumEdges() {
     return this.numEdges;
   }
-
-  public static void main(String[] args) {
-    Graph<Integer> g = new Graph<Integer>();
-
-    g.show();
-    System.out.println(g.getNumEdges());
-
-    g.addDirectedEdge(1, 2);
-    g.addDirectedEdge(2, 1);
-    g.addDirectedEdge(2, 2);
-    g.addDirectedEdge(2, 2);
-    g.addDirectedEdge(2, 3);
-
-    System.out.println(g.hasDirectedEdge(1, 2));
-    System.out.println(g.hasDirectedEdge(2, 1));
-    System.out.println(g.hasDirectedEdge(0, 1));
-
-    g.show();
-    System.out.println(g.getNumEdges());
-  }
 }

@@ -63,13 +63,6 @@ public class Node<T> {
     return head;
   }
 
-  /* If the node being removed is a head node,
-     take the next node as usual, but add its
-     down links from the node removed, if it had any. */
-  // private Node<T> transferDownLinks(Node<T> head) {
-  //   return;
-  // }
-
   /* Return true if a node with data exists in the linked list
   with links that are horizontal (see diagram in Graph.java).*/
   protected boolean hasHorizontal(T data) {
