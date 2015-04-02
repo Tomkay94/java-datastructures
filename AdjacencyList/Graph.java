@@ -25,13 +25,18 @@ public class Graph<T> {
   }
 
   /* Return true if firstData points to secondData. */
-  // protected boolean hasDirectedEdge(T firstData, T secondData) {
-  //   if (this.adjList.hasHorizontalNode(firstData)) {
-  //     Node<T> head = this.adjList.getNodeWithData(firstData);
-  //     return (head.next.hasNodeData(secondData));
-  //   }
-  //   return false;
-  // }
+  protected boolean hasDirectedEdge(T firstData, T secondData) {
+    if (this.adjList.hasVertical(firstData)) {
+      Node<T> curr = this.adjList;
+      while (curr != null) {
+        if (curr.data.equals(firstData) && curr.next != null) {
+          return (curr.next.hasHorizontal(secondData));
+        }
+        curr = curr.down;
+      }
+    }
+    return false;
+  }
 
   /* Return true if both firstData and secondData point to each other. */
   // protected boolean hasUndirectedEdge(T firstData, T secondData) {
@@ -57,11 +62,14 @@ public class Graph<T> {
       return;
     }
 
-    this.adjList.appendVertical(new Node<T>(firstData));
+    if (!this.adjList.hasVertical(firstData)) {
+      this.adjList.appendVertical(new Node<T>(firstData));
+    }
+
     /* Add the node to the adjList. */
     while(curr != null) {
       /* We've found the vertical head node. */
-      if (curr.data == firstData && !curr.hasHorizontal(secondData)) {
+      if (curr.data.equals(firstData)) {
         curr.appendHorizontal(new Node<T>(secondData));
       }
       curr = curr.down;
@@ -107,20 +115,5 @@ public class Graph<T> {
   /* Return the number of linked lists in the adjacency list. */
   protected int getNumEdges() {
     return this.numEdges;
-  }
-
-  public static void main(String[] args) {
-    Graph<Integer> g = new Graph<Integer>();
-
-    g.show();
-    System.out.println(g.getNumEdges());
-
-    g.addDirectedEdge(1, 2);
-
-    g.addDirectedEdge(2, 1);
-    g.addDirectedEdge(2, 2);
-
-    g.show();
-    System.out.println(g.getNumEdges());
   }
 }
