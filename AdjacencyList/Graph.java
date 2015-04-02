@@ -39,12 +39,12 @@ public class Graph<T> {
   }
 
   /* Return true if both firstData and secondData point to each other. */
-  // protected boolean hasUndirectedEdge(T firstData, T secondData) {
-  //   return (
-  //     this.hasDirectedEdge(firstData, secondData) &&
-  //     this.hasDirectedEdge(secondData, firstData)
-  //   );
-  // }
+  protected boolean hasUndirectedEdge(T firstData, T secondData) {
+    return (
+      this.hasDirectedEdge(firstData, secondData) &&
+      this.hasDirectedEdge(secondData, firstData)
+    );
+  }
 
   /* Add an edge from firstData to secondData. */
   protected void addDirectedEdge(T firstData, T secondData) {
