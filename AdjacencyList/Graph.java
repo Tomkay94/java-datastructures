@@ -46,19 +46,21 @@ public class Graph<T> {
     );
   }
 
+  private Node<T> handleFirstDirectedEdge(T firstData, T secondData) {
+    Node<T> head = new Node<T>(firstData);
+    Node<T> tail = new Node<T>(secondData);
+    head.appendHorizontal(tail);
+    ++this.numEdges;
+    return head;
+  }
+
   /* Add an edge from firstData to secondData. */
   protected void addDirectedEdge(T firstData, T secondData) {
     Node<T> curr = this.adjList;
 
     /* First edge added. */
     if (curr == null) {
-      Node<T> node1 = new Node<T>(firstData);
-      Node<T> node2 = new Node<T>(secondData);
-      curr = node1;
-      curr.appendHorizontal(node2);
-
-      this.adjList = curr;
-      ++this.numEdges;
+      this.adjList = handleFirstDirectedEdge(firstData, secondData);
       return;
     }
 
@@ -115,5 +117,25 @@ public class Graph<T> {
   /* Return the number of linked lists in the adjacency list. */
   protected int getNumEdges() {
     return this.numEdges;
+  }
+
+  public static void main(String[] args) {
+    Graph<Integer> g = new Graph<Integer>();
+
+    g.show();
+    System.out.println(g.getNumEdges());
+
+    g.addDirectedEdge(1, 2);
+    g.addDirectedEdge(2, 1);
+    g.addDirectedEdge(2, 2);
+    g.addDirectedEdge(2, 2);
+    g.addDirectedEdge(2, 3);
+
+    System.out.println(g.hasDirectedEdge(1, 2));
+    System.out.println(g.hasDirectedEdge(2, 1));
+    System.out.println(g.hasDirectedEdge(0, 1));
+
+    g.show();
+    System.out.println(g.getNumEdges());
   }
 }

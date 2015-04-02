@@ -108,25 +108,14 @@ public class Node<T> {
     System.out.println("]");
   }
 
-  public static void main(String[] args) {
-    // Node<Integer> n1 = new Node<Integer>(5);
-    // Node<Integer> n2 = new Node<Integer>(15);
-    // Node<Integer> n3 = new Node<Integer>(25);
-    // Node<Integer> n4 = new Node<Integer>(35);
-    // Node<Integer> n5 = new Node<Integer>(45);
-    //
-    // // n1.showTraverse();
-    // // n1.showTraverse();
-    //
-    // n1.showTraverse();
-    // System.out.println(n1.hasVertical(45));
-    // System.out.println(n1.hasHorizontal(45));
-    // n1.appendVertical(n2);
-    // n1.appendVertical(n3);
-    // n1.appendVertical(n4);
-    // n1.appendVertical(n5);
-    // System.out.println(n1.hasVertical(45));
-    // System.out.println(n1.hasHorizontal(45));
-    // n1.showTraverse();
+  /* Return the head node with data. */
+  protected Node<T> getHeadNode(T data) {
+    while (curr != null) {
+      if (curr.data.equals(data)) {
+        return true;
+      }
+      curr = curr.down;
+    }
+    return null;
   }
 }
