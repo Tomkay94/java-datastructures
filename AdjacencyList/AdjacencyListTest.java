@@ -33,7 +33,7 @@ public class AdjacencyListTest {
     Node<Integer> head = new Node<Integer>(5);
     Node<Integer> tail = new Node<Integer>(10);
 
-    head.appendToTail(tail);
+    head.appendHorizontal(tail);
 
     assertNotNull(head.next);
     assertNull(tail.next);
@@ -54,9 +54,9 @@ public class AdjacencyListTest {
     assertNull(node2.next);
     assertNull(tail.next);
 
-    head.appendToTail(node1);
-    head.appendToTail(node2);
-    head.appendToTail(tail);
+    head.appendHorizontal(node1);
+    head.appendHorizontal(node2);
+    head.appendHorizontal(tail);
 
     /* Assert references are correct. */
     assertNotNull(head.next);
@@ -73,37 +73,37 @@ public class AdjacencyListTest {
   }
 
   @Test
-  public void testnodeWithDataExistsTrue() {
+  public void testhasHorizontalTrue() {
     Node<Integer> head  = new Node<Integer>(5);
     Node<Integer> node1 = new Node<Integer>(10);
     Node<Integer> node2 = new Node<Integer>(15);
 
-    head.appendToTail(node1);
-    head.appendToTail(node2);
-    assertTrue(head.nodeWithDataExists(10));
+    head.appendHorizontal(node1);
+    head.appendHorizontal(node2);
+    assertTrue(head.hasHorizontal(10));
   }
 
   @Test
-  public void testnodeWithDataExistsFalse() {
+  public void testhasHorizontalFalse() {
     Node<Integer> head  = new Node<Integer>(5);
     Node<Integer> node1 = new Node<Integer>(10);
     Node<Integer> node2 = new Node<Integer>(15);
 
-    head.appendToTail(node1);
-    head.appendToTail(node2);
-    assertFalse(head.nodeWithDataExists(20));
+    head.appendHorizontal(node1);
+    head.appendHorizontal(node2);
+    assertFalse(head.hasHorizontal(20));
   }
 
   @Test
-  public void testnodeWithDataExistsAfterInsert() {
+  public void testhasHorizontalAfterInsert() {
     Node<Integer> head  = new Node<Integer>(5);
     Node<Integer> node1 = new Node<Integer>(10);
     Node<Integer> node2 = new Node<Integer>(15);
 
-    head.appendToTail(node1);
-    assertFalse(head.nodeWithDataExists(15));
-    head.appendToTail(node2);
-    assertTrue(head.nodeWithDataExists(15));
+    head.appendHorizontal(node1);
+    assertFalse(head.hasHorizontal(15));
+    head.appendHorizontal(node2);
+    assertTrue(head.hasHorizontal(15));
   }
 
   @Test
@@ -112,35 +112,35 @@ public class AdjacencyListTest {
     Node<Integer> node1 = new Node<Integer>(10);
     Node<Integer> node2 = new Node<Integer>(15);
 
-    head.appendToTail(node1);
-    head.appendToTail(node2);
-    assertTrue(head.nodeWithDataExists(10));
+    head.appendHorizontal(node1);
+    head.appendHorizontal(node2);
+    assertTrue(head.hasHorizontal(10));
 
     /* Point head to the list with the removed node. */
     head = head.remove(head, 10);
-    assertFalse(head.nodeWithDataExists(10));
+    assertFalse(head.hasHorizontal(10));
   }
 
   @Test
-  public void testnodeWithDataExistsFirstNode() {
+  public void testhasHorizontalFirstNode() {
     Node<Integer> head  = new Node<Integer>(5);
     Node<Integer> node1 = new Node<Integer>(10);
     Node<Integer> node2 = new Node<Integer>(15);
 
-    head.appendToTail(node1);
-    head.appendToTail(node2);
-    assertTrue(head.nodeWithDataExists(5));
+    head.appendHorizontal(node1);
+    head.appendHorizontal(node2);
+    assertTrue(head.hasHorizontal(5));
   }
 
   @Test
-  public void testnodeWithDataExistsLastNode() {
+  public void testhasHorizontalLastNode() {
     Node<Integer> head  = new Node<Integer>(5);
     Node<Integer> node1 = new Node<Integer>(10);
     Node<Integer> node2 = new Node<Integer>(15);
 
-    head.appendToTail(node1);
-    head.appendToTail(node2);
-    assertTrue(head.nodeWithDataExists(10));
+    head.appendHorizontal(node1);
+    head.appendHorizontal(node2);
+    assertTrue(head.hasHorizontal(10));
   }
 
   @Test
@@ -149,12 +149,12 @@ public class AdjacencyListTest {
     Node<Integer> node1 = new Node<Integer>(15);
     Node<Integer> node2 = new Node<Integer>(20);
 
-    head.appendToTail(node1);
-    head.appendToTail(node2);
+    head.appendHorizontal(node1);
+    head.appendHorizontal(node2);
     head = head.remove(head, head.data);
 
     assertEquals(head, node1);
-    assertFalse(head.nodeWithDataExists(10));
+    assertFalse(head.hasHorizontal(10));
   }
 
   @Test
@@ -163,13 +163,13 @@ public class AdjacencyListTest {
     Node<Integer> node1 = new Node<Integer>(25);
     Node<Integer> node2 = new Node<Integer>(30);
 
-    head.appendToTail(node1);
-    head.appendToTail(node2);
+    head.appendHorizontal(node1);
+    head.appendHorizontal(node2);
 
     head = head.remove(head, node2.data);
 
     assertEquals(node1.next, null);
-    assertFalse(head.nodeWithDataExists(30));
+    assertFalse(head.hasHorizontal(30));
   }
 
   /*****************************************/

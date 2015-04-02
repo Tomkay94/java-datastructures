@@ -110,9 +110,10 @@ public class Node<T> {
 
   /* Return the head node with data. */
   protected Node<T> getHeadNode(T data) {
+    Node<T> curr = this;
     while (curr != null) {
       if (curr.data.equals(data)) {
-        return true;
+        return curr;
       }
       curr = curr.down;
     }
