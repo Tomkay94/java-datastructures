@@ -46,7 +46,7 @@ public class Graph<T> {
     );
   }
 
-  private Node<T> handleFirstDirectedEdge(T firstData, T secondData) {
+  private Node<T> addFirstEdge(T firstData, T secondData) {
     Node<T> head = new Node<T>(firstData);
     Node<T> tail = new Node<T>(secondData);
     head.appendHorizontal(tail);
@@ -60,7 +60,7 @@ public class Graph<T> {
 
     /* First edge added. */
     if (curr == null) {
-      this.adjList = handleFirstDirectedEdge(firstData, secondData);
+      this.adjList = addFirstEdge(firstData, secondData);
       return;
     }
 
@@ -91,6 +91,7 @@ public class Graph<T> {
 
   /* Remove the edge from firstData to secondData. */
   protected void removeDirectedEdge(T firstData, T secondData) {
+    //--this.numEdges;
     return;
   }
 
@@ -99,7 +100,6 @@ public class Graph<T> {
   protected void removeUndirectedEdge(T firstData, T secondData) {
     // this.removeDirectedEdge(firstData, secondData);
     // this.removeDirectedEdge(secondData, firstData);
-    // this.numEdges -= 2;
     return;
   }
 
