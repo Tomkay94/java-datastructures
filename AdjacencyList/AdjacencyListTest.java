@@ -3,16 +3,16 @@ import org.junit.*;
 
 public class AdjacencyListTest {
 
-  Graph<Integer> adjList;
+  Graph<Integer> g;
 
   @Before
   public void setUp() {
-    adjList = new Graph<Integer>();
+    g = new Graph<Integer>();
   }
 
   @After
   public void tearDown() {
-    adjList = null;
+    g = null;
   }
 
   @Test
@@ -177,84 +177,84 @@ public class AdjacencyListTest {
   /*****************************************/
   @Test
   public void testAdjListConstructor() {
-    assertNotNull(adjList);
+    assertNotNull(g);
 
-    assertEquals(adjList.getNumEdges(), 0);
+    assertEquals(g.getNumEdges(), 0);
   }
 
   @Test
   public void testHasDirectedEdgeOnly() {
-    adjList.addDirectedEdge(1, 2);
-    adjList.addDirectedEdge(1, 3);
-    adjList.addDirectedEdge(2, 3);
-    adjList.addDirectedEdge(3, 4);
+    g.addDirectedEdge(1, 2);
+    g.addDirectedEdge(1, 3);
+    g.addDirectedEdge(2, 3);
+    g.addDirectedEdge(3, 4);
 
-    assertTrue(adjList.hasDirectedEdge(1, 3));
-    assertFalse(adjList.hasDirectedEdge(3, 1));
+    assertTrue(g.hasDirectedEdge(1, 3));
+    assertFalse(g.hasDirectedEdge(3, 1));
   }
 
   @Test
   public void testHasNoDirectedEdge() {
-    adjList.addDirectedEdge(1, 2);
-    adjList.addDirectedEdge(1, 3);
-    adjList.addDirectedEdge(2, 3);
-    adjList.addDirectedEdge(3, 4);
+    g.addDirectedEdge(1, 2);
+    g.addDirectedEdge(1, 3);
+    g.addDirectedEdge(2, 3);
+    g.addDirectedEdge(3, 4);
 
-    assertFalse(adjList.hasDirectedEdge(1, 4));
+    assertFalse(g.hasDirectedEdge(1, 4));
   }
 
   @Test
   public void testHasUndirectedEdgeOnly() {
-    adjList.addDirectedEdge(1, 2);
-    adjList.addDirectedEdge(1, 3);
-    adjList.addDirectedEdge(2, 1);
-    adjList.addDirectedEdge(3, 4);
+    g.addDirectedEdge(1, 2);
+    g.addDirectedEdge(1, 3);
+    g.addDirectedEdge(2, 1);
+    g.addDirectedEdge(3, 4);
 
-    assertTrue(adjList.hasUndirectedEdge(1, 2));
-    assertTrue(adjList.hasUndirectedEdge(2, 1));
+    assertTrue(g.hasUndirectedEdge(1, 2));
+    assertTrue(g.hasUndirectedEdge(2, 1));
   }
 
   @Test
   public void testHasNoUndirectedEdge() {
-    adjList.addDirectedEdge(1, 2);
-    adjList.addDirectedEdge(1, 3);
-    adjList.addDirectedEdge(2, 1);
-    adjList.addDirectedEdge(3, 4);
+    g.addDirectedEdge(1, 2);
+    g.addDirectedEdge(1, 3);
+    g.addDirectedEdge(2, 1);
+    g.addDirectedEdge(3, 4);
 
-    assertFalse(adjList.hasUndirectedEdge(1, 3));
+    assertFalse(g.hasUndirectedEdge(1, 3));
   }
 
   @Test
   public void testAddDirectedEdges() {
-    assertEquals(adjList.getNumEdges(), 0);
+    assertEquals(g.getNumEdges(), 0);
 
-    adjList.addDirectedEdge(1, 2);
-    assertEquals(adjList.getNumEdges(), 1);
-    assertTrue(adjList.hasDirectedEdge(1, 2));
+    g.addDirectedEdge(1, 2);
+    assertEquals(g.getNumEdges(), 1);
+    assertTrue(g.hasDirectedEdge(1, 2));
 
-    adjList.addDirectedEdge(1, 3);
-    assertEquals(adjList.getNumEdges(), 2);
-    assertTrue(adjList.hasDirectedEdge(1, 3));
+    g.addDirectedEdge(1, 3);
+    assertEquals(g.getNumEdges(), 2);
+    assertTrue(g.hasDirectedEdge(1, 3));
 
-    adjList.addDirectedEdge(3, 4);
-    assertEquals(adjList.getNumEdges(), 3);
-    assertTrue(adjList.hasDirectedEdge(3, 4));
+    g.addDirectedEdge(3, 4);
+    assertEquals(g.getNumEdges(), 3);
+    assertTrue(g.hasDirectedEdge(3, 4));
   }
 
   @Test
   public void testAddUndirectedEdgesOnly() {
-    assertEquals(adjList.getNumEdges(), 0);
+    assertEquals(g.getNumEdges(), 0);
 
-    adjList.addUndirectedEdge(1, 2);
-    assertEquals(adjList.getNumEdges(), 2);
-    assertTrue(adjList.hasUndirectedEdge(1, 2));
+    g.addUndirectedEdge(1, 2);
+    assertEquals(g.getNumEdges(), 2);
+    assertTrue(g.hasUndirectedEdge(1, 2));
 
-    adjList.addUndirectedEdge(1, 3);
-    assertEquals(adjList.getNumEdges(), 4);
-    assertTrue(adjList.hasUndirectedEdge(1, 3));
+    g.addUndirectedEdge(1, 3);
+    assertEquals(g.getNumEdges(), 4);
+    assertTrue(g.hasUndirectedEdge(1, 3));
 
-    adjList.addUndirectedEdge(3, 4);
-    assertEquals(adjList.getNumEdges(), 6);
-    assertTrue(adjList.hasUndirectedEdge(3, 4));
+    g.addUndirectedEdge(3, 4);
+    assertEquals(g.getNumEdges(), 6);
+    assertTrue(g.hasUndirectedEdge(3, 4));
   }
 }
