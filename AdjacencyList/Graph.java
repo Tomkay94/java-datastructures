@@ -64,13 +64,13 @@ public class Graph<T> {
       return;
     }
 
+    /* firstData is not a head node in the graph. */
     if (!this.adjList.hasVertical(firstData)) {
       this.adjList.appendVertical(new Node<T>(firstData));
     }
 
     /* Add the node to the adjList. */
     while(curr != null) {
-      /* We've found the vertical head node. */
       if (curr.data.equals(firstData)) {
         curr.appendHorizontal(new Node<T>(secondData));
       }
@@ -84,9 +84,8 @@ public class Graph<T> {
   /* Add an edge from firstData and secondData, and
      add another edge from secondData to firstData. */
   protected void addUndirectedEdge(T firstData, T secondData) {
-    // this.addDirectedEdge(firstData, secondData);
-    // this.addDirectedEdge(secondData, firstData);
-    // this.numEdges += 2;
+    this.addDirectedEdge(firstData, secondData);
+    this.addDirectedEdge(secondData, firstData);
     return;
   }
 
