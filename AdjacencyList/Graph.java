@@ -46,6 +46,8 @@ public class Graph<T> {
     );
   }
 
+  /* Add the edge if it is the first edge in the graph.
+     Return the head node with the connected edge.*/
   private Node<T> addFirstEdge(T firstData, T secondData) {
     Node<T> head = new Node<T>(firstData);
     Node<T> tail = new Node<T>(secondData);
@@ -54,14 +56,15 @@ public class Graph<T> {
     return head;
   }
 
-  /* Add an edge from firstData to secondData. */
-  protected void addDirectedEdge(T firstData, T secondData) {
+  /* Add an edge from firstData to secondData.
+     Return true if the edge was added successfully. */
+  protected boolean addDirectedEdge(T firstData, T secondData) {
     Node<T> curr = this.adjList;
 
     /* First edge added. */
     if (curr == null) {
       this.adjList = addFirstEdge(firstData, secondData);
-      return;
+      return true;
     }
 
     /* firstData is not a head node in the graph. */
@@ -70,23 +73,24 @@ public class Graph<T> {
     }
 
     /* Add the node to the adjList. */
-    while(curr != null) {
-      if (curr.data.equals(firstData)) {
-        curr.appendHorizontal(new Node<T>(secondData));
-      }
-      curr = curr.down;
+    curr = curr.getHeadNode(firstData);
+    if (!curr.hasHorizontal(secondData)) {
+      curr.appendHorizontal(new Node<T>(secondData));
+      ++this.numEdges;
+      return true;
     }
 
-    ++this.numEdges;
-    return;
+    return false;
   }
 
   /* Add an edge from firstData and secondData, and
-     add another edge from secondData to firstData. */
-  protected void addUndirectedEdge(T firstData, T secondData) {
-    this.addDirectedEdge(firstData, secondData);
-    this.addDirectedEdge(secondData, firstData);
-    return;
+     add another edge from secondData to firstData.
+     Return true if both edges were added successfully. */
+  protected boolean addUndirectedEdge(T firstData, T secondData) {
+    return (
+      this.addDirectedEdge(firstData, secondData) &&
+      this.addDirectedEdge(secondData, firstData)
+    );
   }
 
   /* Remove the edge from firstData to secondData. */

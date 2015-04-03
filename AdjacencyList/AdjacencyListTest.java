@@ -204,7 +204,7 @@ public class AdjacencyListTest {
   }
 
   @Test
-  public void testHasUndirectedEdgeOnly() {
+  public void testHasUndirectedEdge() {
     g.addDirectedEdge(1, 2);
     g.addDirectedEdge(1, 3);
     g.addDirectedEdge(2, 1);
@@ -242,7 +242,7 @@ public class AdjacencyListTest {
   }
 
   @Test
-  public void testAddUndirectedEdgesOnly() {
+  public void testAddUndirectedEdges() {
     assertEquals(g.getNumEdges(), 0);
 
     g.addUndirectedEdge(1, 2);
@@ -256,5 +256,38 @@ public class AdjacencyListTest {
     g.addUndirectedEdge(3, 4);
     assertEquals(g.getNumEdges(), 6);
     assertTrue(g.hasUndirectedEdge(3, 4));
+  }
+
+  @Test
+  public void testAddDuplicateDirectedEdges() {
+    g.addDirectedEdge(1, 2);
+    g.addDirectedEdge(3, 4);
+
+    /* Duplicated edge */
+    boolean edgeWasAdded = g.addDirectedEdge(1, 2);
+
+    /* Check existence of edges */
+    assertTrue(g.hasDirectedEdge(1, 2));
+    assertTrue(g.hasDirectedEdge(3, 4));
+
+    assertEquals(g.getNumEdges(), 2);
+    assertFalse(edgeWasAdded);
+  }
+
+  @Test
+  public void testAddDuplicateUndirectedEdges() {
+    g.addUndirectedEdge(1, 2);
+    g.addUndirectedEdge(3, 4);
+
+    boolean addedFirstEdges  = g.addUndirectedEdge(1, 2);
+    boolean addedSecondEdges = g.addUndirectedEdge(2, 1);
+
+    /* Check existence of edges */
+    assertTrue(g.hasUndirectedEdge(1, 2));
+    assertTrue(g.hasUndirectedEdge(3, 4));
+    assertEquals(g.getNumEdges(), 4);
+
+    assertFalse(addedFirstEdges);
+    assertFalse(addedSecondEdges);
   }
 }
