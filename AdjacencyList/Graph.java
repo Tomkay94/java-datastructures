@@ -79,7 +79,6 @@ public class Graph<T> {
       ++this.numEdges;
       return true;
     }
-
     return false;
   }
 
@@ -93,17 +92,35 @@ public class Graph<T> {
     );
   }
 
-  /* Remove the edge from firstData to secondData. */
-  protected void removeDirectedEdge(T firstData, T secondData) {
-    //--this.numEdges;
-    return;
+  /* Remove the edge from firstData to secondData.
+     Return true if the edge was removed successfully.*/
+  protected boolean removeDirectedEdge(T firstData, T secondData) {
+    /* Nothing to remove. */
+    if (this.adjList == null) {
+      return false;
+    }
+
+    if (this.adjList.hasVertical(firstData)) {
+      Node<T> curr = this.adjList;
+      curr = curr.getHeadNode(firstData);
+
+      if (curr.hasHorizontal(secondData)) {
+        curr = curr.remove(curr, secondData);
+        --this.numEdges;
+        return true;
+      }
+    }
+
+    return false;
   }
 
   /* Remove the edge from firstData and secondData, and
      remove the edge from secondData to firstData. */
   protected void removeUndirectedEdge(T firstData, T secondData) {
-    // this.removeDirectedEdge(firstData, secondData);
-    // this.removeDirectedEdge(secondData, firstData);
+    // return (
+    //   this.removeDirectedEdge(firstData, secondData) &&
+    //   this.removeDirectedEdge(secondData, firstData)
+    // );
     return;
   }
 

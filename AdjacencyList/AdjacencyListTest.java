@@ -173,12 +173,11 @@ public class AdjacencyListTest {
   }
 
   /*****************************************/
-  /********** Graph Tests **********/
+  /************** Graph Tests **************/
   /*****************************************/
   @Test
   public void testAdjListConstructor() {
     assertNotNull(g);
-
     assertEquals(g.getNumEdges(), 0);
   }
 
@@ -218,7 +217,7 @@ public class AdjacencyListTest {
   public void testHasNoUndirectedEdge() {
     g.addDirectedEdge(1, 2);
     g.addDirectedEdge(1, 3);
-    g.addDirectedEdge(2, 1);
+    g.addDirectedEdge(2, 3);
     g.addDirectedEdge(3, 4);
 
     assertFalse(g.hasUndirectedEdge(1, 3));
@@ -239,6 +238,12 @@ public class AdjacencyListTest {
     g.addDirectedEdge(3, 4);
     assertEquals(g.getNumEdges(), 3);
     assertTrue(g.hasDirectedEdge(3, 4));
+  }
+
+  @Test
+  public void testAddMixedEdges() {
+    // Add both directed and undirected edges
+    // Test for their existence accordingly
   }
 
   @Test
@@ -289,5 +294,31 @@ public class AdjacencyListTest {
 
     assertFalse(addedFirstEdges);
     assertFalse(addedSecondEdges);
+  }
+
+  @Test
+  public void testRemoveExistingDirectedEdges() {
+    g.addDirectedEdge(1, 2);
+    g.addDirectedEdge(2, 4);
+
+    assertTrue(g.hasDirectedEdge(1, 2));
+    g.removeDirectedEdge(1, 2);
+    assertFalse(g.hasDirectedEdge(1, 2));
+  }
+
+  @Test
+  public void testRemoveNonExistingDirectedEdges() {
+    g.addDirectedEdge(1, 2);
+    g.addDirectedEdge(2, 4);
+
+    assertFalse(g.hasDirectedEdge(2, 3));
+    boolean edgeRemoved = g.removeDirectedEdge(2, 3);
+    assertFalse(edgeRemoved);
+  }
+
+  @Test
+  public void testRemoveDirectedEdgesGraphEmpty() {
+    boolean edgeRemoved = g.removeDirectedEdge(1, 2);
+    assertFalse(edgeRemoved);
   }
 }
