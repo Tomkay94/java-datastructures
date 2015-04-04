@@ -116,12 +116,11 @@ public class Graph<T> {
 
   /* Remove the edge from firstData and secondData, and
      remove the edge from secondData to firstData. */
-  protected void removeUndirectedEdge(T firstData, T secondData) {
-    // return (
-    //   this.removeDirectedEdge(firstData, secondData) &&
-    //   this.removeDirectedEdge(secondData, firstData)
-    // );
-    return;
+  protected boolean removeUndirectedEdge(T firstData, T secondData) {
+    return (
+      this.removeDirectedEdge(firstData, secondData) &&
+      this.removeDirectedEdge(secondData, firstData)
+    );
   }
 
   /* Display the AdjacencyList in a readable format. */

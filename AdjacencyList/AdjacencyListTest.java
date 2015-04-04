@@ -321,4 +321,30 @@ public class AdjacencyListTest {
     boolean edgeRemoved = g.removeDirectedEdge(1, 2);
     assertFalse(edgeRemoved);
   }
+
+  @Test
+  public void testRemoveExistingUndirectedEdges() {
+    g.addUndirectedEdge(1, 2);
+    g.addUndirectedEdge(2, 4);
+
+    assertTrue(g.hasUndirectedEdge(1, 2));
+    g.removeUndirectedEdge(1, 2);
+    assertFalse(g.hasUndirectedEdge(1, 2));
+  }
+
+  @Test
+  public void testRemoveNonExistingUndirectedEdges() {
+    g.addUndirectedEdge(1, 2);
+    g.addUndirectedEdge(2, 4);
+
+    assertFalse(g.hasUndirectedEdge(2, 3));
+    boolean edgeRemoved = g.removeUndirectedEdge(2, 3);
+    assertFalse(edgeRemoved);
+  }
+
+  @Test
+  public void testRemoveUndirectedEdgesGraphEmpty() {
+    boolean edgeRemoved = g.removeUndirectedEdge(1, 2);
+    assertFalse(edgeRemoved);
+  }
 }
