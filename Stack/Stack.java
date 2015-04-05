@@ -3,12 +3,13 @@
 */
 public class Stack<T> {
 
+  private int size;
   private Node<T> top;
   private Node<T> stack;
-  private int size;
 
   public Stack() {
     this.size = 0;
+    this.top = null;
     this.stack = null;
   }
 
@@ -16,17 +17,32 @@ public class Stack<T> {
   Return true if the item was successfully added. */
   /* Time Complexity: O(1) */
   protected void push(T item) {
-    this.top.appendToTail(new Node<T> item);
+
+    Node<T> newTail = new Node<T>(item);
+
+    /* First push */
+    if (this.top == null) {
+      this.top = newTail;
+      ++this.size;
+      return;
+    }
+
+    this.top.appendToTail(newTail);
+    this.top = newTail;
     ++this.size;
     return;
   }
 
   /* Remove the item off the top of the stack and return it. */
   /* Time Complexity: O(1) */
-  protected T pop() {
-    this.top = this.top.resetTail;
-    --this.size;
-    return;
+  protected Node<T> pop() {
+    if (!this.isEmpty()) {
+      Node<T> poppedItem = this.top;
+      this.top = this.top.resetTail();
+      --this.size;
+      return poppedItem;
+    }
+    return null;
   }
 
   /* Return true if the stack is empty. */
@@ -36,14 +52,19 @@ public class Stack<T> {
   }
 
   /* Return the item on the top of the stack without removing it.*/
-  /* Time Complexity: O(n) */
+  /* Time Complexity: O(1) */
   protected T peek() {
-    return this.top;
+    return this.top.data;
   }
 
   /* Show the elements in the stack */
   /* Time Complexity: O(n), n is the # of items in the stack. */
-  protected void displayStack() {
+  protected void show() {
+    Node<T> top = this.top;
+    while (top != null) {
+      System.out.print(top.data + " ");
+      top = top.next;
+    }
     return;
   }
 

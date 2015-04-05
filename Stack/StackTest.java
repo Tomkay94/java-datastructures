@@ -22,9 +22,9 @@ public class StackTest {
 
   @Test
   public void testPushOnEmpty() {
-    boolean wasAdded = cities.push("Toronto");
-
-    assertTrue(wasAdded);
+    assertEquals(cities.getSize(), 0);
+    cities.push("Toronto");
+    assertEquals(cities.getSize(), 1);
   }
 
   @Test
@@ -35,31 +35,21 @@ public class StackTest {
   }
 
   @Test
-  public void testPushOnFull() {
+  public void testPushUpdatesSize() {
     cities.push("Toronto");
+    assertEquals(cities.getSize(), 1);
+
     cities.push("New York");
+    assertEquals(cities.getSize(), 2);
+
     cities.push("Copenhagen");
+    assertEquals(cities.getSize(), 3);
+
     cities.push("Rome");
+    assertEquals(cities.getSize(), 4);
+
     cities.push("London");
-
-    /* Push past the capacity */
-    boolean wasAdded = cities.push("Moscow");
-
-    assertFalse(wasAdded);
-  }
-
-  @Test
-  public void testPushOnFullSizeUnchanged() {
-    cities.push("Toronto");
-    cities.push("New York");
-    cities.push("Copenhagen");
-    cities.push("Rome");
-    cities.push("London");
-
-    /* Push past the capacity, should fail. */
-    cities.push("Moscow");
-
-    assertEquals(cities.getSize(), cities.getCapacity());
+    assertEquals(cities.getSize(), 5);
   }
 
   @Test
@@ -68,9 +58,9 @@ public class StackTest {
     cities.push("New York");
     cities.push("Copenhagen");
 
-    String topItem = cities.pop();
+    Node<String> topItem = cities.pop();
 
-    assertEquals(topItem, "Copenhagen");
+    assertEquals(topItem.data, "Copenhagen");
   }
 
   @Test
@@ -82,7 +72,7 @@ public class StackTest {
 
   @Test
   public void testPopOnEmptyReturnsFalse() {
-    String poppedItem = cities.pop();
+    Node<String> poppedItem = cities.pop();
 
     assertEquals(poppedItem, null);
   }
@@ -106,14 +96,14 @@ public class StackTest {
     cities.push("Copenhagen");
     cities.push("Rome");
     cities.push("London");
-    String poppedItem = cities.pop();
+    Node<String> poppedItem = cities.pop();
 
-    assertEquals(poppedItem, "London");
+    assertEquals(poppedItem.data, "London");
   }
 
   @Test
   public void testPopGetsNullOnEmpty() {
-    String poppedItem = cities.pop();
+    Node<String> poppedItem = cities.pop();
 
     assertEquals(poppedItem, null);
   }
@@ -141,22 +131,7 @@ public class StackTest {
   @Test
   public void testIsEmptyOnEmpty() {
     assertTrue(cities.isEmpty());
-  }
-
-  @Test
-  public void testHasCapacityOnEmpty() {
-    assertTrue(cities.hasSpace());
-  }
-
-  @Test
-  public void testHasCapacityOnFull() {
-    cities.push("Toronto");
-    cities.push("New York");
-    cities.push("Copenhagen");
-    cities.push("Rome");
-    cities.push("London");
-
-    assertFalse(cities.hasSpace());
+    assertEquals(cities.getSize(), 0);
   }
 
   @Test

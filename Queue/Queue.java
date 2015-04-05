@@ -17,15 +17,16 @@ public class Queue<T> {
   Return true if the item was successfully added.*/
   protected void enqueue(T data) {
 
+    Node<T> newTail = new Node<T>(data);
+
     /* Empty enqueue */
     if (this.head == null) {
-      this.head = new Node<T>(data);
+      this.head = newTail;
       this.tail = this.head;
       ++this.size;
       return;
     }
 
-    Node<T> newTail = new Node<T>(data);
     this.tail.next = newTail;
     this.tail = newTail;
     ++this.size;
@@ -35,7 +36,7 @@ public class Queue<T> {
   /* Remove the item from the bottom of the queue.
   Return the node that was removed.*/
   protected Node<T> dequeue() {
-    if (this.head == null) {
+    if (this.isEmpty()) {
       return null;
     }
 
