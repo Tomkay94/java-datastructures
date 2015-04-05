@@ -7,7 +7,7 @@ public class QueueTest {
 
   @Before
   public void setUp() {
-    q = new Queue<Integer>(5);
+    q = new Queue<Integer>();
   }
 
   @After
@@ -18,12 +18,13 @@ public class QueueTest {
   @Test
   public void testQueueConstructor() {
     assertEquals(q.getSize(), 0);
-    assertEqual(q.);
+    assertNull(q.getHead());
+    assertNull(q.getTail());
   }
 
   @Test
   public void testIsEmptyOnEmpty() {
-
+    assertEquals(q.getSize(), 0);
     assertTrue(q.isEmpty());
   }
 
@@ -36,7 +37,7 @@ public class QueueTest {
 
   @Test
   public void testDequeueOnEmptyFails() {
-    Integer wasRemoved = q.dequeue();
+    Node<Integer> wasRemoved = q.dequeue();
 
     assertNull(wasRemoved);
   }

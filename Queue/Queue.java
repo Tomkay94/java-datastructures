@@ -7,8 +7,6 @@ public class Queue<T> {
   private Node<T> head;
   private Node<T> tail;
 
-  private List<T> queueArray;
-
   public Queue() {
     this.size = 0;
     this.head = null;
@@ -40,12 +38,14 @@ public class Queue<T> {
       return null;
     }
 
-    this.head = this.head.remove(this.head);
-    return;
+    Node<T> dequeuedNode = this.head;
+    this.head = this.head.resetHead();
+    --this.size;
+    return dequeuedNode;
   }
 
   protected boolean isEmpty() {
-    return this.getSize == 0;
+    return this.getSize() == 0;
   }
 
   protected void show() {
@@ -56,12 +56,12 @@ public class Queue<T> {
     return this.size;
   }
 
-  protected void setHead(Node<T> newHead) {
-    return;
+  protected Node<T> getHead() {
+    return this.head;
   }
 
-  protected void setTail(Node<T> newTail) {
-    return;
+  protected Node<T> getTail() {
+    return this.tail;
   }
 
   protected Node<T> hasItem(T item) {
