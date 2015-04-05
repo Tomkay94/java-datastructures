@@ -13,6 +13,7 @@ public class Node<T> {
   }
 
   /* Add tailNode to the end of the linked list. */
+  /* Time Complexity: O(n) */
   protected void appendToTail(Node<T> tailNode) {
     Node<T> curr = this;
 
@@ -26,6 +27,7 @@ public class Node<T> {
   }
 
   /* Return the next node. */
+  /* Time Complexity: O(1) */
   protected Node<T> resetHead() {
     return this.next;
   }

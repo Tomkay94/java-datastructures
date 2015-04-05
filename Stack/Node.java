@@ -12,6 +12,7 @@ public class Node<T> {
   }
 
   /* Add tailNode to the end of the linked list. */
+  /* Time Complexity: O(n) */
   protected void appendToTail(Node<T> tailNode) {
     Node<T> curr = this;
 
@@ -26,6 +27,7 @@ public class Node<T> {
 
   /* Set the current tail to null.
      Return the node before the node set to null. */
+  /* Time Complexity: O(1) */
   protected Node<T> resetTail() {
     Node<T> removedTail = this.next;
     this.next = null;

@@ -1,3 +1,7 @@
+/*
+  Implements a Dynamic Array data structure.
+*/
+
 public class DynamicArray {
 
   private int size;

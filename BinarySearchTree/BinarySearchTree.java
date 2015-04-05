@@ -1,5 +1,7 @@
 
-/* Implements the Binary Search Tree data structure. */
+/*
+  Implements a Binary Search Tree data structure.
+*/
 
 public class BinarySearchTree<T> {
 

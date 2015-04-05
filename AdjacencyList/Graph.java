@@ -1,6 +1,5 @@
-
-/* Implements an adjacency list graph
-   using a linked list of nodes.
+/*
+  Implements a Graph data structure using an Adjacency List.
 */
 
 /*

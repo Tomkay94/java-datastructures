@@ -1,6 +1,7 @@
 
-/* Implements the HashMap data structure
-   using an array of HashEntry objects. */
+/*
+  Implements a HashMap data structure.
+*/
 
 public class HashMap {
 

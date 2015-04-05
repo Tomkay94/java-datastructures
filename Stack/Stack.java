@@ -1,6 +1,7 @@
 /*
-  Implements the Stack data structure.
+  Implements a Stack data structure.
 */
+
 public class Stack<T> {
 
   private int size;
@@ -68,6 +69,7 @@ public class Stack<T> {
     return;
   }
 
+  /* Return the number of items in the stack. */
   protected int getSize() {
     return this.size;
   }

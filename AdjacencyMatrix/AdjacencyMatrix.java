@@ -1,3 +1,6 @@
+/*
+  Implements a Graph data structure using an Adjacency Matrix.
+*/
 public class AdjacencyMatrix {
 
   private boolean[][] adjMatrix;

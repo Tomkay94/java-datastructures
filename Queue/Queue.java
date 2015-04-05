@@ -1,6 +1,6 @@
-
-/* Implements the Queue data structure. */
-
+/*
+  Implements a Queue data structure.
+*/
 public class Queue<T> {
 
   private int size;
@@ -15,6 +15,7 @@ public class Queue<T> {
 
   /* Add the item to the top of the queue.
   Return true if the item was successfully added.*/
+  /* Time Complexity: O(1) */
   protected void enqueue(T data) {
 
     Node<T> newTail = new Node<T>(data);
@@ -35,6 +36,7 @@ public class Queue<T> {
 
   /* Remove the item from the bottom of the queue.
   Return the node that was removed.*/
+  /* Time Complexity: O(1) */
   protected Node<T> dequeue() {
     if (this.isEmpty()) {
       return null;
@@ -46,27 +48,38 @@ public class Queue<T> {
     return dequeuedNode;
   }
 
+  /* Return true if the queue has no elements. */
+  /* Time Complexity: O(1) */
   protected boolean isEmpty() {
     return this.getSize() == 0;
   }
 
+  /* Display the elements of the queue from bottom to top. */
+  /* Time Complexity: O(n) */
   protected void show() {
     Node<T> curr = this.head;
     while (curr != null) {
       System.out.print(curr.data + " ");
       curr = curr.next;
     }
+    System.out.println("");
     return;
   }
 
+  /* Return the number of elements in the queue. */
+  /* Time Complexity: O(1) */
   protected int getSize() {
     return this.size;
   }
 
+  /* Return the next item at the bottom of the queue. */
+  /* Time Complexity: O(1) */
   protected Node<T> getHead() {
     return this.head;
   }
 
+  /* Return the next item at top of the queue. */
+  /* Time Complexity: O(1) */
   protected Node<T> getTail() {
     return this.tail;
   }

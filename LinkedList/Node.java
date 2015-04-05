@@ -2,7 +2,9 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 
-/* Implements a single node for a linked list */
+/*
+  Implements a single node for a linked list. 
+*/
 
 public class Node<T> {
 

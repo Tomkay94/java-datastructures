@@ -1,5 +1,6 @@
-
-/* Implements the Min Heap data structure. */
+/*
+  Implements a Min Heap data structure.
+*/
 
 public class MinHeap {
 

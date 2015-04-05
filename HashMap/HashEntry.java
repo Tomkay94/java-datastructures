@@ -1,5 +1,6 @@
-
-/* Acts as a single element in a HashMap */
+/*
+  Implements  a single element in a HashMap.
+*/
 
 public class HashEntry {
 
