@@ -35,36 +35,9 @@ public class QueueTest {
   }
 
   @Test
-  public void testEnqueueOnFullCapacityFails() {
-    // q.enqueue(5);
-    // q.enqueue(4);
-    // q.enqueue(3);
-    // q.enqueue(2);
-    // q.enqueue(1);
-    //
-    // boolean isQueued = q.enqueue(0);
-    //
-    // assertFalse(isQueued);
-  }
-
-  @Test
   public void testDequeueOnEmptyFails() {
-    // Integer wasRemoved = q.dequeue();
-    //
-    // assertFalse(wasRemoved);
-  }
+    Integer wasRemoved = q.dequeue();
 
-  @Test
-  public void testDequeueOnFull() {
-    // q.enqueue(5);
-    // q.enqueue(4);
-    // q.enqueue(3);
-    // q.enqueue(2);
-    // q.enqueue(1);
-    //
-    // Integer removed = q.dequeue();
-    //
-    // assertEquals(removed, Integer.valueOf(5));
+    assertNull(wasRemoved);
   }
-
 }
