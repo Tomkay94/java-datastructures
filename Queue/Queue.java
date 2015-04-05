@@ -50,6 +50,11 @@ public class Queue<T> {
   }
 
   protected void show() {
+    Node<T> curr = this.head;
+    while (curr != null) {
+      System.out.print(curr.data + " ");
+      curr = curr.next;
+    }
     return;
   }
 
@@ -63,16 +68,5 @@ public class Queue<T> {
 
   protected Node<T> getTail() {
     return this.tail;
-  }
-
-  protected Node<T> hasItem(T item) {
-    Node<T> curr = this.head;
-    while (curr != null) {
-      if (curr.data.equals(item)) {
-        return curr;
-      }
-      curr = curr.next;
-    }
-    return null;
   }
 }
