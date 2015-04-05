@@ -28,6 +28,7 @@ public class Queue<T> {
     Node<T> newTail = new Node<T>(data);
     this.tail.next = newTail;
     this.tail = newTail;
+    ++this.size;
     return;
   }
 
