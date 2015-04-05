@@ -7,7 +7,7 @@ public class StackTest {
 
   @Before
   public void setUp() {
-    cities = new Stack<String>(5);
+    cities = new Stack<String>();
   }
 
   @After
