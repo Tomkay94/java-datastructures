@@ -144,4 +144,19 @@ public class StackTest {
 
     assertEquals(cities.peek(), "London");
   }
+
+  @Test
+  public void testPeekDoesNotRemoveItem() {
+    cities.push("Toronto");
+    cities.push("New York");
+    cities.push("Copenhagen");
+    cities.push("Rome");
+    cities.push("London");
+
+    int sizeBeforePeek = cities.getSize();
+    cities.peek();
+    int sizeAfterPeek = cities.getSize();
+
+    assertEquals(sizeBeforePeek, sizeAfterPeek);
+  }
 }
