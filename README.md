@@ -1,6 +1,9 @@
 # Java Datastructures
 Java implementations of various data structures and their operations.
-These data structures are implemented for fun and reviewing purposes. The [Java API](http://docs.oracle.com/javase/7/docs/api/) already provides most, if not all, of the data structures which are listed here.
+
+These data structures are implemented for fun and reviewing purposes. The goal is to implement the data structures *without* using anything but primitive arrays and/or custom defined classes.
+
+The [Java API](http://docs.oracle.com/javase/7/docs/api/) already provides most, if not all, of the data structures which are listed here.
 
 ## Running Tests
 
