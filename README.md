@@ -1,4 +1,4 @@
-# Java Datastructures
+# Java Data Structures
 Java implementations of various data structures and their operations.
 
 These data structures are implemented for fun and reviewing purposes. The goal is to implement the data structures *without* using anything but primitive arrays and/or custom defined classes.
