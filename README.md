@@ -7,6 +7,7 @@ The [Java API](http://docs.oracle.com/javase/7/docs/api/) already provides most,
 
 ## Running Tests
 
+To run any tests, you must have JUnit installed. Instructions on installing JUnit are not provided here.
 Before running these tests, you must first open a terminal and clone the repo:
 
 `git clone https://github.com/karysto/java-datastructures.git`
