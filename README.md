@@ -9,7 +9,7 @@ The [Java API](http://docs.oracle.com/javase/7/docs/api/) already provides most,
 
 Before running these tests, you must first open a terminal and clone the repo:
 
-`git clone https://github.com/Tomkay94/java-datastructures.git`
+`git clone https://github.com/karysto/java-datastructures.git`
 
 ##### For A _Specific_ Data Structure
 To run all tests for a certain data structure:
