@@ -1,4 +1,3 @@
-
 /*
   Implements a HashMap data structure.
 */
@@ -6,13 +5,15 @@
 public class HashMap {
 
   private int size;
+  private int capacity;
   private HashEntry[] table;
 
-  public HashMap(int size) {
+  public HashMap(int capacity) {
     /* Ensure that the Hash Map's size is always prime */
-    if (!isPrime(size)) { size = findNextPrime(size); }
-    this.size = size;
-    this.table = new HashEntry[size];
+    if (!isPrime(capacity)) { capacity = findNextPrime(capacity); }
+    this.size = 0;
+    this.capacity = capacity;
+    this.table = new HashEntry[capacity];
   }
 
   /* Return true if number is prime */
@@ -44,21 +45,22 @@ public class HashMap {
   }
 
   /* Return the hash of the given key */
+  /* Note: This is a simple (and bad) hash function. */
   private int applyHashFunction(String key) {
     return (
     key.length() *
       (
         (int) (key.charAt(key.length() - 1)) +
         (int) (key.charAt(0))
-      ) % this.size);
+      ) % this.capacity);
   }
 
   /* Return the value hashed to by the key k.
      Return null if the key is not found. */
-  protected Integer getKey(String k) {
+  protected Integer get(String k) {
     int hash = applyHashFunction(k);
 
-    while (table[hash] != null && table[hash].getKey() != k) {
+    while (table[hash] != null && table[hash].get() != k) {
       hash = (hash + 1) % this.size;
     }
 
@@ -73,21 +75,29 @@ public class HashMap {
   }
 
   /* Insert the entry with key k and value v */
-  protected void put(String k, Integer v) {
+  protected boolean set(String k, Integer v) {
+    /* First check if we can insert the item */
+    if (this.getSize() == this.getCapacity()) {
+      return false;
+    }
+
     int hash = applyHashFunction(k);
 
-    while (table[hash] != null && table[hash].getKey() != k) {
+    /* Compute the index where the key can be inserted without a collision. */
+    while (table[hash] != null && table[hash].get() != k) {
       hash = (hash + 1) % this.size;
     }
 
     table[hash] = new HashEntry(k, v);
+    this.size++;
+    return true;
   }
 
   /* Remove the entry with key k */
   protected boolean delete(String k) {
     int hash = applyHashFunction(k);
 
-    while(table[hash] != null && table[hash].getKey() != k) {
+    while(table[hash] != null && table[hash].get() != k) {
       hash = (hash + 1) % this.size;
     }
 
@@ -96,11 +106,19 @@ public class HashMap {
       return false;
     }
 
-    /* Remove the key */
+    /* The key exists, remove it */
     else {
       table[hash] = null;
+      this.size--;
       return true;
     }
+  }
+
+  protected float load() {
+    if (this.getSize() == 0) {
+      return (float) 0;
+    }
+    return ((float) this.getSize() / this.getCapacity());
   }
 
   protected HashEntry[] getTable() {
@@ -111,4 +129,29 @@ public class HashMap {
     return this.size;
   }
 
+  protected int getCapacity() {
+    return this.capacity;
+  }
+
+  /*
+    Implements a single item in a HashMap.
+  */
+  class HashEntry {
+
+    private String key;
+    private Integer value;
+
+    public HashEntry(String key, Integer value) {
+      this.key = key;
+      this.value = value;
+    }
+
+    public String get() {
+      return this.key;
+    }
+
+    public Integer getValue() {
+      return this.value;
+    }
+  }
 }
